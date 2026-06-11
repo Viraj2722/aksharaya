@@ -1,0 +1,49 @@
+import { Blog } from '@/types/blog'
+
+export const blogs: Blog[] = [
+  {
+    id: '1',
+    title: 'Aksharsanvad – A Talk by Prof. Y. D. Pitkar',
+    slug: 'aksharsanvad-pitkar',
+    excerpt: 'Exploring Indian typography, scripts, and calligraphy through research, practice, and visual culture.',
+    category: 'Strategy',
+    date: 'July 25, 2024',
+    coverImage: 'https://picsum.photos/seed/blog1/800/500',
+  },
+  {
+    id: '2',
+    title: 'Aksharsanvad – A Talk by Prof. Y. D. Pitkar',
+    slug: 'aksharsanvad-pitkar-2',
+    excerpt: 'More and more businesses are announcing net-zero goals—but not all of them hold up to scrutiny.',
+    category: 'Strategy',
+    date: 'July 25, 2024',
+    coverImage: 'https://picsum.photos/seed/blog2/800/500',
+  },
+  {
+    id: '3',
+    title: 'How to create a credible Net-zero strategy',
+    slug: 'net-zero-strategy',
+    excerpt: 'A deep dive into creating verifiable and impactful sustainability commitments in design.',
+    category: 'Strategy',
+    date: '12/2/2204',
+    coverImage: 'https://picsum.photos/seed/blog3/800/500',
+  },
+  {
+    id: '4',
+    title: 'How to create a credible Net-zero strategy',
+    slug: 'net-zero-strategy-2',
+    excerpt: 'Examining the principles behind typography in multilingual communication and visual culture.',
+    category: 'Strategy',
+    date: '12/2/2204',
+    coverImage: 'https://picsum.photos/seed/blog4/800/500',
+  },
+  {
+    id: '5',
+    title: 'How to create a credible Net-zero strategy',
+    slug: 'net-zero-strategy-3',
+    excerpt: 'Exploring letterforms across scripts and the global conversation around type and identity.',
+    category: 'Strategy',
+    date: '12/2/2204',
+    coverImage: 'https://picsum.photos/seed/blog5/800/500',
+  },
+]
