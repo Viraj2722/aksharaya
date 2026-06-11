@@ -40,7 +40,7 @@ export function Navbar() {
   return (
     <>
       <header
-        className="sticky top-0 z-50 bg-white border-b"
+        className="relative z-50 bg-white border-b"
         style={{ borderColor: '#e8e8e8' }}
       >
         <div className="w-full px-4 md:px-8 lg:px-12">
@@ -177,7 +177,7 @@ export function Navbar() {
       {/* Mobile Drawer (now a pure dropdown under the header) */}
       <div
         id="mobile-menu"
-        className={`fixed left-0 right-0 bg-white z-40 lg:hidden flex flex-col shadow-2xl transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-8 pointer-events-none'}`}
+        className={`absolute left-0 right-0 bg-white z-40 lg:hidden flex flex-col shadow-2xl transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-8 pointer-events-none'}`}
         style={{ top: '72px' }}
         role="dialog"
         aria-modal="true"
