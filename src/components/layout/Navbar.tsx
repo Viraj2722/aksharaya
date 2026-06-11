@@ -49,7 +49,6 @@ export function Navbar() {
             style={{ height: '72px' }}
             aria-label="Main navigation"
           >
-            {/* Logo */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0" aria-label="Aksharaya home">
               <Image
                 src="/logo-with-text.svg"
