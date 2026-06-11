@@ -86,9 +86,11 @@ export function HeroSection() {
       <style>{`
         @media (min-width: 768px) {
           .hero-section-height { height: 725px !important; }
+          .hero-text-container { padding-bottom: 2rem !important; }
         }
         @media (max-width: 767px) {
           .hero-section-height { height: 450px !important; }
+          .hero-text-container { padding-bottom: 3rem !important; }
         }
       `}</style>
       {slides.map((s, i) => (
@@ -138,7 +140,7 @@ export function HeroSection() {
         </svg>
       </button>
 
-      <div className="absolute bottom-0 left-0 right-0 z-10" style={{ paddingBottom: '2rem' }}>
+      <div className="absolute bottom-0 left-0 right-0 z-10 hero-text-container">
         <div className="page-container">
           <h1
             className="text-2xl md:text-4xl font-bold text-white leading-snug mb-1"

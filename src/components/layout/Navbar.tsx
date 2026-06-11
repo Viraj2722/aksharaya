@@ -155,6 +155,7 @@ export function Navbar() {
               id="mobile-menu-btn"
               onClick={toggle}
               className="lg:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5"
+              style={{ marginRight: '12px' }}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"

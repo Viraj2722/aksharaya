@@ -23,6 +23,7 @@ export function FeaturedBlogs() {
             @media (max-width: 767px) {
               .insights-header { font-size: 24px !important; line-height: 1.2 !important; height: auto !important; }
               .insights-header-container { align-items: flex-start !important; }
+              .view-all-text { font-size: 16px !important; height: auto !important; margin-top: 3px; }
             }
           `}</style>
           <h2
@@ -33,7 +34,7 @@ export function FeaturedBlogs() {
           </h2>
           <Link
             href="/blog"
-            className="group flex items-center font-medium overflow-hidden text-[20px] flex-shrink-0 whitespace-nowrap"
+            className="group flex items-center font-medium overflow-hidden text-[20px] flex-shrink-0 whitespace-nowrap view-all-text"
             style={{ color: '#111111', height: '24px' }}
           >
             <span className="mr-2">View all</span>
