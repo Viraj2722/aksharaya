@@ -46,7 +46,7 @@ export function Navbar() {
         <div className="w-full px-4 md:px-8 lg:px-12">
           <nav
             className="flex items-center justify-between"
-            style={{ height: '80px' }}
+            style={{ height: '72px' }}
             aria-label="Main navigation"
           >
             {/* Logo */}
@@ -75,7 +75,7 @@ export function Navbar() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm font-medium transition-colors duration-150 hover:text-black"
+                    className="text-[15px] font-medium transition-colors duration-150 hover:text-black"
                     style={{ color: '#444444' }}
                   >
                     {link.label}
@@ -178,7 +178,7 @@ export function Navbar() {
       <div
         id="mobile-menu"
         className={`fixed left-0 right-0 bg-white z-40 lg:hidden flex flex-col shadow-2xl transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-8 pointer-events-none'}`}
-        style={{ top: '80px' }}
+        style={{ top: '72px' }}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
