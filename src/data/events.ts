@@ -7,7 +7,7 @@ export const events: Event[] = [
     slug: 'typography-day-2021',
     description: 'An international symposium on typography that brought together designers, educators, and researchers to explore the evolving landscape of Indian scripts in a digital-first world.',
     type: 'EVENT',
-    date: 'AUG 27, 2021',
+    date: 'August 27, 2021',
     coverImage: 'https://picsum.photos/seed/event1/400/200',
   },
   {
@@ -16,7 +16,7 @@ export const events: Event[] = [
     slug: 'typography-day-2019',
     description: 'A landmark gathering exploring the intersections of traditional calligraphy and contemporary type design, featuring presentations by leading Indian type designers.',
     type: 'EVENT',
-    date: 'MAR 02, 2019',
+    date: 'March 2, 2019',
     coverImage: 'https://picsum.photos/seed/event2/400/200',
   },
   {
@@ -25,7 +25,7 @@ export const events: Event[] = [
     slug: 'typography-day-2018',
     description: 'Celebrating the diversity of Indian scripts with workshops, lectures, and exhibitions showcasing calligraphy, lettering, and experimental typography.',
     type: 'EVENT',
-    date: 'MAR 01, 2018',
+    date: 'March 1, 2018',
     coverImage: 'https://picsum.photos/seed/event3/400/200',
   },
   {
@@ -34,7 +34,7 @@ export const events: Event[] = [
     slug: 'typography-day-2016',
     description: "The founding year of Aksharaya's participation in Typography Day, marking the beginning of our journey in documenting and celebrating Indian typographic heritage.",
     type: 'EVENT',
-    date: 'JUL 15, 2016',
+    date: 'July 15, 2016',
     coverImage: 'https://picsum.photos/seed/event4/400/200',
   },
   {
@@ -43,7 +43,7 @@ export const events: Event[] = [
     slug: 'installation-typoday-2016',
     description: 'An immersive typographic installation at Typoday 2016 that explored the visual architecture of Devanagari letterforms through large-scale print and projection.',
     type: 'INSTALLATION',
-    date: 'MAR 07, 2016',
+    date: 'March 7, 2016',
     coverImage: 'https://picsum.photos/seed/event5/400/200',
   },
   {
@@ -52,7 +52,7 @@ export const events: Event[] = [
     slug: 'interview-sunil-khandbahale',
     description: 'An intimate conversation with Sunil Khandbahale — linguist, lexicographer, and founder of the Khandbahale dictionary platform — on multilingual computing and Indian scripts.',
     type: 'INTERVIEW',
-    date: 'APR 27, 2012',
+    date: 'April 27, 2012',
     coverImage: 'https://picsum.photos/seed/event6/400/200',
   },
   {
@@ -61,7 +61,7 @@ export const events: Event[] = [
     slug: 'typography-day-2012',
     description: 'Aksharaya made its debut at Typography Day 2012, presenting research on calligraphic traditions in the Marathi-speaking region of Maharashtra.',
     type: 'EVENT',
-    date: 'MAR 02, 2012',
+    date: 'March 2, 2012',
     coverImage: 'https://picsum.photos/seed/event7/400/200',
   },
   {
@@ -70,7 +70,7 @@ export const events: Event[] = [
     slug: 'talk-yd-pitkar',
     description: 'A foundational talk by Prof. Y. D. Pitkar on the historical evolution of Devanagari script, its calligraphic traditions, and its role in shaping modern Indian typography.',
     type: 'TALK',
-    date: 'FEB 24, 2012',
+    date: 'February 24, 2012',
     coverImage: 'https://picsum.photos/seed/event8/400/200',
   },
 ]

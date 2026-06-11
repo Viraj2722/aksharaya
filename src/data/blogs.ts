@@ -25,7 +25,7 @@ export const blogs: Blog[] = [
     slug: 'net-zero-strategy',
     excerpt: 'A deep dive into creating verifiable and impactful sustainability commitments in design.',
     category: 'Strategy',
-    date: '12/2/2204',
+    date: 'December 2, 2024',
     coverImage: 'https://picsum.photos/seed/blog3/800/500',
   },
   {
@@ -34,7 +34,7 @@ export const blogs: Blog[] = [
     slug: 'net-zero-strategy-2',
     excerpt: 'Examining the principles behind typography in multilingual communication and visual culture.',
     category: 'Strategy',
-    date: '12/2/2204',
+    date: 'December 2, 2024',
     coverImage: 'https://picsum.photos/seed/blog4/800/500',
   },
   {
@@ -43,7 +43,7 @@ export const blogs: Blog[] = [
     slug: 'net-zero-strategy-3',
     excerpt: 'Exploring letterforms across scripts and the global conversation around type and identity.',
     category: 'Strategy',
-    date: '12/2/2204',
+    date: 'December 2, 2024',
     coverImage: 'https://picsum.photos/seed/blog5/800/500',
   },
 ]
