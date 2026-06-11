@@ -63,10 +63,11 @@ export function Footer() {
         }
       `}</style>
       <div className="page-container w-full relative">
+        <div className="w-full hidden md:block" style={{ height: '1px', backgroundColor: '#d1d5db', marginBottom: '30px' }} />
         <div className="mobile-divider" />
         <div className="flex items-center justify-between footer-inner">
           {/* Left: copyright text */}
-          <p className="text-[18px] md:text-base" style={{ color: '#555555' }}>
+          <p className="text-[18px]" style={{ color: '#555555' }}>
             Aksharaya &copy; 2016.{' '}
             <span>Connect with us on </span>
             <br className="block md:hidden" />

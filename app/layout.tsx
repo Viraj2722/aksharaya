@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${mukta.variable} h-full`}>
+    <html lang="en" className={`${mukta.variable} h-full`} data-scroll-behavior="smooth">
       <body
         className="min-h-full flex flex-col"
         style={{ fontFamily: 'var(--font-mukta), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
