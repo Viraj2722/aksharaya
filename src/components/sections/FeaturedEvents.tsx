@@ -51,15 +51,16 @@ export function FeaturedEvents() {
           .about-me-mt { margin-top: 80px !important; }
         }
         @media (max-width: 1023px) {
-          .about-me-mt { margin-top: 20px !important; display: flex; flex-direction: column; align-items: center; text-align: center; }
+          .about-me-mt { margin-top: -20px !important; display: flex; flex-direction: column; align-items: center; text-align: center; }
           .about-me-heading, .about-me-follow, .about-me-icons { display: none !important; }
           .more-post-container { display: flex; justify-content: center !important; margin-bottom: 40px !important; }
           .about-me-para { margin-bottom: 50px !important; }
+          .about-me-logo { transform: scale(1.25); margin-top: 10px; margin-bottom: 10px; }
         }
       `}</style>
       <div className="page-container">
         {/* 2-column grid: events list + about sidebar */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-10 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 lg:gap-16">
           {/* LEFT: Events list */}
           <div>
             {/* Header */}
@@ -112,13 +113,13 @@ export function FeaturedEvents() {
             </h3>
 
             {/* Large logo */}
-            <div className="mb-6">
+            <div className="mb-6 about-me-logo-wrapper">
               <Image
                 src="/single-logo.svg"
                 alt="Aksharaya logo mark"
-                width={340}
-                height={120}
-                className="w-full max-w-[340px] h-auto object-contain transition-transform duration-500 ease-in-out hover:scale-105"
+                width={440}
+                height={160}
+                className="w-full max-w-[440px] h-auto object-contain transition-transform duration-500 ease-in-out hover:scale-105 about-me-logo"
               />
             </div>
 
@@ -136,28 +137,28 @@ export function FeaturedEvents() {
                 <span className="font-normal">Follow </span>
                 <span className="font-bold">Aksharaya</span>
               </p>
-              <div className="flex items-center gap-5 about-me-icons">
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook" className="group flex items-center text-gray-700 hover:text-black transition-colors">
+              <div className="flex items-center gap-3 about-me-icons">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
                   <FacebookIcon />
-                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
+                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
                     Facebook
                   </span>
                 </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Twitter" className="group flex items-center text-gray-700 hover:text-black transition-colors">
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Twitter" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
                   <TwitterIcon />
-                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
+                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
                     Twitter
                   </span>
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram" className="group flex items-center text-gray-700 hover:text-black transition-colors">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
                   <InstagramIcon />
-                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
+                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
                     Instagram
                   </span>
                 </a>
-                <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Pinterest" className="group flex items-center text-gray-700 hover:text-black transition-colors">
+                <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Pinterest" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
                   <PinterestIcon />
-                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
+                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
                     Pinterest
                   </span>
                 </a>

@@ -74,7 +74,7 @@ export function Footer() {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-black transition-colors"
+              className="hover:text-black transition-colors"
               style={{ color: '#555555' }}
             >
               Facebook
@@ -84,7 +84,7 @@ export function Footer() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-black transition-colors"
+              className="hover:text-black transition-colors"
               style={{ color: '#555555' }}
             >
               Twitter
@@ -92,56 +92,28 @@ export function Footer() {
           </p>
 
           {/* Right: social icons */}
-          <div className="flex items-center gap-6">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="group flex items-center transition-colors hover:text-black"
-              style={{ color: '#777777' }}
-            >
+          <div className="flex items-center gap-3">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
               <FacebookIcon />
-              <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
+              <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
                 Facebook
               </span>
             </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-              className="group flex items-center transition-colors hover:text-black"
-              style={{ color: '#777777' }}
-            >
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
               <TwitterIcon />
-              <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
+              <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
                 Twitter
               </span>
             </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="group flex items-center transition-colors hover:text-black"
-              style={{ color: '#777777' }}
-            >
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
               <InstagramIcon />
-              <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
+              <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
                 Instagram
               </span>
             </a>
-            <a
-              href="https://pinterest.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Pinterest"
-              className="group flex items-center transition-colors hover:text-black"
-              style={{ color: '#777777' }}
-            >
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
               <PinterestIcon />
-              <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] group-hover:ml-2 transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
+              <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
                 Pinterest
               </span>
             </a>
