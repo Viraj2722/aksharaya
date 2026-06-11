@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   title: 'Aksharaya — Indian Scripts & Typography',
   description:
     'Aksharaya is a space where Indian scripts are studied, practiced, and reinterpreted — through research, workshops, and visual culture.',
-  metadataBase: new URL('https://aksharaya.in'),
+  metadataBase: new URL('https://aksharaya.org'),
   openGraph: {
     title: 'Aksharaya — Indian Scripts & Typography',
     description:
       'Aksharaya is a space where Indian scripts are studied, practiced, and reinterpreted.',
-    url: 'https://aksharaya.in',
+    url: 'https://aksharaya.org',
     siteName: 'Aksharaya',
     locale: 'en_IN',
     type: 'website',

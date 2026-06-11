@@ -86,7 +86,7 @@ export function HeroSection() {
       <style>{`
         @media (min-width: 768px) {
           .hero-section-height { height: 725px !important; }
-          .hero-text-container { padding-bottom: 2rem !important; }
+          .hero-text-container { padding-bottom: 3.5rem !important; }
         }
         @media (max-width: 767px) {
           .hero-section-height { height: 450px !important; }
