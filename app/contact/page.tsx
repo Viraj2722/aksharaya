@@ -10,7 +10,7 @@ export default function ContactPage() {
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
 
-      <div className="max-w-[1400px] !mx-auto !px-4 sm:!px-6 lg:!px-8 w-full !pb-24 !pt-12 md:!pt-16 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+      <div className="max-w-[1400px] !mx-auto !px-4 sm:!px-6 lg:!px-8 w-full !pb-24 !pt-10 md:!pt-10 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
