@@ -13,8 +13,8 @@ export default function BlogDetails() {
       <main className="flex-1 w-full flex flex-col items-center">
         <style dangerouslySetInnerHTML={{ __html: `
           @media (max-width: 767px) {
-            .hero-mobile-override { margin-top: 8px !important; }
-            .related-blogs-override { margin-top: 8px !important; }
+            .hero-mobile-override { margin-top: 40px !important; }
+            .related-blogs-override { margin-top: 40px !important; }
           }
         `}} />
         {/* Main Wrapper with exact width */}
@@ -80,7 +80,7 @@ export default function BlogDetails() {
                 Introduction
               </h2>
               
-              <div className="text-[16px] md:text-[18px] text-[#444444] flex flex-col gap-6 mb-12" style={{ lineHeight: '1.5' }}>
+              <div className="text-[16px] md:text-[18px] text-[#000000] flex flex-col gap-6 mb-12" style={{ lineHeight: '1.5' }}>
                 <p>
                   Typography Day has always been a space for meaningful conversations around type, language, and
                   communication design. With its fourteenth edition in 2021, the challenge was to shift this rich,
@@ -104,7 +104,7 @@ export default function BlogDetails() {
               </div>
 
               {/* The Challenge */}
-              <h3 className="text-[28px] font-bold text-black uppercase" style={{ marginBottom: '10px' }}>
+              <h3 className="text-[22px] md:text-[28px] font-bold text-black uppercase" style={{ marginBottom: '10px' }}>
                 The Challenge: Documenting Typography Across Time
               </h3>
               <p className="text-[16px] text-[#000000]" style={{ lineHeight: '1.5', marginBottom: '30px' }}>
@@ -115,7 +115,7 @@ export default function BlogDetails() {
               </p>
 
               {/* Discovery */}
-              <h3 className="text-[28px] font-bold text-black uppercase" style={{ marginBottom: '10px' }}>
+              <h3 className="text-[22px] md:text-[28px] font-bold text-black uppercase" style={{ marginBottom: '10px' }}>
                 Discovery: What Emerges From The Archive
               </h3>
               <p className="text-[16px] text-[#000000]" style={{ lineHeight: '1.5', marginBottom: '45px' }}>
@@ -137,7 +137,7 @@ export default function BlogDetails() {
               </div>
 
               {/* Duplicated Intro Content */}
-              <div className="text-[16px] md:text-[18px] text-[#444444] flex flex-col gap-6 mb-12" style={{ lineHeight: '1.5' }}>
+              <div className="text-[16px] md:text-[18px] text-[#000000] flex flex-col gap-6 mb-12" style={{ lineHeight: '1.5' }}>
                 <p>
                   Typography Day has always been a space for meaningful conversations around type, language, and
                   communication design. With its fourteenth edition in 2021, the challenge was to shift this rich,
