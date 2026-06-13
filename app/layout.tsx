@@ -10,12 +10,12 @@ const mukta = Mukta({
 })
 
 export const metadata: Metadata = {
-  title: 'Aksharaya — Indian Scripts & Typography',
+  title: 'Aksharaya - Indian Scripts & Typography',
   description:
     'Aksharaya is a space where Indian scripts are studied, practiced, and reinterpreted — through research, workshops, and visual culture.',
   metadataBase: new URL('https://aksharaya.org'),
   openGraph: {
-    title: 'Aksharaya — Indian Scripts & Typography',
+    title: 'Aksharaya - Indian Scripts & Typography',
     description:
       'Aksharaya is a space where Indian scripts are studied, practiced, and reinterpreted.',
     url: 'https://aksharaya.org',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aksharaya — Indian Scripts & Typography',
+    title: 'Aksharaya - Indian Scripts & Typography',
     description:
       'Aksharaya is a space where Indian scripts are studied, practiced, and reinterpreted.',
   },
