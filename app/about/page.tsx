@@ -158,14 +158,15 @@ export default function AboutPage() {
 
               <style>{`
                 .about-hero-image { padding-left: 14px; padding-right: 14px; }
-                .faq-container { padding-left: 16px; padding-right: 16px; min-height: 72px; height: auto; padding-top: 16px; padding-bottom: 16px; gap: 12px; }
-                .faq-question { font-size: 17px; line-height: 1.3; }
-                .faq-answer { padding-left: 44px; padding-right: 16px; padding-bottom: 20px; margin-top: -4px; }
+                .faq-container { padding-left: 16px; padding-right: 16px; padding-top: 22px; padding-bottom: 22px; gap: 12px; align-items: flex-start; transition: padding-bottom 0.3s ease-in-out; }
+                .faq-container.open { padding-bottom: 8px; }
+                .faq-question { font-size: 17px; line-height: 1.3; margin-top: 2px; }
+                .faq-answer { padding-left: 44px; padding-right: 16px; padding-bottom: 20px; padding-top: 0px; }
                 @media (min-width: 768px) {
                   .about-hero-image { padding-left: 24px; padding-right: 24px; }
-                  .faq-container { padding-left: 32px; padding-right: 24px; height: 72px; padding-top: 0; padding-bottom: 0; gap: 16px; }
-                  .faq-question { font-size: 23px; line-height: normal; }
-                  .faq-answer { padding-left: 60px; padding-right: 24px; padding-bottom: 20px; margin-top: -8px; }
+                  .faq-container { padding-left: 32px; padding-right: 24px; padding-top: 22px; padding-bottom: 22px; gap: 16px; }
+                  .faq-question { font-size: 23px; line-height: normal; margin-top: -3px; }
+                  .faq-answer { padding-left: 60px; padding-right: 24px; padding-bottom: 20px; padding-top: 0px; }
                 }
                 @media (min-width: 1024px) {
                   .about-hero-image { padding-left: 32px; padding-right: 32px; }
@@ -179,7 +180,7 @@ export default function AboutPage() {
                     className="w-full bg-[#f4f4f4] rounded-[16px] overflow-hidden cursor-pointer"
                     onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                   >
-                    <div className="flex items-center faq-container">
+                    <div className={`flex faq-container ${openFaqIndex === index ? 'open' : ''}`}>
                       <div className="text-[#1e3a8a] flex items-center justify-center bg-white rounded-full flex-shrink-0 shadow-sm" style={{ width: '28px', height: '28px', fontSize: '28px', fontWeight: '400', lineHeight: 1, paddingBottom: '3px' }}>
                         <motion.div
                           animate={{ rotate: openFaqIndex === index ? 45 : 0 }}
