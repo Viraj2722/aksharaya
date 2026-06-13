@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { motion } from 'framer-motion'
@@ -89,7 +90,7 @@ export default function EventsPage() {
 
         {/* Hero Section */}
         <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-12 lg:px-20 events-hero">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center text-center lg:text-left event-hero-flex">
+          <Link href="/events/1" className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center text-center lg:text-left event-hero-flex group cursor-pointer">
             {/* Left side text */}
             <div className="w-full lg:w-[820px] flex-shrink-0 event-left-offset">
               <div className="mb-8 md:mb-10 flex justify-center lg:justify-start event-logo-offset">
@@ -120,7 +121,7 @@ export default function EventsPage() {
                 />
               </div>
             </div>
-          </div>
+          </Link>
         </div>
 
         {/* Events Grid */}
@@ -135,7 +136,8 @@ export default function EventsPage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="flex flex-col group cursor-pointer event-card"
               >
-                <div className="relative w-full overflow-hidden mb-6 bg-gray-100 event-img-container">
+                <Link href={`/events/${event.id}`} className="flex flex-col flex-1 h-full">
+                  <div className="relative w-full overflow-hidden mb-6 bg-gray-100 event-img-container">
                   <Image
                     src={event.image}
                     alt={event.title}
@@ -155,6 +157,7 @@ export default function EventsPage() {
                     {event.description}
                   </p>
                 </div>
+                </Link>
               </motion.div>
             ))}
           </div>
