@@ -98,6 +98,7 @@ export default function BlogDetails() {
                   src="https://picsum.photos/seed/aksharayacollage/800/600"
                   alt="Typography Newspapers Collage"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 66vw"
                   className="object-cover"
                 />
               </div>
@@ -130,6 +131,7 @@ export default function BlogDetails() {
                   src="https://picsum.photos/seed/aksharayacollage2/800/600"
                   alt="Typography Newspapers Collage Alternative"
                   fill
+                  sizes="(max-width: 1024px) 100vw, 66vw"
                   className="object-cover"
                 />
               </div>
