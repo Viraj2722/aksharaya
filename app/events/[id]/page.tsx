@@ -18,7 +18,7 @@ export default function BlogDetails() {
           }
         `}} />
         {/* Main Wrapper with exact width */}
-        <div className="page-container w-full max-w-[1350px] mx-auto px-6 sm:px-8 md:px-12 lg:px-8">
+        <div className="page-container w-full max-w-[1120px] mx-auto px-6 sm:px-8 md:px-12 lg:px-0">
           
           {/* Upper Container (Fixed Height: 204px) */}
           <div 
@@ -157,14 +157,14 @@ export default function BlogDetails() {
                   About Me
                 </h3>
                 
-                <div className="mb-6">
+                {/* Large logo */}
+                <div className="mb-6 about-me-logo-wrapper w-full px-4 md:px-0">
                   <Image
                     src="/single-logo.svg"
                     alt="Aksharaya logo mark"
                     width={440}
                     height={160}
-                    className="w-full max-w-[440px] object-contain transition-transform duration-500 ease-in-out hover:scale-105"
-                    style={{ width: '100%', height: 'auto' }}
+                    className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.2] md:origin-left md:-translate-x-6"
                   />
                 </div>
 
@@ -213,11 +213,11 @@ export default function BlogDetails() {
           </div>
 
           {/* Section 3: Related Blogs */}
-          <div className="w-full related-blogs-override" style={{ marginTop: '40px', marginBottom: '60px' }}>
+          <div className="w-full max-w-[1120px] mx-auto related-blogs-override" style={{ marginTop: '40px', marginBottom: '60px' }}>
             <h2 className="text-[24px] md:text-[32px] font-bold text-black mb-10" style={{ marginBottom: '20px' }}>
               Related Blogs
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 lg:gap-x-10 lg:gap-y-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 lg:gap-x-3 lg:gap-y-8">
               
               {/* Blog 1 */}
               <div className="flex flex-col group cursor-pointer event-card">
@@ -231,14 +231,14 @@ export default function BlogDetails() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="flex flex-col flex-1" style={{ marginTop: '12px' }}>
-                    <span className="text-[15px] md:text-[16px] text-gray-500 uppercase tracking-wide font-medium">
+                  <div className="flex flex-col flex-1" style={{ marginTop: '10px' }}>
+                    <span className="text-[15px] md:text-[13px] text-gray-500 uppercase tracking-wide font-medium">
                       AUG 27, 2021
                     </span>
-                    <h3 className="text-[18px] md:text-[22px] font-bold text-gray-900 leading-snug group-hover:underline underline-offset-4 decoration-2" style={{ marginTop: '12px', marginBottom: '12px' }}>
+                    <h3 className="text-xl md:text-[20px] font-bold text-gray-900 leading-snug group-hover:underline underline-offset-4 decoration-2" style={{ marginTop: '5px', marginBottom: '5px' }}>
                       Typography Day 2021 (Online Edition)
                     </h3>
-                    <p className="text-[16px] md:text-[17px] text-gray-600 leading-relaxed">
+                    <p className="text-[16px] md:text-[14px] text-gray-600 line-clamp-3 leading-relaxed">
                       The fourteenth edition of Typography Day was held online, bringing together designers, educators, and typography enthusiasts from across the world.
                     </p>
                   </div>
@@ -257,14 +257,14 @@ export default function BlogDetails() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="flex flex-col flex-1" style={{ marginTop: '12px' }}>
-                    <span className="text-[15px] md:text-[16px] text-gray-500 uppercase tracking-wide font-medium">
+                  <div className="flex flex-col flex-1" style={{ marginTop: '10px' }}>
+                    <span className="text-[15px] md:text-[13px] text-gray-500 uppercase tracking-wide font-medium">
                       AUG 27, 2021
                     </span>
-                    <h3 className="text-[18px] md:text-[22px] font-bold text-gray-900 leading-snug group-hover:underline underline-offset-4 decoration-2" style={{ marginTop: '12px', marginBottom: '12px' }}>
+                    <h3 className="text-xl md:text-[20px] font-bold text-gray-900 leading-snug group-hover:underline underline-offset-4 decoration-2" style={{ marginTop: '5px', marginBottom: '5px' }}>
                       Typography Day 2021 (Online Edition)
                     </h3>
-                    <p className="text-[16px] md:text-[17px] text-gray-600 leading-relaxed">
+                    <p className="text-[16px] md:text-[14px] text-gray-600 line-clamp-3 leading-relaxed">
                       The fourteenth edition of Typography Day was held online, bringing together designers, educators, and typography enthusiasts from across the world.
                     </p>
                   </div>
@@ -283,14 +283,14 @@ export default function BlogDetails() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <div className="flex flex-col flex-1" style={{ marginTop: '12px' }}>
-                    <span className="text-[15px] md:text-[16px] text-gray-500 uppercase tracking-wide font-medium">
+                  <div className="flex flex-col flex-1" style={{ marginTop: '10px' }}>
+                    <span className="text-[15px] md:text-[13px] text-gray-500 uppercase tracking-wide font-medium">
                       AUG 27, 2021
                     </span>
-                    <h3 className="text-[18px] md:text-[22px] font-bold text-gray-900 leading-snug group-hover:underline underline-offset-4 decoration-2" style={{ marginTop: '12px', marginBottom: '12px' }}>
+                    <h3 className="text-xl md:text-[20px] font-bold text-gray-900 leading-snug group-hover:underline underline-offset-4 decoration-2" style={{ marginTop: '5px', marginBottom: '5px' }}>
                       Typography Day 2021 (Online Edition)
                     </h3>
-                    <p className="text-[16px] md:text-[17px] text-gray-600 leading-relaxed">
+                    <p className="text-[16px] md:text-[14px] text-gray-600 line-clamp-3 leading-relaxed">
                       The fourteenth edition of Typography Day was held online, bringing together designers, educators, and typography enthusiasts from across the world.
                     </p>
                   </div>

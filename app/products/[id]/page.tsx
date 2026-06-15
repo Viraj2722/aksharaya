@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Plus, X } from 'lucide-react';
 import { useParams } from 'next/navigation';
@@ -13,6 +13,13 @@ export default function ProductDetailPage() {
   
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImageIndex((prev) => (prev + 1) % 5); // There are always 5 images in the mock data
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Mock product data based on design
   const product = {
@@ -41,14 +48,19 @@ export default function ProductDetailPage() {
           <div className="w-full md:w-1/2 flex flex-col gap-4">
             {/* Main Image */}
             <div className="relative w-full aspect-[4/3] md:aspect-square bg-[#f0f0f0] overflow-hidden">
-              <Image
-                src={product.images[activeImageIndex]}
-                alt={product.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-                priority
-              />
+              {product.images.map((img, idx) => (
+                <Image
+                  key={idx}
+                  src={img}
+                  alt={`${product.title} - Image ${idx + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className={`object-cover transition-opacity duration-700 ease-in-out ${
+                    idx === activeImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                  }`}
+                  priority={idx === 0}
+                />
+              ))}
             </div>
             
             {/* Thumbnails */}
@@ -67,6 +79,7 @@ export default function ProductDetailPage() {
                     fill
                     sizes="(max-width: 768px) 20vw, 10vw"
                     className="object-cover"
+                    priority={idx === 0}
                   />
                 </div>
               ))}
@@ -89,7 +102,7 @@ export default function ProductDetailPage() {
             <h1 className="text-[26px] md:text-[30px] lg:text-[32px] text-[#111111] font-bold leading-tight !mb-3">
               {product.title}
             </h1>
-            <p className="text-[18px] text-[#888888] leading-relaxed !mb-10">
+            <p className="text-[18px] text-[#888888] leading-relaxed !mb-5">
               {product.subtitle}
             </p>
 

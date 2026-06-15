@@ -35,12 +35,16 @@ export function PinterestIcon() {
 export function Footer() {
   return (
     <footer
-      className="footer-mobile-fix"
-      style={{ background: '#ffffff', borderColor: '#e0e0e0', borderTopWidth: '1px' }}
+      className="footer-mobile-fix w-full"
+      style={{ background: '#f2f2f2' }}
     >
       <style>{`
+        @media (min-width: 1024px) {
+          .desktop-px-fix-left { padding-left: 60px !important; }
+          .desktop-px-fix-right { padding-right: 60px !important; }
+        }
         @media (min-width: 768px) {
-          .footer-mobile-fix { height: 134px !important; display: flex !important; align-items: center !important; margin-top: auto !important; }
+          .footer-mobile-fix { height: 134px !important; display: flex !important; flex-direction: column !important; justify-content: center !important; margin-top: auto !important; }
           .mobile-divider { display: none !important; }
         }
         @media (max-width: 767px) {
@@ -49,7 +53,6 @@ export function Footer() {
             padding-top: 0px !important; 
             padding-bottom: 60px !important; 
             background: #f2f2f2 !important; 
-            border-top: none !important;
           }
           .footer-inner { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 24px !important; }
           .mobile-divider {
@@ -62,12 +65,15 @@ export function Footer() {
           }
         }
       `}</style>
-      <div className="page-container w-full relative">
-        <div className="w-full hidden md:block" style={{ height: '1px', backgroundColor: '#d1d5db', marginBottom: '30px' }} />
+      
+      {/* Full-bleed desktop divider */}
+      <div className="w-full hidden md:block" style={{ height: '1px', backgroundColor: '#d1d5db', marginBottom: '30px' }} />
+
+      <div className="w-full relative px-4 md:px-12 lg:px-16" style={{ maxWidth: '1536px', margin: '0 auto' }}>
         <div className="mobile-divider" />
-        <div className="flex items-center justify-between footer-inner">
+        <div className="flex items-center justify-between footer-inner w-full">
           {/* Left: copyright text */}
-          <p className="text-[18px]" style={{ color: '#555555' }}>
+          <p className="text-[18px] desktop-px-fix-left" style={{ color: '#555555' }}>
             Aksharaya &copy; 2016.{' '}
             <span>Connect with us on </span>
             <br className="block md:hidden" />
@@ -93,7 +99,7 @@ export function Footer() {
           </p>
 
           {/* Right: social icons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 desktop-px-fix-right">
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
               <FacebookIcon />
               <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">

@@ -31,7 +31,10 @@ export default function ProductsPage() {
       <main className="flex-1 bg-white pt-12 pb-20 md:pt-16 md:pb-24">
         <div className="page-container w-full">
           
-          {/* Filters */}
+          {/* Spacer to preserve layout since filters are hidden */}
+          <div style={{ height: '130px' }} aria-hidden="true"></div>
+
+          {/* Filters (Commented out per user request)
           <div className="flex justify-center gap-4 flex-wrap" style={{ marginBottom: '60px' ,marginTop: '70px'}}>
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -52,6 +55,7 @@ export default function ProductsPage() {
               )
             })}
           </div>
+          */}
 
           {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 lg:gap-x-12 lg:gap-y-16" style={{ marginBottom: '60px'}}>

@@ -52,14 +52,14 @@ export function FeaturedBlogs() {
         </div>
 
         {/* Top row: 2 large cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ marginBottom: '40px' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2" style={{ marginBottom: '40px' }}>
           {topBlogs.map((blog) => (
             <BlogCard key={blog.id} blog={blog} large />
           ))}
         </div>
 
         {/* Bottom row: 3 smaller cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
           {bottomBlogs.map((blog) => (
             <BlogCard key={blog.id} blog={blog} />
           ))}

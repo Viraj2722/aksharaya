@@ -51,7 +51,7 @@ export function AboutPreview() {
           }
         }
       `}</style>
-      <div className="page-container max-w-4xl mx-auto about-preview-padding">
+      <div className="page-container max-w-4xl mx-auto about-preview-padding" style={{ maxWidth: '1104px', marginLeft:'205px'}}>
         {/* Label - Explicit sizing and black color as requested */}
         <p
           className="font-medium mb-5"

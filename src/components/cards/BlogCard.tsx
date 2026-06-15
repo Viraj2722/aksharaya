@@ -13,17 +13,19 @@ export function BlogCard({ blog, large = false }: BlogCardProps) {
       {/* Cover Image */}
       <style>{`
         @media (min-width: 768px) {
-          .blog-large-height { height: 450px !important; }
+          .blog-large-height { height: 365px !important; }
+          .blog-small-height { height: 262px !important; }
         }
         @media (max-width: 767px) {
           .blog-large-height { height: 300px !important; }
+          .blog-small-height { aspect-ratio: 4/3; }
         }
       `}</style>
       <Link
         href={`/blog/${blog.slug}`}
-        className={`group relative block img-zoom rounded-2xl md:rounded-3xl overflow-hidden ${large ? 'blog-large-height' : ''}`}
+        className={`group relative block img-zoom rounded-2xl md:rounded-3xl overflow-hidden ${large ? 'blog-large-height' : 'blog-small-height'}`}
         aria-label={`Read ${blog.title}`}
-        style={{ ...(large ? {} : { aspectRatio: '4/3' }), marginBottom: '12px' }}
+        style={{ marginBottom: '12px' }}
       >
         <Image
           src={blog.coverImage}

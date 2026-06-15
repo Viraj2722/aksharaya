@@ -59,7 +59,7 @@ export default function AboutPage() {
       
       <main className="flex-1 w-full flex flex-col items-center">
         {/* Top Image Section */}
-        <div className="w-full max-w-[1400px] mx-auto about-hero-image opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s', marginTop: '50px', marginBottom: '55px' }}>
+        <div className="w-full mx-auto opacity-0 animate-fade-in-up px-4 lg:px-0" style={{ maxWidth: '1110px', animationDelay: '0.1s', marginTop: '50px', marginBottom: '55px' }}>
           <div className="relative w-full h-[300px] md:h-[460px] rounded-[16px] md:rounded-[24px] overflow-hidden border border-gray-100 shadow-sm">
             <Image
               src="https://picsum.photos/seed/aksharayaabout/1400/460"
@@ -76,7 +76,7 @@ export default function AboutPage() {
           className="w-full mb-24 md:mb-32"
           aria-label="Who We Are"
         >
-          <div className="page-container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="w-full mx-auto opacity-0 animate-fade-in-up px-4 md:px-0" style={{ maxWidth: '1110px', animationDelay: '0.2s' ,marginLeft:'205px'}}>
             <p
               className="font-medium mb-6"
               style={{ color: '#111111', fontSize: '19px', marginBottom: '10px' }}
@@ -110,7 +110,7 @@ export default function AboutPage() {
             <div style={{ width: '100%', borderBottom: '1px solid #d1d5db', marginTop: '40px', marginBottom: '50px' }}></div>
 
             {/* Core Values / Story Sections */}
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-6 md:pr-12 lg:pr-[150px]">
               {/* Katha */}
               <div className="flex flex-col gap-3">
                 <h2 className="text-[23px] font-bold text-[#111111]">Katha — The Story</h2>

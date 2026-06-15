@@ -78,15 +78,32 @@ export function HeroSection() {
   const slide = slides[current]
 
   return (
-    <section
-      className="relative w-full overflow-hidden hero-section-height"
-      aria-label="Hero image carousel"
-      aria-roledescription="carousel"
-    >
+    <div className="w-full" style={{ backgroundColor: '#f2f2f2' }}>
+      <section
+        className="relative w-full overflow-hidden hero-section-height"
+        aria-label="Hero image carousel"
+        aria-roledescription="carousel"
+      >
       <style>{`
         @media (min-width: 768px) {
-          .hero-section-height { height: 725px !important; }
+          .hero-section-height { 
+            height: 600px !important; 
+            max-width: 1180px !important;
+            margin: 0 auto !important;
+          }
           .hero-text-container { padding-bottom: 3.5rem !important; }
+          .hero-text-container .page-container { 
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding-left: 1.5rem !important; 
+            padding-right: 2rem !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .hero-text-container .page-container { 
+            padding-left: 1.5rem !important; 
+            padding-right: 3rem !important;
+          }
         }
         @media (max-width: 767px) {
           .hero-section-height { height: 450px !important; }
@@ -143,14 +160,14 @@ export function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 z-10 hero-text-container">
         <div className="page-container">
           <h1
-            className="text-2xl md:text-4xl font-bold text-white leading-snug mb-1"
+            className="text-xl md:text-3xl font-bold text-white leading-snug mb-1"
             key={`title-${current}`}
             style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
           >
             {slide.title}
           </h1>
           <p
-            className="text-sm md:text-base text-white leading-relaxed max-w-2xl"
+            className="text-xs md:text-sm text-white leading-relaxed max-w-2xl"
             key={`desc-${current}`}
             style={{ opacity: 0.85, textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}
           >
@@ -185,5 +202,6 @@ export function HeroSection() {
         ))}
       </div>
     </section>
+    </div>
   )
 }

@@ -17,7 +17,7 @@ export function EventCard({ event }: EventCardProps) {
         href={`/events/${event.slug}`}
         className="relative flex-shrink-0 img-zoom w-full lg:w-[320px] h-[220px]"
         aria-label={`View ${event.title}`}
-        style={{ borderRadius: '12px', overflow: 'hidden' }}
+        style={{ overflow: 'hidden' }}
       >
         <Image
           src={event.coverImage}

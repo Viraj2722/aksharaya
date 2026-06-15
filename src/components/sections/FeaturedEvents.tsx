@@ -51,11 +51,11 @@ export function FeaturedEvents() {
           .about-me-mt { margin-top: 80px !important; }
         }
         @media (max-width: 1023px) {
-          .about-me-mt { margin-top: -20px !important; display: flex; flex-direction: column; align-items: center; text-align: center; }
+          .about-me-mt { margin-top: -20px !important; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 16px; }
           .about-me-heading, .about-me-follow, .about-me-icons { display: none !important; }
           .more-post-container { display: flex; justify-content: center !important; margin-bottom: 40px !important; }
           .about-me-para { margin-bottom: 50px !important; }
-          .about-me-logo { transform: scale(1.25); margin-top: 10px; margin-bottom: 10px; }
+          .about-me-logo { margin-top: 10px; margin-bottom: 10px; }
         }
       `}</style>
       <div className="page-container">
@@ -113,13 +113,13 @@ export function FeaturedEvents() {
             </h3>
 
             {/* Large logo */}
-            <div className="mb-6 about-me-logo-wrapper">
+            <div className="mb-6 about-me-logo-wrapper w-full px-4 md:px-0">
               <Image
                 src="/single-logo.svg"
                 alt="Aksharaya logo mark"
                 width={440}
                 height={160}
-                className="w-full max-w-[440px] h-auto object-contain transition-transform duration-500 ease-in-out hover:scale-105 about-me-logo"
+                className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.2] md:origin-left md:-translate-x-14"
               />
             </div>
 

@@ -78,21 +78,16 @@ export default function EventsPage() {
             .event-img-container { height: 400px; }
             .event-text-container { margin-top: 10px; }
             .event-title { margin-top: 5px; margin-bottom: 5px; }
-            .event-hero-img-offset { right: 60px; margin: 0; }
-            .event-logo-offset { transform: translateX(-40px); }
+            .event-logo-offset { transform: translateX(-100px); }
             .event-hero-img-width { width: 375px !important; max-width: none !important; }
-          }
-          @media (min-width: 1024px) {
-            .event-hero-flex { gap: 210px !important; }
-            .event-left-offset { margin-left: -75px !important; }
           }
         `}</style>
 
         {/* Hero Section */}
-        <div className="w-full max-w-[1200px] mx-auto px-6 sm:px-12 lg:px-20 events-hero">
-          <Link href="/events/1" className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center text-center lg:text-left event-hero-flex group cursor-pointer">
+        <div className="w-full mx-auto px-6 sm:px-12 lg:px-0 events-hero" style={{ maxWidth: '1120px' }}>
+          <Link href="/events/1" className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center text-center lg:text-left group cursor-pointer">
             {/* Left side text */}
-            <div className="w-full lg:w-[820px] flex-shrink-0 event-left-offset">
+            <div className="flex-1 w-full flex-shrink-0">
               <div className="mb-8 md:mb-10 flex justify-center lg:justify-start event-logo-offset">
                 <Image
                   src="/single-logo.svg"
@@ -109,8 +104,8 @@ export default function EventsPage() {
             </div>
 
             {/* Right side image */}
-            <div className="flex-1 w-full flex justify-center lg:block">
-              <div className="relative w-full max-w-[370px] h-[180px] bg-gray-100 event-hero-img-offset event-hero-img-width">
+            <div className="flex-none w-full lg:w-[370px] flex justify-center lg:justify-end mt-8 lg:mt-0">
+              <div className="relative w-full max-w-[370px] h-[180px] bg-gray-100 event-hero-img-width">
                 <Image
                   src="https://picsum.photos/seed/aksharayaevents/800/400"
                   alt="Events exhibition"
@@ -125,8 +120,8 @@ export default function EventsPage() {
         </div>
 
         {/* Events Grid */}
-        <div className="w-full max-w-[1350px] mx-auto px-6 sm:px-12 lg:px-8 events-grid-container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 lg:gap-x-10 lg:gap-y-16">
+        <div className="w-full mx-auto px-6 sm:px-12 lg:px-0 events-grid-container" style={{ maxWidth: '1120px' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 lg:gap-x-3 lg:gap-y-8">
             {events.map((event) => (
               <motion.div
                 key={event.id}
@@ -147,13 +142,13 @@ export default function EventsPage() {
                   />
                 </div>
                 <div className="flex flex-col flex-1 event-text-container">
-                  <span className="text-[15px] md:text-[16px] text-gray-500 uppercase tracking-wide font-medium">
+                  <span className="text-[15px] md:text-[13px] text-gray-500 uppercase tracking-wide font-medium">
                     {event.date}
                   </span>
-                  <h3 className="text-xl md:text-[22px] font-bold text-gray-900 leading-snug group-hover:underline underline-offset-4 decoration-2 event-title">
+                  <h3 className="text-xl md:text-[20px] font-bold text-gray-900 leading-snug group-hover:underline underline-offset-4 decoration-2 event-title">
                     {event.title}
                   </h3>
-                  <p className="text-[16px] md:text-[17px] text-gray-600 line-clamp-3 leading-relaxed">
+                  <p className="text-[16px] md:text-[14px] text-gray-600 line-clamp-3 leading-relaxed">
                     {event.description}
                   </p>
                 </div>
