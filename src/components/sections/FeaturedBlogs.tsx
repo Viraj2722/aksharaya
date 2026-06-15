@@ -22,8 +22,8 @@ export function FeaturedBlogs() {
             }
             @media (max-width: 767px) {
               .insights-header { font-size: 22px !important; line-height: 1.2 !important; height: auto !important; }
-              .insights-header-container { align-items: flex-start !important; }
-              .view-all-text { font-size: 16px !important; height: auto !important; margin-top: 3px; }
+              .insights-header-container { align-items: center !important; flex-wrap: nowrap !important; }
+              .view-all-text { font-size: 16px !important; height: auto !important; }
             }
           `}</style>
           <h2

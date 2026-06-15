@@ -40,8 +40,8 @@ export function AboutPreview() {
       <style>{`
         .about-preview-shell {
           width: 100%;
-          padding-left: 16px;
-          padding-right: 16px;
+          padding-left: 2rem;
+          padding-right: 2rem;
           padding-top: 48px;
           padding-bottom: 40px;
         }
