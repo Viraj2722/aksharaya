@@ -2,7 +2,7 @@
 
 /* ─── Design Tokens ─────────────────────────────────────── */
 :root {
-  --color-bg: #ffffff;
+  --color-bg: #f2f2f2;
   --color-bg-alt: #ebebeb;
   --color-surface: #ffffff;
   --color-border: #e0e0e0;

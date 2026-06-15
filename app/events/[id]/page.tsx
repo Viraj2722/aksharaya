@@ -7,7 +7,7 @@ import { FacebookIcon, TwitterIcon, InstagramIcon, PinterestIcon, Footer } from 
 
 export default function BlogDetails() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col items-center">

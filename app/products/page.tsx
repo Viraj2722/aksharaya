@@ -28,7 +28,7 @@ export default function ProductsPage() {
   return (
     <>
       <Navbar />
-      <main className="flex-1 bg-white pt-12 pb-20 md:pt-16 md:pb-24">
+      <main className="flex-1 pt-12 pb-20 md:pt-16 md:pb-24">
         <div className="page-container w-full">
           
           {/* Spacer to preserve layout since filters are hidden */}

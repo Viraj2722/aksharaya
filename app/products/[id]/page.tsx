@@ -36,7 +36,7 @@ export default function ProductDetailPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       
       {/* Main Container - Fades in on load */}

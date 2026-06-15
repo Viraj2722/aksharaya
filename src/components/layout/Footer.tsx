@@ -35,8 +35,7 @@ export function PinterestIcon() {
 export function Footer() {
   return (
     <footer
-      className="footer-mobile-fix w-full"
-      style={{ background: '#f2f2f2' }}
+      className="footer-mobile-fix w-full bg-[#f2f2f2]"
     >
       <style>{`
         @media (min-width: 1024px) {
@@ -52,7 +51,6 @@ export function Footer() {
             min-height: 134px !important; 
             padding-top: 0px !important; 
             padding-bottom: 60px !important; 
-            background: #f2f2f2 !important; 
           }
           .footer-inner { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 24px !important; }
           .mobile-divider {

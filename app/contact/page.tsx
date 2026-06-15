@@ -7,7 +7,7 @@ import { Footer, FacebookIcon, TwitterIcon, InstagramIcon, PinterestIcon } from 
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
 
       <div className="max-w-[1110px] !mx-auto !px-4 sm:!px-6 lg:!px-0 w-full !pb-24 !pt-10 md:!pt-10 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>

@@ -38,20 +38,33 @@ export function AboutPreview() {
       aria-label="About Aksharaya"
     >
       <style>{`
+        .about-preview-shell {
+          width: 100%;
+          padding-left: 16px;
+          padding-right: 16px;
+          padding-top: 48px;
+          padding-bottom: 40px;
+        }
         @media (min-width: 768px) {
           .about-preview-padding {
             padding-top: 112px;
             padding-bottom: 80px;
           }
+          .about-preview-shell {
+            padding-left: 24px;
+            padding-right: 24px;
+          }
         }
-        @media (max-width: 767px) {
-          .about-preview-padding {
-            padding-top: 48px;
-            padding-bottom: 40px;
+        @media (min-width: 1024px) {
+          .about-preview-shell {
+            max-width: 1104px;
+            margin-left: 205px;
+            padding-left: 0;
+            padding-right: 0;
           }
         }
       `}</style>
-      <div className="page-container max-w-4xl mx-auto about-preview-padding" style={{ maxWidth: '1104px', marginLeft:'205px'}}>
+      <div className="about-preview-shell about-preview-padding">
         {/* Label - Explicit sizing and black color as requested */}
         <p
           className="font-medium mb-5"

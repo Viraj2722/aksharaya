@@ -53,7 +53,7 @@ export default function EventsPage() {
   ]
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col items-center">
@@ -88,7 +88,7 @@ export default function EventsPage() {
           <Link href="/events/1" className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center text-center lg:text-left group cursor-pointer">
             {/* Left side text */}
             <div className="flex-1 w-full flex-shrink-0">
-              <div className="mb-8 md:mb-10 flex justify-center lg:justify-start event-logo-offset translate-x-5">
+              <div className="mb-8 md:mb-10 flex justify-center lg:justify-start event-logo-offset md:translate-x-5">
                 <Image
                   src="/single-logo.svg"
                   alt="Aksharaya"

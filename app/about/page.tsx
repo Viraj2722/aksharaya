@@ -54,12 +54,12 @@ export default function AboutPage() {
   const totalWords = lines.reduce((acc, line) => acc + line.split(' ').length, 0)
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       
       <main className="flex-1 w-full flex flex-col items-center">
         {/* Top Image Section */}
-        <div className="w-full mx-auto opacity-0 animate-fade-in-up px-4 lg:px-0" style={{ maxWidth: '1110px', animationDelay: '0.1s', marginTop: '50px', marginBottom: '55px' }}>
+        <div className="about-top-image w-full mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
           <div className="relative w-full h-[300px] md:h-[460px] rounded-[16px] md:rounded-[24px] overflow-hidden border border-gray-100 shadow-sm">
             <Image
               src="https://picsum.photos/seed/aksharayaabout/1400/460"
@@ -76,7 +76,7 @@ export default function AboutPage() {
           className="w-full mb-24 md:mb-32"
           aria-label="Who We Are"
         >
-          <div className="w-full mx-auto opacity-0 animate-fade-in-up px-4 md:px-0" style={{ maxWidth: '1110px', animationDelay: '0.2s' ,marginLeft:'205px'}}>
+          <div className="about-section w-full mx-auto opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <p
               className="font-medium mb-6"
               style={{ color: '#111111', fontSize: '19px', marginBottom: '10px' }}
@@ -157,19 +157,22 @@ export default function AboutPage() {
               </p>
 
               <style>{`
-                .about-hero-image { padding-left: 14px; padding-right: 14px; }
+                .about-top-image { padding-left: 14px; padding-right: 14px; margin-top: 50px; margin-bottom: 55px; }
+                .about-section { padding-left: 16px; padding-right: 16px; }
                 .faq-container { padding-left: 16px; padding-right: 16px; padding-top: 22px; padding-bottom: 22px; gap: 12px; align-items: flex-start; transition: padding-bottom 0.3s ease-in-out; }
                 .faq-container.open { padding-bottom: 8px; }
                 .faq-question { font-size: 17px; line-height: 1.3; margin-top: 2px; }
                 .faq-answer { padding-left: 44px; padding-right: 16px; padding-bottom: 20px; padding-top: 0px; }
                 @media (min-width: 768px) {
-                  .about-hero-image { padding-left: 24px; padding-right: 24px; }
+                  .about-top-image { padding-left: 24px; padding-right: 24px; }
+                  .about-section { padding-left: 24px; padding-right: 24px; }
                   .faq-container { padding-left: 32px; padding-right: 24px; padding-top: 22px; padding-bottom: 22px; gap: 16px; }
                   .faq-question { font-size: 23px; line-height: normal; margin-top: -3px; }
                   .faq-answer { padding-left: 60px; padding-right: 24px; padding-bottom: 20px; padding-top: 0px; }
                 }
                 @media (min-width: 1024px) {
-                  .about-hero-image { padding-left: 32px; padding-right: 32px; }
+                  .about-top-image { max-width: 1110px; padding-left: 0; padding-right: 0; }
+                  .about-section { max-width: 1110px; margin-left: 205px; padding-left: 0; padding-right: 0; }
                 }
               `}</style>
 
@@ -177,7 +180,7 @@ export default function AboutPage() {
                 {faqs.map((faq, index) => (
                   <div 
                     key={index} 
-                    className="w-full bg-[#f4f4f4] rounded-[16px] overflow-hidden cursor-pointer"
+                    className="w-full bg-gray-300 rounded-[16px] overflow-hidden cursor-pointer"
                     onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                   >
                     <div className={`flex faq-container ${openFaqIndex === index ? 'open' : ''}`}>

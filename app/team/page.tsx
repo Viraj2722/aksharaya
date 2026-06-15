@@ -38,7 +38,7 @@ export default function TeamPage() {
   return (
     <>
       <Navbar />
-      <main className="flex-1 bg-white py-12 md:py-20">
+      <main className="flex-1 py-12 md:py-20">
         <div 
           style={{ 
             backgroundColor: '#f9f9f9', 
