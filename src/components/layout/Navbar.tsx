@@ -57,6 +57,7 @@ export function Navbar() {
                 height={96}
                 priority
                 className="hidden md:block h-[72px] w-auto object-contain"
+                style={{ width: 'auto' }}
               />
               <Image
                 src="/single-logo.svg"
@@ -65,6 +66,7 @@ export function Navbar() {
                 height={60}
                 priority
                 className="block md:hidden h-12 w-auto object-contain"
+                style={{ width: 'auto' }}
               />
             </Link>
 

@@ -120,6 +120,7 @@ export function FeaturedEvents() {
                 width={440}
                 height={160}
                 className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.2] md:origin-left md:-translate-x-14"
+                style={{ width: '100%', height: 'auto' }}
               />
             </div>
 

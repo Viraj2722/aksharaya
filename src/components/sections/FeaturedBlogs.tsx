@@ -33,7 +33,7 @@ export function FeaturedBlogs() {
             Insights &amp; Writings
           </h2>
           <Link
-            href="/blog"
+            href="/events"
             className="group flex items-center font-medium overflow-hidden text-[20px] flex-shrink-0 whitespace-nowrap view-all-text"
             style={{ color: '#111111', height: '24px' }}
           >

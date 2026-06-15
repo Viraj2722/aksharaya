@@ -18,14 +18,14 @@ export default function BlogDetails() {
           }
         `}} />
         {/* Main Wrapper with exact width */}
-        <div className="page-container w-full max-w-[1120px] mx-auto px-6 sm:px-8 md:px-12 lg:px-0">
+        <div className="page-container w-full max-w-[1120px] mx-auto px-6 sm:px-8 md:px-12" style={{ paddingLeft: '5vw', paddingRight: '5vw' }}>
           
           {/* Upper Container (Fixed Height: 204px) */}
           <div 
-            className="w-full flex flex-col justify-center py-12 lg:py-0 lg:h-[204px]" 
+            className="max-w-[1120px] flex flex-col justify-center py-12 lg:py-0 lg:h-[204px]" 
           >
             {/* Breadcrumb */}
-            <div className="flex items-center text-[16px] text-black" style={{ marginBottom: '10px', gap: '12px' , marginTop: '65px'}}>
+            <div className="max-w-[1120px] flex items-center text-[16px] text-black" style={{ marginBottom: '10px', gap: '12px' , marginTop: '65px'}}>
               <Link href="/events" className="relative group cursor-pointer inline-block">
                 <span className="text-black group-hover:text-gray-700 transition-colors duration-300">Project</span>
                 <span className="absolute left-0 -bottom-1 w-0 h-[1.5px] bg-black transition-all duration-300 group-hover:w-full"></span>
@@ -58,7 +58,7 @@ export default function BlogDetails() {
 
           {/* Main Hero Image (Fixed Height: 683px) */}
           <div 
-            className="w-full relative overflow-hidden h-[300px] md:h-[450px] lg:h-[683px] hero-mobile-override" 
+            className="max-w-[1120px] relative overflow-hidden h-[300px] md:h-[450px] lg:h-[683px] hero-mobile-override" 
             style={{ borderRadius: '16px', marginTop: '35px' }}
           >
             <Image
@@ -71,8 +71,7 @@ export default function BlogDetails() {
             />
           </div>
 
-          {/* Section 2: Introduction & About Me (Sticky) */}
-          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24" style={{ marginTop: '50px' }}>
+          <div className="max-w-[1120px] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24" style={{ marginTop: '50px' }}>
             
             {/* Left Column (Span 8) */}
             <div className="lg:col-span-8 flex flex-col">
@@ -164,7 +163,8 @@ export default function BlogDetails() {
                     alt="Aksharaya logo mark"
                     width={440}
                     height={160}
-                    className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.2] md:origin-left md:-translate-x-6"
+                    className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.2] md:origin-left md:-translate-x-14"
+                    style={{ width: '100%', height: 'auto' }}
                   />
                 </div>
 

@@ -22,7 +22,7 @@ export function BlogCard({ blog, large = false }: BlogCardProps) {
         }
       `}</style>
       <Link
-        href={`/blog/${blog.slug}`}
+        href={`/events/${blog.id}`}
         className={`group relative block img-zoom rounded-2xl md:rounded-3xl overflow-hidden ${large ? 'blog-large-height' : 'blog-small-height'}`}
         aria-label={`Read ${blog.title}`}
         style={{ marginBottom: '12px' }}
@@ -61,7 +61,7 @@ export function BlogCard({ blog, large = false }: BlogCardProps) {
         className={`leading-snug mb-1.5 font-medium ${large ? 'text-[22px] md:text-[28px]' : 'text-[18px]'}`}
         style={{ color: '#111111' }}
       >
-        <Link href={`/blog/${blog.slug}`} className="hover:underline decoration-1 underline-offset-2">
+        <Link href={`/events/${blog.id}`} className="hover:underline decoration-1 underline-offset-2">
           {blog.title}
         </Link>
       </h3>

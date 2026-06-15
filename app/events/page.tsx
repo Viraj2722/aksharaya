@@ -88,13 +88,14 @@ export default function EventsPage() {
           <Link href="/events/1" className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center text-center lg:text-left group cursor-pointer">
             {/* Left side text */}
             <div className="flex-1 w-full flex-shrink-0">
-              <div className="mb-8 md:mb-10 flex justify-center lg:justify-start event-logo-offset">
+              <div className="mb-8 md:mb-10 flex justify-center lg:justify-start event-logo-offset translate-x-5">
                 <Image
                   src="/single-logo.svg"
                   alt="Aksharaya"
                   width={434}
                   height={130}
                   className="w-full max-w-[320px] md:max-w-[434px] h-auto object-contain"
+                  style={{ width: '100%', height: 'auto' }}
                   priority
                 />
               </div>

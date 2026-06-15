@@ -10,9 +10,9 @@ export default function ContactPage() {
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
 
-      <div className="max-w-[1400px] !mx-auto !px-4 sm:!px-6 lg:!px-8 w-full !pb-24 !pt-10 md:!pt-10 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+      <div className="max-w-[1110px] !mx-auto !px-4 sm:!px-6 lg:!px-0 w-full !pb-24 !pt-10 md:!pt-10 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
 
           {/* Left Column: Contact Form */}
           <div className="lg:col-span-8 bg-[#f4f4f4] !rounded-3xl !p-8 md:!p-10 lg:min-h-[502px]">
@@ -79,7 +79,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: About Section */}
-          <div className="lg:col-span-4 flex flex-col justify-start lg:pl-4 about-me-mt">
+          <div className="lg:col-span-4 flex flex-col justify-start lg:pl-0 about-me-mt">
             <h3
               className="text-[25px] font-bold about-me-heading"
               style={{ color: '#111111', marginBottom: '8px' }}
@@ -88,13 +88,14 @@ export default function ContactPage() {
             </h3>
 
             {/* Large logo */}
-            <div className="mb-6 about-me-logo-wrapper">
+            <div className="mb-6 about-me-logo-wrapper w-full px-4 md:px-0">
               <Image
                 src="/single-logo.svg"
                 alt="Aksharaya logo mark"
                 width={440}
                 height={160}
-                className="w-full max-w-[440px] h-auto object-contain transition-transform duration-500 ease-in-out hover:scale-105 about-me-logo"
+                className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.2] md:origin-left md:-translate-x-14"
+                style={{ width: '100%', height: 'auto' }}
               />
             </div>
 
