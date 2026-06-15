@@ -41,7 +41,6 @@ export default function TeamPage() {
       <main className="flex-1 py-12 md:py-20">
         <div 
           style={{ 
-            backgroundColor: '#f9f9f9', 
             paddingTop: '80px', 
             paddingBottom: '80px' 
           }}

@@ -15,7 +15,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
 
           {/* Left Column: Contact Form */}
-          <div className="lg:col-span-8 bg-[#f4f4f4] !rounded-3xl !p-8 md:!p-10 lg:min-h-[502px]">
+          <div className="lg:col-span-8 bg-gray-200 !rounded-3xl !p-8 md:!p-10 lg:min-h-[502px]">
             <form className="space-y-4">
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
