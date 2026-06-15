@@ -71,6 +71,8 @@ export default function EventsPage() {
             .events-grid-container { margin-bottom: 64px !important; }
             .event-text-container { margin-top: 12px !important; }
             .event-img-container { height: 360px !important; }
+            .event-hero-text { order: 2 !important; }
+            .event-hero-img { order: 1 !important; }
           }
           @media (min-width: 768px) {
             .events-hero { margin-top: 46px; margin-bottom: 84px; }
@@ -87,7 +89,7 @@ export default function EventsPage() {
         <div className="w-full mx-auto px-6 sm:px-12 lg:px-0 events-hero" style={{ maxWidth: '1120px' }}>
           <Link href="/events/1" className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center text-center lg:text-left group cursor-pointer">
             {/* Left side text */}
-            <div className="flex-1 w-full flex-shrink-0">
+            <div className="flex-1 w-full flex-shrink-0 event-hero-text">
               <div className="mb-8 md:mb-10 flex justify-center lg:justify-start event-logo-offset md:translate-x-5">
                 <Image
                   src="/single-logo.svg"
@@ -105,7 +107,7 @@ export default function EventsPage() {
             </div>
 
             {/* Right side image */}
-            <div className="flex-none w-full lg:w-[370px] flex justify-center lg:justify-end mt-8 lg:mt-0">
+            <div className="flex-none w-full lg:w-[370px] flex justify-center lg:justify-end mt-8 lg:mt-0 event-hero-img">
               <div className="relative w-full max-w-[370px] h-[180px] bg-gray-100 event-hero-img-width">
                 <Image
                   src="https://picsum.photos/seed/aksharayaevents/800/400"
