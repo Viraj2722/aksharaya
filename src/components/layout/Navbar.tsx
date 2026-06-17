@@ -43,7 +43,15 @@ export function Navbar() {
         className="relative z-50 bg-white border-b"
         style={{ borderColor: '#e8e8e8' }}
       >
-        <div className="w-full px-4 md:px-8 lg:px-12">
+        <style>{`
+          @media (min-width: 1024px) {
+            .navbar-container { padding-left: 150px; padding-right: 150px; }
+          }
+          @media (min-width: 1280px) {
+            .navbar-container { padding-left: 155px; padding-right: 140px; }
+          }
+        `}</style>
+        <div className="w-full px-4 md:px-8 navbar-container">
           <nav
             className="flex items-center justify-between"
             style={{ height: '72px' }}
