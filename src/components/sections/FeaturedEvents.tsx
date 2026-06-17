@@ -37,8 +37,8 @@ function PinterestIcon() {
   )
 }
 
-export function FeaturedEvents() {
-  const events = getEvents()
+export async function FeaturedEvents() {
+  const events = await getEvents()
 
   return (
     <section
@@ -119,14 +119,14 @@ export function FeaturedEvents() {
                 alt="Aksharaya logo mark"
                 width={440}
                 height={160}
-                className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.2] md:origin-left md:-translate-x-14"
+                className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.2] md:origin-left md:-translate-x-20 md:-translate-y-3"
                 style={{ width: '100%', height: 'auto' }}
               />
             </div>
 
             {/* Description */}
             <p
-              className="text-[17px] leading-snug mb-5 about-me-para"
+              className="text-[17px] leading-snug mb-5 about-me-para md:w-[270px]"
               style={{ color: '#444444' }}
             >
               Aksharaya is an initiative dedicated to exploring typography, letterforms, and visual language across cultures. It brings together designers, educators, and researchers to share knowledge, ideas, and practices in the field of type and communication design. Through events like Typography Day, talks, and installations, Aksharaya fosters dialogue around the evolving role of typography in contemporary society.
