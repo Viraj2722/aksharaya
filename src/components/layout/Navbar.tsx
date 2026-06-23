@@ -48,7 +48,7 @@ export function Navbar() {
             .navbar-container { padding-left: 150px; padding-right: 150px; }
           }
           @media (min-width: 1280px) {
-            .navbar-container { padding-left: 155px; padding-right: 140px; }
+            .navbar-container { padding-left: 150px; padding-right: 140px; }
           }
         `}</style>
         <div className="w-full px-4 md:px-8 navbar-container">
