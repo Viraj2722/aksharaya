@@ -414,7 +414,7 @@ body {
 .products-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 48px;
 }
 @media (min-width: 640px) {
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }

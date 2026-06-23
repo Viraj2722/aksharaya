@@ -40,8 +40,8 @@ export default async function ProductsPage() {
                       {product.title}
                     </h3>
                     {product.price && (
-                      <span style={{ fontSize: '22px', lineHeight: '28px', letterSpacing: '-0.01em', color: 'rgb(115, 115, 115)', whiteSpace: 'nowrap', flexShrink: 0 }}>
-                        RS {product.price}
+                      <span style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.01em', color: 'rgb(115, 115, 115)', whiteSpace: 'nowrap', flexShrink: 0, marginTop: '4px' }}>
+                        ₹ {product.price}
                       </span>
                     )}
                   </div>
