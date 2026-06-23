@@ -10,78 +10,60 @@ export default async function ProductsPage() {
   const products = await getProducts()
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <main className="flex-1 pt-12 pb-20 md:pt-16 md:pb-24">
-        <div className="page-container w-full">
 
-          {/* Spacer to preserve layout since filters are hidden */}
-          <div style={{ height: '130px' }} aria-hidden="true"></div>
+      <main className="flex-1 w-full flex flex-col">
+        <div className="w-full products-page-container" style={{ paddingTop: '33px', paddingBottom: '80px' }}>
 
-          {/* Filters (commented out per user request)
-          <div className="flex justify-center gap-4 flex-wrap" style={{ marginBottom: '60px', marginTop: '70px' }}>
-            ...
-          </div>
-          */}
-
-          {/* Product Grid */}
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 lg:gap-x-12 lg:gap-y-16"
-            style={{ marginBottom: '60px' }}
-          >
+          {/* Framer Categorys: grid 3 cols, gap 8px */}
+          <div className="products-grid">
             {products.map((product, index) => (
-              <Link href={`/products/${product.slug}`} key={product.id}>
-                <div className="group cursor-pointer">
+              <Link href={`/products/${product.slug}`} key={product.id} className="group block">
 
-                  {/* Image Container */}
-                  <div className="relative mb-5">
-                    <div className="relative w-full aspect-[4/3] bg-[#f0f0f0] overflow-hidden">
-                      <Image
-                        src={product.image}
-                        alt={product.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        priority={index < 3}
-                        className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                      />
-                    </div>
-
-                    {/* Featured Badge (Commented out per user request) */}
-                    {/* {product.isFeatured && (
-                      <div
-                        className="absolute -top-6 left-4 bg-[#222222] text-white flex items-center justify-center z-10 shadow-md"
-                        style={{ width: '45px', height: '38px' }}
-                      >
-                        <span className="text-[14px] font-medium tracking-wider pt-[2px]">New</span>
-                      </div>
-                    )} */}
-                  </div>
-
-                  {/* Content */}
-                  <div>
-                    <div className="flex justify-between items-start mb-2" style={{ marginTop: '20px' }}>
-                      <h3 className="text-[18px] md:text-[20px] text-[#111111] pr-4 leading-snug font-normal">
-                        {product.title}
-                      </h3>
-                      {product.price && (
-                        <span className="text-[16px] md:text-[18px] text-[#888888] whitespace-nowrap pt-1">
-                          RS {product.price}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-[13px] text-[#888888]">
-                      {product.inStock ? 'In Stock' : 'Out of Stock'}
-                    </p>
-                  </div>
-
+                {/* Image */}
+                <div className="relative w-full overflow-hidden bg-[#f0f0f0]" style={{ height: '455px' }}>
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    priority={index < 3}
+                    className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                  />
                 </div>
+
+                {/* Details: title + price */}
+                <div style={{ paddingTop: '12px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                    <h3 style={{ fontSize: '22px', lineHeight: '28px', letterSpacing: '-0.01em', fontWeight: 400, color: 'rgb(28, 28, 28)', margin: 0 }}>
+                      {product.title}
+                    </h3>
+                    {product.price && (
+                      <span style={{ fontSize: '22px', lineHeight: '28px', letterSpacing: '-0.01em', color: 'rgb(115, 115, 115)', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                        RS {product.price}
+                      </span>
+                    )}
+                  </div>
+                  <p style={{ fontSize: '13px', lineHeight: '19px', letterSpacing: '-0.04em', color: 'rgb(172, 172, 172)', margin: 0 }}>
+                    {product.inStock ? 'In Stock' : 'Out of Stock'}
+                  </p>
+                </div>
+
               </Link>
             ))}
           </div>
 
+          {products.length === 0 && (
+            <div style={{ textAlign: 'center', padding: '80px 0', color: 'rgb(136,136,136)', fontSize: '16px' }}>
+              No products found.
+            </div>
+          )}
+
         </div>
       </main>
+
       <Footer />
-    </>
+    </div>
   )
 }

@@ -113,13 +113,13 @@ export async function FeaturedEvents() {
             </h3>
 
             {/* Large logo */}
-            <div className="mb-6 about-me-logo-wrapper w-full px-4 md:px-0">
+            <div className="mt-6 mb-10 about-me-logo-wrapper w-full px-4 md:px-0">
               <Image
                 src="/single-logo.svg"
                 alt="Aksharaya logo mark"
                 width={440}
                 height={160}
-                className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.35] md:origin-left md:-translate-x-12 md:-translate-y-3"
+                className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.35] md:origin-left md:-translate-x-23 md:-translate-y-3"
                 style={{ width: '100%', height: 'auto' }}
               />
             </div>

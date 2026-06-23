@@ -166,6 +166,376 @@ body {
 .contact-input { font-family: inherit; }
 .contact-input:focus { outline: none; box-shadow: 0 0 0 2px rgb(230,230,230); }
 
+/* ─── About Page ─────────────────────────────────────────── */
+.about-page-container {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 36px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+@media (min-width: 640px) {
+  .about-page-container { padding-left: 32px; padding-right: 32px; }
+}
+@media (min-width: 768px) {
+  .about-page-container { padding-left: 40px; padding-right: 40px; }
+}
+@media (min-width: 1024px) {
+  .about-page-container { padding-left: 150px; padding-right: 150px; }
+}
+@media (min-width: 1280px) {
+  .about-page-container { padding-left: 155px; padding-right: 140px; }
+}
+
+/* Image block */
+.about-hero-image {
+  width: 100%;
+  height: 240px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .about-hero-image { height: 360px; border-radius: 20px; }
+}
+@media (min-width: 1024px) {
+  .about-hero-image { height: 460px; border-radius: 20px; }
+}
+
+/* Animated headline */
+.about-headline {
+  font-size: 22px;
+  line-height: 34px;
+  letter-spacing: 0px;
+  font-weight: 600;
+  max-width: 900px;
+}
+@media (min-width: 768px) {
+  .about-headline { font-size: 28px; line-height: 42px; }
+}
+@media (min-width: 1024px) {
+  .about-headline { font-size: 32px; line-height: 48px; }
+}
+
+/* Story section */
+.about-story-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+@media (min-width: 1024px) {
+  .about-story-container { flex-direction: row; }
+}
+
+/* FAQ header */
+.about-faq-header {
+  width: 100%;
+  max-width: 1110px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 60px;
+}
+
+/* FAQ list */
+.about-faq-list {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 44px;
+}
+
+.faq-container { padding: 22px 16px; gap: 12px; display: flex; align-items: flex-start; transition: padding-bottom 0.3s ease-in-out; }
+.faq-container.open { padding-bottom: 8px; }
+.faq-question { font-size: 17px; line-height: 1.3; margin-top: 2px; }
+.faq-answer { padding: 0 16px 20px 44px; }
+@media (min-width: 768px) {
+  .faq-container { padding: 22px 32px; gap: 16px; }
+  .faq-question { font-size: 23px; line-height: normal; margin-top: -3px; }
+  .faq-answer { padding: 0 24px 20px 60px; }
+}
+
+/* ─── Events Page ────────────────────────────────────────── */
+/* Hero left column: centered on mobile, left-aligned on desktop */
+.events-hero-left { align-items: center; text-align: center; }
+@media (min-width: 1024px) {
+  .events-hero-left { align-items: flex-start; text-align: left; }
+}
+
+/* Logo has ~14% internal left whitespace baked into the SVG.
+   On desktop, pull it left so its visible edge lines up with the paragraph. */
+@media (min-width: 1024px) {
+  .events-hero-logo { transform: translateX(-37px); }
+}
+
+/* Post grid — 1 col mobile, 2 col tablet, 3 col desktop, 10px gap (Framer).
+   Grid keeps last-row cards at their column width (no stretching). */
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  justify-content: start;
+}
+@media (min-width: 640px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .events-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.events-page-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 640px) {
+  .events-page-container { padding-left: 32px; padding-right: 32px; }
+}
+@media (min-width: 768px) {
+  .events-page-container { padding-left: 40px; padding-right: 40px; }
+}
+@media (min-width: 1024px) {
+  .events-page-container { padding-left: 150px; padding-right: 150px; }
+}
+@media (min-width: 1280px) {
+  .events-page-container { padding-left: 155px; padding-right: 140px; }
+}
+
+/* ─── Event Detail Page ──────────────────────────────────── */
+.event-detail-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 640px) {
+  .event-detail-container { padding-left: 32px; padding-right: 32px; }
+}
+@media (min-width: 768px) {
+  .event-detail-container { padding-left: 40px; padding-right: 40px; }
+}
+@media (min-width: 1024px) {
+  .event-detail-container { padding-left: 150px; padding-right: 150px; }
+}
+@media (min-width: 1280px) {
+  .event-detail-container { padding-left: 155px; padding-right: 140px; }
+}
+
+/* Hero image: Framer 1120×683 (radius 20px). Fixed heights, exact 683 at desktop. */
+.event-detail-hero {
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .event-detail-hero { height: 450px; }
+}
+@media (min-width: 1024px) {
+  .event-detail-hero { height: 683px; }
+}
+
+/* TextBlock: content (1fr) + sidebar, gap 40px */
+.event-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+}
+@media (min-width: 1024px) {
+  .event-detail-body { flex-direction: row; }
+}
+
+.event-detail-content {
+  flex: 1 1 0%;
+  min-width: 0;
+  width: 100%;
+}
+
+/* Sidebar: sticky top 150px, maxWidth 300px, gap 31px */
+.event-detail-sidebar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .event-detail-sidebar {
+    width: 300px;
+    max-width: 300px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 150px;
+    align-self: flex-start;
+  }
+}
+
+/* Inline content images (DetailsImage): 380px, radius 20px */
+.event-detail-content :is(img) {
+  border-radius: 20px;
+}
+
+/* About Me logo: centered on mobile, left-shifted on desktop */
+.event-detail-about-logo { align-self: center; }
+@media (min-width: 1024px) {
+  .event-detail-about-logo { align-self: flex-start; transform: translateX(-24px); }
+}
+
+/* Strict spacing for WP HTML content blocks */
+.strict-spacing-container > * { margin-top: 0 !important; margin-bottom: 24px !important; }
+.strict-spacing-container > *:last-child { margin-bottom: 0 !important; }
+.strict-spacing-container figure { margin-top: 0 !important; margin-bottom: 24px !important; }
+.strict-spacing-container figure > img { margin: 0 !important; }
+
+/* ─── Products Page ──────────────────────────────────────────── */
+.products-page-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 640px) {
+  .products-page-container { padding-left: 32px; padding-right: 32px; }
+}
+@media (min-width: 768px) {
+  .products-page-container { padding-left: 40px; padding-right: 40px; }
+}
+@media (min-width: 1024px) {
+  .products-page-container { padding-left: 150px; padding-right: 150px; }
+}
+@media (min-width: 1280px) {
+  .products-page-container { padding-left: 155px; padding-right: 140px; }
+}
+
+/* Framer grid: 3 cols, gap 8px — 1 col mobile, 2 col tablet, 3 col desktop */
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+@media (min-width: 640px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+@media (min-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+}
+
+/* ─── Product Detail Page ────────────────────────────────────── */
+/* Framer Information: horizontal, gap 20px, align start */
+.product-detail-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+}
+@media (min-width: 768px) {
+  .product-detail-layout { flex-direction: row; gap: 20px; }
+}
+
+.product-detail-images {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (min-width: 768px) {
+  .product-detail-images { flex: 1 1 0%; }
+}
+
+/* Framer ProductImages: height 510px, aspectRatio 1 */
+.product-main-image {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+@media (min-width: 768px) {
+  .product-main-image { height: 420px; }
+}
+@media (min-width: 1024px) {
+  .product-main-image { height: 510px; }
+}
+
+/* Right column: Framer NameChipPrice + ButtonDescription, gap 24px each */
+.product-detail-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media (min-width: 768px) {
+  .product-detail-info { flex: 1 1 0%; }
+}
+
+/* ─── Gallery Page ───────────────────────────────────────────── */
+.gallery-page-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 640px) {
+  .gallery-page-container { padding-left: 32px; padding-right: 32px; }
+}
+@media (min-width: 768px) {
+  .gallery-page-container { padding-left: 40px; padding-right: 40px; }
+}
+@media (min-width: 1024px) {
+  .gallery-page-container { padding-left: 150px; padding-right: 150px; }
+}
+@media (min-width: 1280px) {
+  .gallery-page-container { padding-left: 155px; padding-right: 140px; }
+}
+
+/* Framer image row: horizontal flex, gap 10px */
+.gallery-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (min-width: 768px) {
+  .gallery-row { flex-direction: row; }
+}
+
+/* Image cells — mobile: full width, fixed heights */
+.gallery-img-55,
+.gallery-img-fill,
+.gallery-img-25,
+.gallery-img-full,
+.gallery-img-49 {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 220px;
+  flex-shrink: 0;
+}
+.gallery-stack-50 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.gallery-stack-inner {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 220px;
+}
+
+/* Desktop: Framer exact proportions, 399px height */
+@media (min-width: 768px) {
+  .gallery-img-55  { width: 55%; height: 399px; }
+  .gallery-img-fill { flex: 1 1 0%; height: 399px; }
+  .gallery-img-25  { width: 25%; height: 399px; }
+  .gallery-img-full { height: 399px; }
+  .gallery-img-49  { width: 49%; height: 399px; }
+  .gallery-stack-50 { width: 50%; height: 399px; flex-direction: column; }
+  .gallery-stack-inner { flex: 1 1 0%; height: auto; }
+}
+
 /* ─── Image hover zoom ─────────────────────────────────────── */
 .img-zoom {
   overflow: hidden;

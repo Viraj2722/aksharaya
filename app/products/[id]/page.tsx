@@ -35,17 +35,13 @@ export default async function ProductDetailPage({
   if (!product) notFound()
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-
-      {/* Main Container — fades in on load */}
-      <div
-        className="max-w-7xl !mx-auto !px-4 sm:!px-6 lg:!px-8 w-full !pb-24 !pt-24 opacity-0 animate-fade-in-up"
-        style={{ animationDelay: '0.1s' }}
-      >
-        <ProductDetail product={product} />
-      </div>
-
+      <main className="flex-1 w-full flex flex-col">
+        <div className="w-full products-page-container" style={{ paddingTop: '40px', paddingBottom: '80px' }}>
+          <ProductDetail product={product} />
+        </div>
+      </main>
       <Footer />
     </div>
   )

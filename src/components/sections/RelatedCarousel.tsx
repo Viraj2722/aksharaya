@@ -27,8 +27,9 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
   if (events.length === 0) return null
 
   return (
-    <div className="w-full max-w-[1120px] mx-auto related-blogs-override relative" style={{ marginTop: '40px', marginBottom: '60px' }}>
-      <h2 className="text-[24px] md:text-[32px] font-bold text-black" style={{ marginBottom: '20px' }}>
+    <div className="w-full relative">
+      {/* Framer: "Related Blogs" — Mukta-600, 22px */}
+      <h2 style={{ fontSize: '22px', lineHeight: '28px', fontWeight: 600, color: 'rgb(28, 28, 28)', margin: '0 0 40px 0' }}>
         Related Blogs
       </h2>
       
@@ -54,9 +55,9 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
         </button>
       </div>
 
-      <div 
+      <div
         ref={scrollContainerRef}
-        className="flex overflow-x-auto gap-x-[13px] pb-8 snap-x snap-mandatory hide-scrollbar"
+        className="flex overflow-x-auto gap-x-[10px] pb-8 snap-x snap-mandatory hide-scrollbar"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         <style>{`
@@ -64,9 +65,9 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
         `}</style>
 
         {events.map((related) => (
-          <div key={related.id} className="flex flex-col group cursor-pointer event-card shrink-0 w-full md:w-[calc(50%-6.5px)] lg:w-[calc(33.333%-8.67px)] snap-start">
+          <div key={related.id} className="flex flex-col group cursor-pointer event-card shrink-0 w-full md:w-[calc(50%-5px)] lg:w-[calc(33.333%-6.67px)] snap-start">
             <Link href={`/events/${related.slug}`} className="flex flex-col flex-1 h-full">
-              <div className="relative w-full overflow-hidden mb-6 bg-gray-100 shrink-0 h-[280px] md:h-[350px] lg:h-[420px]">
+              <div className="relative w-full overflow-hidden bg-gray-100 shrink-0" style={{ height: '280px' }}>
                 <Image
                   src={related.coverImage}
                   alt={related.title}
@@ -75,14 +76,14 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="flex flex-col flex-1" style={{ marginTop: '10px' }}>
-                <span className="text-[15px] md:text-[13px] text-gray-500 uppercase tracking-wide font-medium">
+              <div className="flex flex-col flex-1" style={{ gap: '10px', padding: '15px 0' }}>
+                <span style={{ fontSize: '13px', lineHeight: '19px', letterSpacing: '-0.04em', fontWeight: 600, color: 'rgb(115, 115, 115)' }}>
                   {related.date}
                 </span>
-                <h3 className="text-xl md:text-[20px] font-bold text-gray-900 leading-snug group-hover:underline underline-offset-4 decoration-2" style={{ marginTop: '5px', marginBottom: '5px' }}>
+                <h3 className="group-hover:underline underline-offset-4 decoration-2" style={{ fontSize: '18px', lineHeight: '24px', letterSpacing: '0px', fontWeight: 400, color: 'rgb(28, 28, 28)', margin: 0 }}>
                   {related.title}
                 </h3>
-                <p className="text-[16px] md:text-[14px] text-gray-600 line-clamp-3 leading-relaxed">
+                <p style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.02em', fontWeight: 300, color: 'rgb(68, 68, 68)', margin: 0, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
                   {related.description}
                 </p>
               </div>

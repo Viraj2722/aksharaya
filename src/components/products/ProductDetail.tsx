@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { Plus } from 'lucide-react'
 import { Product } from '@/types/product'
 
 interface Props {
@@ -10,9 +9,7 @@ interface Props {
 }
 
 export function ProductDetail({ product }: Props) {
-  // Use the 5 images fetched from WordPress ACF
   const images = product.images
-
   const [activeImageIndex, setActiveImageIndex] = useState(0)
   const [isAccordionOpen, setIsAccordionOpen] = useState(false)
 
@@ -25,12 +22,17 @@ export function ProductDetail({ product }: Props) {
   }, [images.length])
 
   return (
-    <div className="flex flex-col md:flex-row gap-12 lg:gap-20 items-start">
+    /*
+      Framer Information: horizontal stack, gap 20px, align start
+      Left (ProductImage): 1fr — main image 510px + thumbnails
+      Right (Description): 1fr — chip + title + button + accordion
+    */
+    <div className="product-detail-layout">
 
-      {/* Left Column — Image Gallery */}
-      <div className="w-full md:w-1/2 flex flex-col gap-4">
-        {/* Main Image */}
-        <div className="relative w-full aspect-[4/3] md:aspect-square bg-[#f0f0f0] overflow-hidden">
+      {/* Left — Image Gallery */}
+      <div className="product-detail-images">
+        {/* Main image: Framer ProductImages height=510px, aspectRatio=1 */}
+        <div className="product-main-image">
           {images.map((img, idx) => (
             <Image
               key={idx}
@@ -46,24 +48,25 @@ export function ProductDetail({ product }: Props) {
           ))}
         </div>
 
-        {/* Thumbnails — only render if more than 1 image */}
+        {/* Thumbnails */}
         {images.length > 1 && (
-          <div className="grid grid-cols-5 gap-4">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '10px' }}>
             {images.map((img, idx) => (
               <div
                 key={idx}
                 onClick={() => setActiveImageIndex(idx)}
-                className={`relative w-full aspect-square bg-[#f0f0f0] cursor-pointer overflow-hidden border transition-all duration-300 ${
-                  activeImageIndex === idx
-                    ? 'border-[#ff6600]'
-                    : 'border-transparent hover:border-gray-300'
-                }`}
+                className="relative cursor-pointer overflow-hidden bg-[#f0f0f0]"
+                style={{
+                  aspectRatio: '1',
+                  border: activeImageIndex === idx ? '1.5px solid rgb(28,28,28)' : '1.5px solid transparent',
+                  transition: 'border-color 0.2s',
+                }}
               >
                 <Image
                   src={img}
                   alt={`Thumbnail ${idx + 1}`}
                   fill
-                  sizes="(max-width: 768px) 20vw, 10vw"
+                  sizes="10vw"
                   className="object-cover"
                 />
               </div>
@@ -72,81 +75,100 @@ export function ProductDetail({ product }: Props) {
         )}
       </div>
 
-      {/* Right Column — Product Details */}
-      <div className="w-full md:w-1/2 flex flex-col !pt-2 lg:!pt-0">
+      {/* Right — Product Details */}
+      <div className="product-detail-info">
 
-        {/* Popular Item Tag (Always visible as requested) */}
-        <div className="!mb-6 inline-flex">
-          <span className="text-[18px] text-[#888888] border border-[#e5e5e5] !px-3 !py-1.5 font-normal">
-            Popular Item
-          </span>
+        {/* NameChipPrice: gap 24px */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+
+          {/* NameChip: gap 16px — chip + (title + subtitle) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+
+            {/* Chip — "Popular Item": H5 style */}
+            <div style={{ display: 'inline-flex' }}>
+              <span style={{
+                fontSize: '13px', lineHeight: '19px', letterSpacing: '-0.04em',
+                color: 'rgb(115, 115, 115)', border: '1px solid rgb(230, 230, 230)',
+                padding: '4px 12px', fontWeight: 400,
+              }}>
+                Popular Item
+              </span>
+            </div>
+
+            {/* ProductName: gap 8px — title + subtitle */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {/* Title — H2: 22px, 28lh, -0.01em */}
+              <h1 style={{ fontSize: '22px', lineHeight: '28px', letterSpacing: '-0.01em', fontWeight: 400, color: 'rgb(28, 28, 28)', margin: 0 }}>
+                {product.title}
+              </h1>
+              {/* Subtitle — Body: 16px, 22lh, -0.02em */}
+              {product.subtitle && (
+                <p style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.02em', color: 'rgb(115, 115, 115)', margin: 0 }}>
+                  {product.subtitle}
+                </p>
+              )}
+            </div>
+
+          </div>
         </div>
 
-        {/* Title */}
-        <h1 className={`text-[26px] md:text-[30px] lg:text-[32px] text-[#111111] font-bold leading-tight ${product.subtitle ? '!mb-1' : '!mb-3'}`}>
-          {product.title}
-        </h1>
-
-        {/* Subtitle */}
-        {product.subtitle && (
-          <p className="text-[18px] text-[#888888] leading-relaxed !mb-5">
-            {product.subtitle}
-          </p>
-        )}
-
-        {/* Price (Commented out per user request) */}
-        {/* {product.price && (
-          <p className="text-[18px] text-[#888888] leading-relaxed !mb-5">
-            RS {product.price}
-          </p>
-        )} */}
+        {/* ButtonDescription: gap 24px — button + accordion */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 
         {/* CTA Button */}
-        <div className="w-full flex flex-col items-center !mb-6 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          <a
-            href={product.buyLink || '#'}
-            target={product.buyLink && product.buyLink !== '#' ? '_blank' : undefined}
-            rel="noopener noreferrer"
-            className="relative cursor-pointer overflow-hidden group w-full bg-[#1c1c1c] text-white !py-4 text-[18px] font-medium tracking-wide hover:bg-black transition-colors !mb-2 text-center block"
-          >
-            <span className="relative z-10">CONTACT NOW</span>
-            {/* Shine effect */}
-            <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg] group-hover:left-[100%] transition-all duration-700 ease-in-out" />
-          </a>
-          <p className="text-[13px] text-[#888888]">
-            * You will be redirected to a Google Form to enter your details
-          </p>
-        </div>
+        <a
+          href={product.buyLink || '#'}
+          target={product.buyLink && product.buyLink !== '#' ? '_blank' : undefined}
+          rel="noopener noreferrer"
+          className="group relative overflow-hidden block w-full text-center"
+          style={{
+            backgroundColor: 'rgb(28, 28, 28)', color: 'white',
+            padding: '14px 24px', fontSize: '16px', lineHeight: '22px',
+            letterSpacing: '-0.02em', fontWeight: 500, textDecoration: 'none',
+          }}
+        >
+          <span className="relative z-10">CONTACT NOW</span>
+          <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg] group-hover:left-[100%] transition-all duration-700 ease-in-out" />
+        </a>
 
         {/* Description Accordion */}
         {product.description && (
-          <div className="border border-[#e5e5e5] opacity-0 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+          <div style={{ border: '1px solid rgb(230, 230, 230)' }}>
             <button
               onClick={() => setIsAccordionOpen(!isAccordionOpen)}
-              className="w-full flex items-center justify-between !px-5 !py-3 bg-white hover:bg-gray-50 transition-colors group"
+              className="w-full flex items-center justify-between hover:bg-gray-50 transition-colors"
+              style={{ padding: '16px 20px', background: 'white', cursor: 'pointer', border: 'none' }}
             >
-              <span className="text-[18px] text-[#333333] font-normal">Description</span>
-              <Plus
-                size={20}
-                className={`transition-all duration-500 ease-in-out transform group-hover:scale-125 ${
-                  isAccordionOpen ? 'rotate-[315deg] text-[#ff6600]' : 'rotate-0 text-[#111111]'
-                }`}
-              />
+              <span style={{ fontSize: '18px', lineHeight: '24px', color: 'rgb(28, 28, 28)', fontWeight: 400 }}>
+                Description
+              </span>
+              <div
+                style={{
+                  width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  transition: 'transform 0.3s ease',
+                  transform: isAccordionOpen ? 'rotate(45deg)' : 'rotate(0deg)',
+                  fontSize: '24px', color: 'rgb(28,28,28)', lineHeight: 1,
+                }}
+              >
+                +
+              </div>
             </button>
-
-            {/* Accordion Content */}
             <div
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                isAccordionOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-              }`}
+              style={{
+                overflow: 'hidden',
+                maxHeight: isAccordionOpen ? '400px' : '0px',
+                opacity: isAccordionOpen ? 1 : 0,
+                transition: 'max-height 0.3s ease, opacity 0.3s ease',
+              }}
             >
-              <div className="!px-5 !pb-5 !pt-3 text-[15px] text-[#888888] leading-relaxed">
-                <p>{product.description}</p>
+              <div style={{ padding: '12px 20px 20px', fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.02em', color: 'rgb(115, 115, 115)' }}>
+                <p style={{ margin: 0 }}>{product.description}</p>
               </div>
             </div>
           </div>
         )}
 
+        </div>{/* end ButtonDescription */}
       </div>
     </div>
   )

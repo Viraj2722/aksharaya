@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'aksharaya.org',
       },
+      {
+        protocol: 'https',
+        hostname: 'framerusercontent.com',
+      },
     ],
   },
 }
