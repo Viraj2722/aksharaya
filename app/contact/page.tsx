@@ -11,75 +11,103 @@ export default function ContactPage() {
       <Navbar />
 
       <style>{`
+        /* Horizontal padding — mobile base, desktop unchanged */
+        .contact-page-container { padding-left: 20px; padding-right: 20px; }
+        @media (min-width: 640px) {
+          .contact-page-container { padding-left: 32px; padding-right: 32px; }
+        }
+        @media (min-width: 768px) {
+          .contact-page-container { padding-left: 40px; padding-right: 40px; }
+        }
         @media (min-width: 1024px) {
           .contact-page-container { padding-left: 150px; padding-right: 150px; }
         }
         @media (min-width: 1280px) {
           .contact-page-container { padding-left: 155px; padding-right: 140px; }
         }
+
+        /* Form panel responsive padding */
+        .contact-form-panel { padding: 24px 16px; }
+        @media (min-width: 640px) {
+          .contact-form-panel { padding: 32px 24px; }
+        }
+        @media (min-width: 1024px) {
+          .contact-form-panel { padding: 40px 32px; }
+        }
+
+        /* Name+Email row gap */
+        .name-email-row { gap: 16px; }
+        @media (min-width: 768px) {
+          .name-email-row { gap: 40px; }
+        }
+
+        /* Fields container gap */
+        .fields-container { gap: 16px; }
+        @media (min-width: 768px) {
+          .fields-container { gap: 20px; }
+        }
+
+        /* Form outer gap (fields → button) */
+        .contact-form { gap: 24px; }
+        @media (min-width: 1024px) {
+          .contact-form { gap: 40px; }
+        }
+
+        /* Sidebar width */
+        .contact-sidebar { width: 100%; }
+        @media (min-width: 1024px) {
+          .contact-sidebar { width: 25%; flex-shrink: 0; }
+        }
+
+        /* Logo size */
+        .contact-logo { width: 100%; max-width: 267px; height: auto; }
+        @media (min-width: 1024px) {
+          .contact-logo { width: 267px; height: 80px; }
+        }
+
+        /* Input font inherit */
         .contact-input { font-family: inherit; }
         .contact-input:focus { outline: none; box-shadow: 0 0 0 2px rgb(230,230,230); }
       `}</style>
 
-      {/*
-        Framer: Container top=130px (nav top=20px + height=80px + 30px gap)
-        padding="0px 45px" → we match navbar padding instead for alignment
-        gap="24px" vertical
-      */}
       <div
-        className="w-full px-4 md:px-8 contact-page-container"
+        className="w-full contact-page-container"
         style={{
           display: 'flex',
           flexDirection: 'column',
           paddingTop: '30px',
           paddingBottom: '80px',
+
           gap: '24px',
         }}
       >
 
-        {/*
-          Framer ContactForm: horizontal stack, gap="24px"
-          stackDirection="horizontal", stackDistribution="start", stackAlignment="start"
-        */}
+        {/* Form + Sidebar row: stacks on mobile, side-by-side on lg+ */}
         <div
           className="flex flex-col lg:flex-row"
           style={{ gap: '24px', alignItems: 'flex-start' }}
         >
 
-          {/*
-            Framer Form: width="1fr", backgroundColor="/Off-White"=rgb(245,245,245)
-            borderRadius="24px", border 1px solid rgb(230,230,230)
-            overflow="hidden", padding="40px 32px", gap="40px"
-            stackDirection="vertical", stackDistribution="start", stackAlignment="start"
-          */}
+          {/* ── Form Panel ── */}
           <div
+            className="contact-form-panel w-full"
             style={{
               flex: '1 1 0%',
               display: 'flex',
               flexDirection: 'column',
-              gap: '40px',
               backgroundColor: 'rgb(245, 245, 245)',
               borderRadius: '24px',
               border: '1px solid rgb(230, 230, 230)',
               overflow: 'hidden',
-              padding: '40px 32px',
             }}
           >
-            <form style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+            <form className="contact-form" style={{ display: 'flex', flexDirection: 'column' }}>
 
-              {/*
-                Framer inner Container: gap="20px"
-                stackDirection="vertical", stackAlignment="center"
-              */}
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {/* Fields */}
+              <div className="fields-container" style={{ display: 'flex', flexDirection: 'column' }}>
 
-                {/*
-                  Framer NameEmailBlock: gap="40px", horizontal
-                  stackDistribution="center", stackAlignment="center"
-                */}
-                <div className="flex flex-col md:flex-row" style={{ gap: '40px' }}>
-
-                  {/* Framer NameField: width="1fr", gap="6px", vertical, stackAlignment="start" */}
+                {/* Name + Email: stacks on mobile, side-by-side on md+ */}
+                <div className="name-email-row flex flex-col md:flex-row">
                   <div style={{ flex: '1 1 0%', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     <label htmlFor="name" style={{ fontSize: '16px', lineHeight: '22px', color: 'rgb(28, 28, 28)', fontWeight: 400 }}>
                       Name*
@@ -88,9 +116,8 @@ export default function ContactPage() {
                       type="text"
                       id="name"
                       placeholder="Enter your Name"
-                      className="contact-input"
+                      className="contact-input w-full"
                       style={{
-                        width: '100%',
                         backgroundColor: 'rgb(255, 255, 255)',
                         border: '1px solid rgb(230, 230, 230)',
                         borderRadius: '12px',
@@ -103,7 +130,6 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  {/* Framer EmailField: width="1fr", gap="6px", vertical, stackAlignment="start" */}
                   <div style={{ flex: '1 1 0%', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                     <label htmlFor="email" style={{ fontSize: '16px', lineHeight: '22px', color: 'rgb(28, 28, 28)', fontWeight: 400 }}>
                       Email*
@@ -112,9 +138,8 @@ export default function ContactPage() {
                       type="email"
                       id="email"
                       placeholder="Email address"
-                      className="contact-input"
+                      className="contact-input w-full"
                       style={{
-                        width: '100%',
                         backgroundColor: 'rgb(255, 255, 255)',
                         border: '1px solid rgb(230, 230, 230)',
                         borderRadius: '12px',
@@ -128,7 +153,7 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Framer SubjectBlock: gap="6px", vertical, stackAlignment="start" */}
+                {/* Subject */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   <label htmlFor="subject" style={{ fontSize: '16px', lineHeight: '22px', color: 'rgb(28, 28, 28)', fontWeight: 400 }}>
                     Subject*
@@ -137,9 +162,8 @@ export default function ContactPage() {
                     type="text"
                     id="subject"
                     placeholder="Subject"
-                    className="contact-input"
+                    className="contact-input w-full"
                     style={{
-                      width: '100%',
                       backgroundColor: 'rgb(255, 255, 255)',
                       border: '1px solid rgb(230, 230, 230)',
                       borderRadius: '12px',
@@ -152,7 +176,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* Framer MessageBlock: gap="6px", vertical, stackAlignment="start" */}
+                {/* Message */}
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   <label htmlFor="message" style={{ fontSize: '16px', lineHeight: '22px', color: 'rgb(28, 28, 28)', fontWeight: 400 }}>
                     Message
@@ -161,9 +185,8 @@ export default function ContactPage() {
                     id="message"
                     rows={5}
                     placeholder="Write Something"
-                    className="contact-input"
+                    className="contact-input w-full"
                     style={{
-                      width: '100%',
                       backgroundColor: 'rgb(255, 255, 255)',
                       border: '1px solid rgb(230, 230, 230)',
                       borderRadius: '12px',
@@ -178,7 +201,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Framer SubmitButton: width="fit-content", height="fit-content" */}
+              {/* Submit */}
               <div>
                 <button
                   type="submit"
@@ -192,11 +215,11 @@ export default function ContactPage() {
                     height: '48px',
                     fontSize: '16px',
                     fontWeight: 500,
+                    fontFamily: 'inherit',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontFamily: 'inherit',
                   }}
                   onMouseEnter={e => { e.currentTarget.style.backgroundColor = 'rgb(255,255,255)'; e.currentTarget.style.color = 'rgb(28,28,28)'; }}
                   onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'rgb(28,28,28)'; e.currentTarget.style.color = 'rgb(255,255,255)'; }}
@@ -207,27 +230,17 @@ export default function ContactPage() {
             </form>
           </div>
 
-          {/*
-            Framer Sidebar: width="25%", gap="24px"
-            stackDirection="vertical", stackDistribution="center", stackAlignment="center"
-            → alignItems: 'center' on sidebar
-          */}
+          {/* ── Sidebar ── */}
           <div
-            className="w-full lg:w-[25%]"
+            className="contact-sidebar"
             style={{
-              flexShrink: 0,
               display: 'flex',
               flexDirection: 'column',
               gap: '24px',
               alignItems: 'center',
             }}
           >
-
-            {/*
-              Framer About: width="1fr", gap="20px"
-              stackDirection="vertical", stackDistribution="center", stackAlignment="center"
-              → alignItems: 'center', full width
-            */}
+            {/* About block */}
             <div
               style={{
                 width: '100%',
@@ -238,7 +251,6 @@ export default function ContactPage() {
                 overflow: 'hidden',
               }}
             >
-              {/* Framer AboutMe: width="1fr", font="GF;Mukta-600" → fontWeight 600 */}
               <h3
                 style={{
                   width: '100%',
@@ -253,19 +265,15 @@ export default function ContactPage() {
                 About Me
               </h3>
 
-              {/* Framer Image: width="267px", height="80px" — centered by parent alignItems */}
               <Image
                 src="/single-logo.svg"
                 alt="Aksharaya logo mark"
                 width={267}
                 height={80}
-                style={{ width: '267px', height: '80px', objectFit: 'contain', flexShrink: 0 }}
+                className="contact-logo"
+                style={{ objectFit: 'contain', flexShrink: 0 }}
               />
 
-              {/*
-                Framer Author: width="1fr", stackAlignment="start"
-                → description text is left-aligned
-              */}
               <p
                 style={{
                   width: '100%',
@@ -282,11 +290,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/*
-              Framer Follow: width="1fr", gap="20px"
-              stackDirection="vertical", stackDistribution="center", stackAlignment="center"
-              → alignItems: 'center', full width
-            */}
+            {/* Follow block */}
             <div
               style={{
                 width: '100%',
@@ -297,7 +301,6 @@ export default function ContactPage() {
                 overflow: 'hidden',
               }}
             >
-              {/* Framer FollowAksharaya: width="1fr", inlineTextStyle="/TypeScale/H3" → 18px, 24px lh */}
               <p
                 style={{
                   width: '100%',
@@ -312,7 +315,6 @@ export default function ContactPage() {
                 Follow Aksharaya
               </p>
 
-              {/* Framer Author: gap="10px", stackAlignment="start" → icons left-aligned */}
               <div style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
                   <FacebookIcon />
