@@ -1,11 +1,26 @@
 import Link from 'next/link'
-import { getBlogs } from '@/lib/getBlogs'
+import { getHomepageUnified } from '@/lib/getEvents'
 import { BlogCard } from '@/components/cards/BlogCard'
+import { Blog } from '@/types/blog'
 
-export function FeaturedBlogs() {
-  const blogs = getBlogs(5)
-  const topBlogs = blogs.slice(0, 2)
-  const bottomBlogs = blogs.slice(2, 5)
+export async function FeaturedBlogs() {
+  const { insightsEvents } = await getHomepageUnified()
+  
+  // Map Events to Blog interface since they are logically the same
+  const insightsBlogs: Blog[] = insightsEvents.map((event) => ({
+    id: event.id,
+    title: event.title,
+    slug: event.slug,
+    excerpt: event.description,
+    category: event.type || 'Event',
+    date: event.date,
+    coverImage: event.coverImage,
+    isFeatured: event.isFeatured,
+    content: event.content,
+  }))
+
+  const topBlogs = insightsBlogs.slice(0, 2)
+  const bottomBlogs = insightsBlogs.slice(2, 5)
 
   return (
     <section

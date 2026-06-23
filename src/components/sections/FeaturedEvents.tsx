@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getEvents } from '@/lib/getEvents'
+import { getHomepageUnified } from '@/lib/getEvents'
 import { EventCard } from '@/components/cards/EventCard'
 
 function FacebookIcon() {
@@ -38,7 +38,7 @@ function PinterestIcon() {
 }
 
 export async function FeaturedEvents() {
-  const events = await getEvents()
+  const { previousEvents } = await getHomepageUnified()
 
   return (
     <section
@@ -82,7 +82,7 @@ export async function FeaturedEvents() {
 
             {/* Events */}
             <div>
-              {events.map((event) => (
+              {previousEvents.map((event) => (
                 <EventCard key={event.id} event={event} />
               ))}
             </div>
@@ -119,7 +119,7 @@ export async function FeaturedEvents() {
                 alt="Aksharaya logo mark"
                 width={440}
                 height={160}
-                className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.2] md:origin-left md:-translate-x-20 md:-translate-y-3"
+                className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.35] md:origin-left md:-translate-x-12 md:-translate-y-3"
                 style={{ width: '100%', height: 'auto' }}
               />
             </div>

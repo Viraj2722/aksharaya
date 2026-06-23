@@ -6,4 +6,6 @@ export interface Blog {
   category: string
   date: string
   coverImage: string
+  isFeatured: boolean
+  content: string
 }

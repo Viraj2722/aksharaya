@@ -4,50 +4,39 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import DOMPurify from 'isomorphic-dompurify'
 import { Navbar } from '@/components/layout/Navbar'
-import {
-  FacebookIcon,
-  TwitterIcon,
-  InstagramIcon,
-  PinterestIcon,
-  Footer,
-} from '@/components/layout/Footer'
-import { getEvents, getEventBySlug } from '@/lib/getEvents'
-import { RelatedCarousel } from '@/components/sections/RelatedCarousel'
+import { FacebookIcon, TwitterIcon, InstagramIcon, PinterestIcon, Footer } from '@/components/layout/Footer'
+import { getBlogs, getBlogBySlug } from '@/lib/getBlogs'
 
 export async function generateStaticParams() {
-  const events = await getEvents()
-  return events.map((e) => ({ id: e.slug }))
+  const blogs = await getBlogs()
+  return blogs.map((b) => ({ slug: b.slug }))
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>
+  params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  const { id } = await params
-  const event = await getEventBySlug(id)
-  if (!event) return {}
+  const { slug } = await params
+  const blog = await getBlogBySlug(slug)
+  if (!blog) return {}
   return {
-    title: event.title,
-    description: event.description,
+    title: blog.title,
+    description: blog.excerpt,
   }
 }
 
-export default async function EventDetailPage({
+export default async function BlogDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>
+  params: Promise<{ slug: string }>
 }) {
-  const { id } = await params
-  const event = await getEventBySlug(id)
+  const { slug } = await params
+  const blog = await getBlogBySlug(slug)
 
-  if (!event) notFound()
+  if (!blog) notFound()
 
-  const cleanContent = DOMPurify.sanitize(event.content)
-
-  // Fetch a few other events for the "Related" section
-  const allEvents = await getEvents()
-  const relatedEvents = allEvents.filter((e) => e.slug !== event.slug).slice(0, 10)
+  const cleanContent = DOMPurify.sanitize(blog.content)
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -60,22 +49,23 @@ export default async function EventDetailPage({
             .related-blogs-override { margin-top: 40px !important; }
           }
         `}} />
-
-        {/* Main Wrapper */}
+        {/* Main Wrapper with exact width */}
         <div className="page-container w-full max-w-[1120px] mx-auto px-6 sm:px-8 md:px-12" style={{ paddingLeft: '5vw', paddingRight: '5vw' }}>
-
-          {/* Upper Container (Fixed Height: 204px) */}
-          <div className="max-w-[1120px] flex flex-col justify-center py-12 lg:py-0 lg:h-[204px]">
+          
+          {/* Upper Container */}
+          <div 
+            className="max-w-[1120px] flex flex-col justify-center py-12 lg:py-0 lg:h-[204px]" 
+          >
             {/* Breadcrumb */}
             <div className="max-w-[1120px] flex items-center text-[16px] text-black" style={{ marginBottom: '10px', gap: '12px', marginTop: '65px' }}>
               <Link href="/events" className="relative group cursor-pointer inline-block">
-                <span className="text-black group-hover:text-gray-700 transition-colors duration-300">Project</span>
+                <span className="text-black group-hover:text-gray-700 transition-colors duration-300">Blog</span>
                 <span className="absolute left-0 -bottom-1 w-0 h-[1.5px] bg-black transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 9L5 5L1 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span className="font-medium">Event Details</span>
+              <span className="font-medium">Blog Details</span>
             </div>
 
             {/* Mobile Spacing Above Title */}
@@ -83,45 +73,29 @@ export default async function EventDetailPage({
 
             {/* Title */}
             <h1 className="text-[26px] md:text-[44px] lg:text-[50px] font-medium text-[#111111] leading-[1.1] tracking-tight max-w-[1050px]" style={{ marginBottom: '15px' }}>
-              {event.title}
+              {blog.title}
             </h1>
 
             {/* Mobile Spacing Below Title */}
             <div className="block md:hidden w-full" style={{ height: '15px' }} aria-hidden="true"></div>
 
-            {/* Meta: date + type + location */}
-            <div className="flex flex-wrap items-center gap-3" style={{ marginBottom: '35px' }}>
-              <div className="w-[24px] h-[24px] rounded-full bg-[#E5E5E5] overflow-hidden relative shrink-0"></div>
+            {/* Author Info */}
+            <div className="flex items-center" style={{ gap: '10px', marginBottom: '35px' }}>
+              <div className="w-[24px] h-[24px] rounded-full bg-[#E5E5E5] overflow-hidden relative">
+                {/* Circular placeholder for avatar */}
+              </div>
               <span className="text-[16px] text-black font-medium">Aksharaya</span>
-              {event.date && (
-                <>
-                  <span className="text-[#cccccc]">┊</span>
-                  <span className="text-[16px] text-[#888888]">{event.date}</span>
-                </>
-              )}
-              {/* {event.type && (
-                <>
-                  <span className="text-[#cccccc]">┊</span>
-                  <span className="text-[13px] font-semibold tracking-wider uppercase text-[#111111]">{event.type}</span>
-                </>
-              )} */}
-              {event.location && (
-                <>
-                  <span className="text-[#cccccc]">┊</span>
-                  <span className="text-[16px] text-[#888888]">{event.location}</span>
-                </>
-              )}
             </div>
           </div>
 
           {/* Main Hero Image */}
-          <div
-            className="max-w-[1120px] relative overflow-hidden h-[300px] md:h-[450px] lg:h-[683px] hero-mobile-override"
+          <div 
+            className="max-w-[1120px] relative overflow-hidden h-[300px] md:h-[450px] lg:h-[683px] hero-mobile-override" 
             style={{ borderRadius: '16px', marginTop: '35px' }}
           >
             <Image
-              src={event.coverImage}
-              alt={event.title}
+              src={blog.coverImage}
+              alt={blog.title}
               fill
               sizes="(max-width: 1200px) 100vw, 1120px"
               className="object-cover"
@@ -129,56 +103,28 @@ export default async function EventDetailPage({
             />
           </div>
 
-          {/* Two-column layout: content + sidebar */}
           <div className="max-w-[1120px] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24" style={{ marginTop: '50px' }}>
-
-            {/* Left Column (Span 8) — WP Content */}
+            
+            {/* Left Column (Span 8) */}
             <div className="lg:col-span-8 flex flex-col">
-              {cleanContent && (
-                <>
-                  <style dangerouslySetInnerHTML={{ __html: `
-                    .strict-spacing-container > * {
-                      margin-top: 0 !important;
-                      margin-bottom: 33px !important;
-                    }
-                    .strict-spacing-container > *:last-child {
-                      margin-bottom: 0 !important;
-                    }
-                    .strict-spacing-container figure {
-                      margin-top: 0 !important;
-                      margin-bottom: 33px !important;
-                    }
-                    .strict-spacing-container figure > img {
-                      margin: 0 !important;
-                    }
-                  `}} />
-                  <div 
-                    className="prose max-w-none strict-spacing-container
-                               prose-headings:font-semibold
-                               prose-headings:text-[#111111]
-                               prose-h1:text-[32px] md:prose-h1:text-[40px]
-                               prose-h2:text-[24px] md:prose-h2:text-[32px]
-                               prose-h3:text-[20px] md:prose-h3:text-[24px]
-                               prose-p:text-[#555555]
-                               prose-p:text-[16px]
-                               prose-p:leading-relaxed
-                               prose-img:rounded-2xl
-                               prose-img:w-full
-                               prose-a:text-[#111111]
-                               prose-strong:text-[#111111]"
-                    dangerouslySetInnerHTML={{ __html: cleanContent }}
-                  />
-                </>
+              {cleanContent ? (
+                <div
+                  className="prose prose-lg max-w-none text-[#000000]"
+                  style={{ lineHeight: '1.6' }}
+                  dangerouslySetInnerHTML={{ __html: cleanContent }}
+                />
+              ) : (
+                <p className="text-[16px] text-[#666666]">{blog.excerpt}</p>
               )}
             </div>
 
-            {/* Right Column (Span 4) — Sticky Sidebar (Desktop Only) */}
+            {/* Right Column (Span 4) - Sticky Sidebar (Desktop Only) */}
             <div className="hidden lg:block lg:col-span-4 relative">
               <div className="sticky top-24 flex flex-col">
                 <h3 className="text-[24px] font-medium" style={{ color: '#111111', marginBottom: '8px' }}>
                   About Me
                 </h3>
-
+                
                 {/* Large logo */}
                 <div className="mb-6 about-me-logo-wrapper w-full px-4 md:px-0">
                   <Image
@@ -186,7 +132,7 @@ export default async function EventDetailPage({
                     alt="Aksharaya logo mark"
                     width={440}
                     height={160}
-                    className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.35] md:origin-left md:-translate-x-20 md:-translate-y-3"
+                    className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.35] md:origin-left md:-translate-x-12 md:-translate-y-3"
                     style={{ width: '100%', height: 'auto' }}
                   />
                 </div>
@@ -229,13 +175,11 @@ export default async function EventDetailPage({
                     </a>
                   </div>
                 </div>
+
               </div>
             </div>
 
           </div>
-
-          {/* Related Blogs Carousel */}
-          <RelatedCarousel events={relatedEvents} />
 
           {/* About Me (Mobile Only) */}
           <div className="flex lg:hidden w-full flex-col items-center text-center mt-4 overflow-hidden">
@@ -253,7 +197,7 @@ export default async function EventDetailPage({
               Aksharaya is an initiative dedicated to exploring typography, letterforms, and visual language across cultures. It brings together designers, educators, and researchers to share knowledge, ideas, and practices in the field of type and communication design. Through events like Typography Day, talks, and installations, Aksharaya fosters dialogue around the evolving role of typography in contemporary society.
             </p>
           </div>
-
+          
           {/* Mobile Spacer */}
           <div className="block lg:hidden w-full" style={{ height: '80px' }} aria-hidden="true"></div>
 

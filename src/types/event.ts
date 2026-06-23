@@ -3,7 +3,10 @@ export interface Event {
   title: string
   slug: string
   description: string
-  type: 'EVENT' | 'INSTALLATION' | 'INTERVIEW' | 'TALK'
+  type: string
   date: string
+  location: string
   coverImage: string
+  isFeatured: boolean
+  content: string
 }

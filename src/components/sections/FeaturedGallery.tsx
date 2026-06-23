@@ -3,8 +3,8 @@ import { getGallery } from '@/lib/getGallery'
 import { GalleryCard } from '@/components/cards/GalleryCard'
 import { SectionHeader } from '@/components/ui/SectionHeader'
 
-export function FeaturedGallery() {
-  const items = getGallery(6)
+export async function FeaturedGallery() {
+  const items = await getGallery(6)
 
   return (
     <section

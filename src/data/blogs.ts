@@ -9,6 +9,8 @@ export const blogs: Blog[] = [
     category: 'Strategy',
     date: 'July 25, 2024',
     coverImage: 'https://picsum.photos/seed/blog1/800/500',
+    isFeatured: true,
+    content: '',
   },
   {
     id: '2',
@@ -18,6 +20,8 @@ export const blogs: Blog[] = [
     category: 'Strategy',
     date: 'July 25, 2024',
     coverImage: 'https://picsum.photos/seed/blog2/800/500',
+    isFeatured: true,
+    content: '',
   },
   {
     id: '3',
@@ -27,6 +31,8 @@ export const blogs: Blog[] = [
     category: 'Strategy',
     date: 'December 2, 2024',
     coverImage: 'https://picsum.photos/seed/blog3/800/500',
+    isFeatured: false,
+    content: '',
   },
   {
     id: '4',
@@ -36,6 +42,8 @@ export const blogs: Blog[] = [
     category: 'Strategy',
     date: 'December 2, 2024',
     coverImage: 'https://picsum.photos/seed/blog4/800/500',
+    isFeatured: false,
+    content: '',
   },
   {
     id: '5',
@@ -45,5 +53,8 @@ export const blogs: Blog[] = [
     category: 'Strategy',
     date: 'December 2, 2024',
     coverImage: 'https://picsum.photos/seed/blog5/800/500',
+    isFeatured: false,
+    content: '',
   },
 ]
+

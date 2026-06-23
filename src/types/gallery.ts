@@ -4,4 +4,6 @@ export interface GalleryItem {
   description: string
   image: string
   alt: string
+  album: string
+  isFeatured: boolean
 }
