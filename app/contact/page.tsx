@@ -10,65 +10,6 @@ export default function ContactPage() {
     <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
 
-      <style>{`
-        /* Horizontal padding — mobile base, desktop unchanged */
-        .contact-page-container { padding-left: 20px; padding-right: 20px; }
-        @media (min-width: 640px) {
-          .contact-page-container { padding-left: 32px; padding-right: 32px; }
-        }
-        @media (min-width: 768px) {
-          .contact-page-container { padding-left: 40px; padding-right: 40px; }
-        }
-        @media (min-width: 1024px) {
-          .contact-page-container { padding-left: 150px; padding-right: 150px; }
-        }
-        @media (min-width: 1280px) {
-          .contact-page-container { padding-left: 155px; padding-right: 140px; }
-        }
-
-        /* Form panel responsive padding */
-        .contact-form-panel { padding: 24px 16px; }
-        @media (min-width: 640px) {
-          .contact-form-panel { padding: 32px 24px; }
-        }
-        @media (min-width: 1024px) {
-          .contact-form-panel { padding: 40px 32px; }
-        }
-
-        /* Name+Email row gap */
-        .name-email-row { gap: 16px; }
-        @media (min-width: 768px) {
-          .name-email-row { gap: 40px; }
-        }
-
-        /* Fields container gap */
-        .fields-container { gap: 16px; }
-        @media (min-width: 768px) {
-          .fields-container { gap: 20px; }
-        }
-
-        /* Form outer gap (fields → button) */
-        .contact-form { gap: 24px; }
-        @media (min-width: 1024px) {
-          .contact-form { gap: 40px; }
-        }
-
-        /* Sidebar width */
-        .contact-sidebar { width: 100%; }
-        @media (min-width: 1024px) {
-          .contact-sidebar { width: 25%; flex-shrink: 0; }
-        }
-
-        /* Logo size */
-        .contact-logo { width: 100%; max-width: 267px; height: auto; }
-        @media (min-width: 1024px) {
-          .contact-logo { width: 267px; height: 80px; }
-        }
-
-        /* Input font inherit */
-        .contact-input { font-family: inherit; }
-        .contact-input:focus { outline: none; box-shadow: 0 0 0 2px rgb(230,230,230); }
-      `}</style>
 
       <div
         className="w-full contact-page-container"
