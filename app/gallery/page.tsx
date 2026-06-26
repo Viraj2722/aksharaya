@@ -8,18 +8,18 @@ export const revalidate = 3600
 
 function GalleryCell({ item, sizes }: { item: GalleryItem; sizes: string }) {
   return (
-    <div className="relative overflow-hidden group cursor-pointer w-full h-full">
+    <div tabIndex={0} className="relative overflow-hidden group cursor-pointer w-full h-full focus:outline-none">
       <Image
         src={item.image}
         alt={item.alt}
         fill
         sizes={sizes}
-        className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:blur-[2px]"
+        className="object-cover transition-all duration-700 group-hover:scale-105 group-hover:blur-[1px] group-focus:scale-105 group-focus:blur-[1px]"
       />
       {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      {/* Title slides up on hover */}
-      <div className="absolute bottom-0 left-0 w-full !p-6 md:!p-8 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500" />
+      {/* Title slides up on hover/focus */}
+      <div className="absolute bottom-0 left-0 w-full !p-6 md:!p-8 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
         <h3 className="text-white text-[20px] md:text-[24px] font-medium tracking-wide">
           {item.title}
         </h3>

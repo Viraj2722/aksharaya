@@ -153,9 +153,9 @@ body {
   .name-email-row { gap: 40px; }
 }
 
-.contact-sidebar { width: 100%; }
+.contact-sidebar { width: 100%; margin-top: 24px; }
 @media (min-width: 1024px) {
-  .contact-sidebar { width: 25%; flex-shrink: 0; }
+  .contact-sidebar { width: 25%; flex-shrink: 0; margin-top: 0; }
 }
 
 .contact-logo { width: 100%; max-width: 267px; height: auto; }
@@ -362,7 +362,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 31px;
-  align-items: center;
+  align-items: flex-start;
 }
 @media (min-width: 1024px) {
   .event-detail-sidebar {
@@ -370,7 +370,7 @@ body {
     max-width: 300px;
     flex-shrink: 0;
     position: sticky;
-    top: 150px;
+    top: 100px;
     align-self: flex-start;
   }
 }
@@ -380,10 +380,16 @@ body {
   border-radius: 20px;
 }
 
-/* About Me logo: centered on mobile, left-shifted on desktop */
-.event-detail-about-logo { align-self: center; }
+/* About Me logo: left-aligned always (sidebar is flex-start) */
+.event-detail-about-logo { align-self: flex-start; }
 @media (min-width: 1024px) {
-  .event-detail-about-logo { align-self: flex-start; transform: translateX(-24px); }
+  .event-detail-about-logo { transform: translateX(-24px); }
+}
+
+/* Sidebar description: left-aligned on mobile, inherited on desktop */
+.sidebar-desc { text-align: left; }
+@media (min-width: 1024px) {
+  .sidebar-desc { text-align: left; }
 }
 
 /* Strict spacing for WP HTML content blocks */

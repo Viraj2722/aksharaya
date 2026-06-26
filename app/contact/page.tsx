@@ -189,7 +189,6 @@ export default function ContactPage() {
                 flexDirection: 'column',
                 gap: '20px',
                 alignItems: 'center',
-                overflow: 'hidden',
               }}
             >
               <h3

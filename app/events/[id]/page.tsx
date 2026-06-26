@@ -67,7 +67,7 @@ export default async function EventDetailPage({
             {/* Breadcrumb */}
             <div className="flex items-center" style={{ gap: '12px', fontSize: '16px', color: 'rgb(28, 28, 28)' }}>
               <Link href="/events" className="relative group cursor-pointer inline-block">
-                <span className="group-hover:text-gray-700 transition-colors duration-300">Blog</span>
+                <span className="group-hover:text-gray-700 transition-colors duration-300">Project</span>
                 <span className="absolute left-0 -bottom-1 w-0 h-[1.5px] bg-black transition-all duration-300 group-hover:w-full" />
               </Link>
               <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -146,48 +146,41 @@ export default async function EventDetailPage({
             */}
             <aside className="event-detail-sidebar">
               {/* About — gap 20px */}
-              <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center' }}>
-                <h3 style={{ width: '100%', fontSize: '18px', lineHeight: '24px', fontWeight: 600, color: 'rgb(28, 28, 28)', margin: 0 }}>
+              <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'flex-start' }}>
+                <h3 style={{ fontSize: '18px', lineHeight: '24px', fontWeight: 600, color: 'rgb(28, 28, 28)', margin: 0, position: 'relative', zIndex: 1 }}>
                   About Me
                 </h3>
-                <div className="mb-2 about-me-logo-wrapper w-full px-4 md:px-0">
-                  <Image
-                    src="/single-logo.svg"
-                    alt="Aksharaya logo mark"
-                    width={440}
-                    height={160}
-                    className="w-full h-auto object-contain about-me-logo md:transform md:scale-[1.35] md:origin-left md:-translate-x-16 md:-translate-y-3"
-                    style={{ width: '100%', height: 'auto' }}
-                  />
-                </div>
-                {/* Description — H4: 16px, 22px lh, -0.06em */}
-                <p style={{ width: '100%', fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.06em', color: 'rgb(28, 28, 28)', margin: 0, textAlign: 'left' }}>
+                <Image
+                  src="/single-logo.svg"
+                  alt="Aksharaya logo mark"
+                  width={320}
+                  height={96}
+                  className="event-detail-about-logo"
+                  style={{ width: '320px', height: '96px', objectFit: 'contain' }}
+                />
+                {/* Description — left-aligned on mobile only */}
+                <p className="sidebar-desc" style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.06em', color: 'rgb(28, 28, 28)', margin: 0 }}>
                   Aksharaya is an initiative dedicated to exploring typography, letterforms, and visual language across cultures. It brings together designers, educators, and researchers to share knowledge, ideas, and practices in the field of type and communication design. Through events like Typography Day, talks, and installations, Aksharaya fosters dialogue around the evolving role of typography in contemporary society.
                 </p>
               </div>
 
               {/* Follow — gap 20px */}
-              <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center' }}>
-                {/* H3: 18px, 24px lh */}
-                <p style={{ width: '100%', fontSize: '18px', lineHeight: '24px', fontWeight: 400, color: 'rgb(28, 28, 28)', margin: 0 }}>
+              <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'flex-start' }}>
+                <p style={{ fontSize: '18px', lineHeight: '24px', fontWeight: 400, color: 'rgb(28, 28, 28)', margin: 0 }}>
                   Follow Aksharaya
                 </p>
-                <div style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-[#555555] hover:text-black transition-colors">
                     <FacebookIcon />
-                    <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Facebook</span>
                   </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-[#555555] hover:text-black transition-colors">
                     <TwitterIcon />
-                    <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Twitter</span>
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-[#555555] hover:text-black transition-colors">
                     <InstagramIcon />
-                    <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[90px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Instagram</span>
                   </a>
-                  <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
+                  <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="text-[#555555] hover:text-black transition-colors">
                     <PinterestIcon />
-                    <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Pinterest</span>
                   </a>
                 </div>
               </div>
