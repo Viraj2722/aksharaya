@@ -132,7 +132,7 @@ export function ProductDetail({ product }: Props) {
             <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg] group-hover:left-[100%] transition-all duration-700 ease-in-out" />
           </a>
           <p style={{ fontSize: '13px', color: 'rgb(150, 150, 150)', marginTop: '8px', textAlign: 'center', lineHeight: '1.5' }}>
-            You&apos;ll be redirected to a Google Form for your enquiry.
+            Redirects to a Google Form for enquiry.
           </p>
         </div>
 
