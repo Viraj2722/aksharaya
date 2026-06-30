@@ -38,11 +38,11 @@ export default async function GalleryPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-[#f2f2f2]">
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col">
-        <div className="w-full gallery-page-container" style={{ paddingTop: '33px', paddingBottom: '80px' }}>
+        <div className="page-container w-full" style={{ paddingTop: '33px', paddingBottom: '80px' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
 
             {chunks.map((chunk, chunkIndex) => (

@@ -54,7 +54,7 @@ export default function AboutPage() {
   const totalWords = lines.reduce((acc, line) => acc + line.split(' ').length, 0)
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-[#f2f2f2]">
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col">
@@ -63,7 +63,7 @@ export default function AboutPage() {
           Framer: Container top=116px (nav height 80px + 36px gap)
           padding="0px 45px", gap="60px" vertical, stackAlignment="center"
         */}
-        <div className="w-full about-page-container">
+        <div className="page-container about-page-container">
 
           {/*
             Framer Images block: ImageLeft width=1110px, height=460px, borderRadius=20px

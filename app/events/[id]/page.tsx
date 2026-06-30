@@ -50,13 +50,13 @@ export default async function EventDetailPage({
   const relatedEvents = allEvents.filter((e) => e.slug !== event.slug).slice(0, 10)
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-[#f2f2f2]">
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col">
 
-        {/* Container — navbar-aligned width */}
-        <div className="w-full event-detail-container" style={{ paddingTop: '26px', paddingBottom: '80px' }}>
+        {/* Container — matches page-container width (1280px) */}
+        <div className="page-container w-full" style={{ paddingTop: '26px', paddingBottom: '80px' }}>
 
           {/*
             Framer TopText: gap=16px vertical, stackAlignment=start
@@ -169,18 +169,22 @@ export default async function EventDetailPage({
                 <p style={{ fontSize: '18px', lineHeight: '24px', fontWeight: 400, color: 'rgb(28, 28, 28)', margin: 0 }}>
                   Follow Aksharaya
                 </p>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-[#555555] hover:text-black transition-colors">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
                     <FacebookIcon />
+                    <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Facebook</span>
                   </a>
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-[#555555] hover:text-black transition-colors">
+                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
                     <TwitterIcon />
+                    <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Twitter</span>
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-[#555555] hover:text-black transition-colors">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
                     <InstagramIcon />
+                    <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[90px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Instagram</span>
                   </a>
-                  <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="text-[#555555] hover:text-black transition-colors">
+                  <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
                     <PinterestIcon />
+                    <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Pinterest</span>
                   </a>
                 </div>
               </div>
@@ -188,7 +192,7 @@ export default async function EventDetailPage({
           </div>
 
           {/* Related Blogs — title Mukta-600, ~80px above */}
-          <div style={{ marginTop: '80px' }}>
+          <div style={{ marginTop: '80px', overflow: 'visible' }}>
             <RelatedCarousel events={relatedEvents} />
           </div>
 

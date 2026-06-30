@@ -7,12 +7,12 @@ import { Footer, FacebookIcon, TwitterIcon, InstagramIcon, PinterestIcon } from 
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-[#f2f2f2]">
       <Navbar />
 
 
       <div
-        className="w-full contact-page-container"
+        className="page-container w-full"
         style={{
           display: 'flex',
           flexDirection: 'column',
@@ -36,9 +36,9 @@ export default function ContactPage() {
               flex: '1 1 0%',
               display: 'flex',
               flexDirection: 'column',
-              backgroundColor: 'rgb(245, 245, 245)',
+              backgroundColor: 'rgb(230, 230, 230)',
               borderRadius: '24px',
-              border: '1px solid rgb(230, 230, 230)',
+              border: '1px solid rgb(215, 215, 215)',
               overflow: 'hidden',
             }}
           >
@@ -178,7 +178,7 @@ export default function ContactPage() {
               display: 'flex',
               flexDirection: 'column',
               gap: '24px',
-              alignItems: 'center',
+              alignItems: 'flex-start',
             }}
           >
             {/* About block */}
@@ -188,12 +188,11 @@ export default function ContactPage() {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '20px',
-                alignItems: 'center',
+                alignItems: 'flex-start',
               }}
             >
               <h3
                 style={{
-                  width: '100%',
                   fontSize: '18px',
                   lineHeight: '24px',
                   letterSpacing: '0px',
@@ -208,22 +207,19 @@ export default function ContactPage() {
               <Image
                 src="/single-logo.svg"
                 alt="Aksharaya logo mark"
-                width={267}
-                height={80}
-                className="contact-logo"
-                style={{ objectFit: 'contain', flexShrink: 0 }}
+                width={320}
+                height={96}
+                style={{ width: '320px', height: '96px', objectFit: 'contain' }}
               />
 
               <p
                 style={{
-                  width: '100%',
                   fontSize: '16px',
                   lineHeight: '22px',
                   letterSpacing: '-0.06em',
                   fontWeight: 400,
                   color: 'rgb(28, 28, 28)',
                   margin: 0,
-                  textAlign: 'left',
                 }}
               >
                 Aksharaya is an initiative dedicated to exploring typography, letterforms, and visual language across cultures. It brings together designers, educators, and researchers to share knowledge, ideas, and practices in the field of type and communication design. Through events like Typography Day, talks, and installations, Aksharaya fosters dialogue around the evolving role of typography in contemporary society.
@@ -237,13 +233,11 @@ export default function ContactPage() {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '20px',
-                alignItems: 'center',
-                overflow: 'hidden',
+                alignItems: 'flex-start',
               }}
             >
               <p
                 style={{
-                  width: '100%',
                   fontSize: '18px',
                   lineHeight: '24px',
                   letterSpacing: '0px',

@@ -45,10 +45,10 @@ export function Navbar() {
       >
         <style>{`
           @media (min-width: 1024px) {
-            .navbar-container { padding-left: 150px; padding-right: 150px; }
+            .navbar-container { padding-left: 156px; padding-right: 140px; }
           }
           @media (min-width: 1280px) {
-            .navbar-container { padding-left: 150px; padding-right: 140px; }
+            .navbar-container { padding-left: 156px; padding-right: 140px; }
           }
         `}</style>
         <div className="w-full px-4 md:px-8 navbar-container">
@@ -217,6 +217,11 @@ export function Navbar() {
             <li>
               <Link href="/team" onClick={close} className="block text-[17px] font-medium text-[#111111] hover:text-black transition-colors" style={{ padding: '15px 12px', borderBottom: '1px solid #f0f0f0' }}>
                 Team
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" onClick={close} className="block text-[17px] font-medium text-[#111111] hover:text-black transition-colors" style={{ padding: '15px 12px', borderBottom: '1px solid #f0f0f0' }}>
+                Contact us
               </Link>
             </li>
           </ul>

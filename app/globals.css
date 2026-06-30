@@ -116,19 +116,7 @@ body {
 }
 
 /* ─── Contact Page ───────────────────────────────────────── */
-.contact-page-container { padding-left: 20px; padding-right: 20px; }
-@media (min-width: 640px) {
-  .contact-page-container { padding-left: 32px; padding-right: 32px; }
-}
-@media (min-width: 768px) {
-  .contact-page-container { padding-left: 40px; padding-right: 40px; }
-}
-@media (min-width: 1024px) {
-  .contact-page-container { padding-left: 150px; padding-right: 150px; }
-}
-@media (min-width: 1280px) {
-  .contact-page-container { padding-left: 155px; padding-right: 140px; }
-}
+/* Width now matches .page-container (same as Insights & Writings / Previous Events) */
 
 .contact-form-panel { padding: 24px 16px; }
 @media (min-width: 640px) {
@@ -167,26 +155,13 @@ body {
 .contact-input:focus { outline: none; box-shadow: 0 0 0 2px rgb(230,230,230); }
 
 /* ─── About Page ─────────────────────────────────────────── */
+/* Width matches .page-container (same as Insights & Writings / Previous Events) */
 .about-page-container {
-  padding-left: 20px;
-  padding-right: 20px;
   padding-top: 36px;
   padding-bottom: 80px;
   display: flex;
   flex-direction: column;
   gap: 60px;
-}
-@media (min-width: 640px) {
-  .about-page-container { padding-left: 32px; padding-right: 32px; }
-}
-@media (min-width: 768px) {
-  .about-page-container { padding-left: 40px; padding-right: 40px; }
-}
-@media (min-width: 1024px) {
-  .about-page-container { padding-left: 150px; padding-right: 150px; }
-}
-@media (min-width: 1280px) {
-  .about-page-container { padding-left: 155px; padding-right: 140px; }
 }
 
 /* Image block */
@@ -289,40 +264,10 @@ body {
   .events-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-.events-page-container {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-@media (min-width: 640px) {
-  .events-page-container { padding-left: 32px; padding-right: 32px; }
-}
-@media (min-width: 768px) {
-  .events-page-container { padding-left: 40px; padding-right: 40px; }
-}
-@media (min-width: 1024px) {
-  .events-page-container { padding-left: 150px; padding-right: 150px; }
-}
-@media (min-width: 1280px) {
-  .events-page-container { padding-left: 155px; padding-right: 140px; }
-}
+/* Width now matches .page-container (same as Insights & Writings / Previous Events) */
 
 /* ─── Event Detail Page ──────────────────────────────────── */
-.event-detail-container {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-@media (min-width: 640px) {
-  .event-detail-container { padding-left: 32px; padding-right: 32px; }
-}
-@media (min-width: 768px) {
-  .event-detail-container { padding-left: 40px; padding-right: 40px; }
-}
-@media (min-width: 1024px) {
-  .event-detail-container { padding-left: 150px; padding-right: 150px; }
-}
-@media (min-width: 1280px) {
-  .event-detail-container { padding-left: 155px; padding-right: 140px; }
-}
+/* Width now matches .page-container (same as Insights & Writings / Previous Events) */
 
 /* Hero image: Framer 1120×683 (radius 20px). Fixed heights, exact 683 at desktop. */
 .event-detail-hero {
@@ -399,22 +344,7 @@ body {
 .strict-spacing-container figure > img { margin: 0 !important; }
 
 /* ─── Products Page ──────────────────────────────────────────── */
-.products-page-container {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-@media (min-width: 640px) {
-  .products-page-container { padding-left: 32px; padding-right: 32px; }
-}
-@media (min-width: 768px) {
-  .products-page-container { padding-left: 40px; padding-right: 40px; }
-}
-@media (min-width: 1024px) {
-  .products-page-container { padding-left: 150px; padding-right: 150px; }
-}
-@media (min-width: 1280px) {
-  .products-page-container { padding-left: 155px; padding-right: 140px; }
-}
+/* Width now matches .page-container (same as Insights & Writings / Previous Events) */
 
 /* Framer grid: 3 cols, gap 8px — 1 col mobile, 2 col tablet, 3 col desktop */
 .products-grid {
@@ -478,22 +408,7 @@ body {
 }
 
 /* ─── Gallery Page ───────────────────────────────────────────── */
-.gallery-page-container {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-@media (min-width: 640px) {
-  .gallery-page-container { padding-left: 32px; padding-right: 32px; }
-}
-@media (min-width: 768px) {
-  .gallery-page-container { padding-left: 40px; padding-right: 40px; }
-}
-@media (min-width: 1024px) {
-  .gallery-page-container { padding-left: 150px; padding-right: 150px; }
-}
-@media (min-width: 1280px) {
-  .gallery-page-container { padding-left: 155px; padding-right: 140px; }
-}
+/* Width now matches .page-container (same as Insights & Writings / Previous Events) */
 
 /* Framer image row: horizontal flex, gap 10px */
 .gallery-row {

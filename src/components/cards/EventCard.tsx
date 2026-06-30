@@ -2,6 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Event } from '@/types/event'
 
+function shortExcerpt(text: string, maxChars = 90): string {
+  if (text.length <= maxChars) return text
+  const cut = text.lastIndexOf(' ', maxChars)
+  return text.slice(0, cut > 0 ? cut : maxChars)
+}
+
 interface EventCardProps {
   event: Event
 }
@@ -62,7 +68,14 @@ export function EventCard({ event }: EventCardProps) {
           className="text-base leading-snug"
           style={{ color: '#666666' }}
         >
-          {event.description}
+          {shortExcerpt(event.description)}&hellip;{' '}
+          <Link
+            href={`/events/${event.slug}`}
+            className="font-medium hover:underline underline-offset-2"
+            style={{ color: '#111111' }}
+          >
+            show more
+          </Link>
         </p>
       </div>
     </article>

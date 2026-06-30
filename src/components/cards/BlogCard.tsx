@@ -7,6 +7,12 @@ interface BlogCardProps {
   large?: boolean
 }
 
+function shortExcerpt(text: string, maxChars = 90): string {
+  if (text.length <= maxChars) return text
+  const cut = text.lastIndexOf(' ', maxChars)
+  return text.slice(0, cut > 0 ? cut : maxChars)
+}
+
 export function BlogCard({ blog, large = false }: BlogCardProps) {
   return (
     <article className="group flex flex-col">
@@ -67,14 +73,19 @@ export function BlogCard({ blog, large = false }: BlogCardProps) {
       </h3>
 
       {/* Excerpt */}
-      {large && (
-        <p
-          className="leading-relaxed"
-          style={{ color: '#666666', fontSize: '17px' }}
+      <p
+        className="leading-relaxed"
+        style={{ color: '#666666', fontSize: large ? '17px' : '15px' }}
+      >
+        {shortExcerpt(blog.excerpt, large ? 140 : 90)}&hellip;{' '}
+        <Link
+          href={`/events/${blog.slug}`}
+          className="font-medium hover:underline underline-offset-2"
+          style={{ color: '#111111' }}
         >
-          {blog.excerpt}
-        </p>
-      )}
+          show more
+        </Link>
+      </p>
     </article>
   )
 }

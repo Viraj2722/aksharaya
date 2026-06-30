@@ -116,20 +116,25 @@ export function ProductDetail({ product }: Props) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
 
         {/* CTA Button */}
-        <a
-          href={product.buyLink || '#'}
-          target={product.buyLink && product.buyLink !== '#' ? '_blank' : undefined}
-          rel="noopener noreferrer"
-          className="group relative overflow-hidden block w-full text-center"
-          style={{
-            backgroundColor: 'rgb(28, 28, 28)', color: 'white',
-            padding: '14px 24px', fontSize: '16px', lineHeight: '22px',
-            letterSpacing: '-0.02em', fontWeight: 500, textDecoration: 'none',
-          }}
-        >
-          <span className="relative z-10">CONTACT NOW</span>
-          <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg] group-hover:left-[100%] transition-all duration-700 ease-in-out" />
-        </a>
+        <div>
+          <a
+            href={product.buyLink || '#'}
+            target={product.buyLink && product.buyLink !== '#' ? '_blank' : undefined}
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden block w-full text-center"
+            style={{
+              backgroundColor: 'rgb(28, 28, 28)', color: 'white',
+              padding: '14px 24px', fontSize: '18px', lineHeight: '22px',
+              letterSpacing: '-0.02em', fontWeight: 500, textDecoration: 'none',
+            }}
+          >
+            <span className="relative z-10">CONTACT NOW</span>
+            <div className="absolute top-0 -left-[100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-25deg] group-hover:left-[100%] transition-all duration-700 ease-in-out" />
+          </a>
+          <p style={{ fontSize: '13px', color: 'rgb(150, 150, 150)', marginTop: '8px', textAlign: 'center', lineHeight: '1.5' }}>
+            You&apos;ll be redirected to a Google Form for your enquiry.
+          </p>
+        </div>
 
         {/* Description Accordion */}
         {product.description && (

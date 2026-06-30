@@ -39,9 +39,6 @@ export function AboutPreview() {
     >
       <style>{`
         .about-preview-shell {
-          width: 100%;
-          padding-left: 2rem;
-          padding-right: 2rem;
           padding-top: 48px;
           padding-bottom: 40px;
         }
@@ -50,21 +47,9 @@ export function AboutPreview() {
             padding-top: 112px;
             padding-bottom: 80px;
           }
-          .about-preview-shell {
-            padding-left: 24px;
-            padding-right: 24px;
-          }
-        }
-        @media (min-width: 1024px) {
-          .about-preview-shell {
-            max-width: 1104px;
-            margin-left: 205px;
-            padding-left: 0;
-            padding-right: 0;
-          }
         }
       `}</style>
-      <div className="about-preview-shell about-preview-padding">
+      <div className="page-container about-preview-shell about-preview-padding">
         {/* Label - Explicit sizing and black color as requested */}
         <p
           className="font-medium mb-5"

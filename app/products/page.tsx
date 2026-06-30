@@ -10,11 +10,11 @@ export default async function ProductsPage() {
   const products = await getProducts()
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-[#f2f2f2]">
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col">
-        <div className="w-full products-page-container" style={{ paddingTop: '33px', paddingBottom: '80px' }}>
+        <div className="page-container w-full" style={{ paddingTop: '33px', paddingBottom: '80px' }}>
 
           {/* Framer Categorys: grid 3 cols, gap 8px */}
           <div className="products-grid">
