@@ -11,7 +11,7 @@ function Word({ children, progress, range }: { children: React.ReactNode, progre
 
 export function AboutPreview() {
   const sectionRef = useRef<HTMLElement>(null)
-  
+
   // Track scroll progress through this section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -53,10 +53,10 @@ export function AboutPreview() {
         {/* Label - Explicit sizing and black color as requested */}
         <p
           className="font-medium mb-5"
-          style={{ 
-            color: '#000000', 
-            width: '127px', 
-            height: '28px', 
+          style={{
+            color: '#000000',
+            width: '127px',
+            height: '28px',
             fontSize: '17px',
             lineHeight: '24px'
           }}

@@ -5,7 +5,7 @@ import { Blog } from '@/types/blog'
 
 export async function FeaturedBlogs() {
   const { insightsEvents } = await getHomepageUnified()
-  
+
   // Map Events to Blog interface since they are logically the same
   const insightsBlogs: Blog[] = insightsEvents.map((event) => ({
     id: event.id,
@@ -56,11 +56,11 @@ export async function FeaturedBlogs() {
             <div className="relative flex items-center w-5 h-5 overflow-hidden">
               {/* The arrow that slides out to the right */}
               <svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute transition-transform duration-300 ease-in-out group-hover:translate-x-full">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               {/* The arrow that slides in from the left */}
               <svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="absolute -translate-x-full transition-transform duration-300 ease-in-out group-hover:translate-x-0">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
           </Link>

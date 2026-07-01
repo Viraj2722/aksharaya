@@ -57,13 +57,13 @@ export default function AboutPage() {
     <div className="flex flex-col min-h-screen bg-[#f2f2f2]">
       <Navbar />
 
-      <main className="flex-1 w-full flex flex-col">
+      <main className="flex-1 w-full flex flex-col items-center">
 
         {/*
           Framer: Container top=116px (nav height 80px + 36px gap)
           padding="0px 45px", gap="60px" vertical, stackAlignment="center"
         */}
-        <div className="page-container about-page-container">
+        <div className="page-container w-full flex flex-col" style={{ gap: '60px', paddingTop: '36px', paddingBottom: '80px' }}>
 
           {/*
             Framer Images block: ImageLeft width=1110px, height=460px, borderRadius=20px

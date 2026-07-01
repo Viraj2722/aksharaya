@@ -155,14 +155,7 @@ body {
 .contact-input:focus { outline: none; box-shadow: 0 0 0 2px rgb(230,230,230); }
 
 /* ─── About Page ─────────────────────────────────────────── */
-/* Width matches .page-container (same as Insights & Writings / Previous Events) */
-.about-page-container {
-  padding-top: 36px;
-  padding-bottom: 80px;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
+
 
 /* Image block */
 .about-hero-image {

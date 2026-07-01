@@ -43,143 +43,137 @@ export function Navbar() {
         className="relative z-50 bg-white border-b"
         style={{ borderColor: '#e8e8e8' }}
       >
-        <style>{`
-          @media (min-width: 1024px) {
-            .navbar-container { padding-left: 156px; padding-right: 140px; }
-          }
-          @media (min-width: 1280px) {
-            .navbar-container { padding-left: 156px; padding-right: 140px; }
-          }
-        `}</style>
-        <div className="w-full px-4 md:px-8 navbar-container">
-          <nav
-            className="flex items-center justify-between"
-            style={{ height: '72px' }}
-            aria-label="Main navigation"
-          >
-            <Link href="/" className="flex items-center gap-3 flex-shrink-0" aria-label="Aksharaya home">
-              <Image
-                src="/logo-with-text.svg"
-                alt="Aksharaya — Letter Conscious People"
-                width={500}
-                height={96}
-                priority
-                className="hidden md:block h-[72px] w-auto object-contain"
-                style={{ width: 'auto' }}
-              />
-              <Image
-                src="/single-logo.svg"
-                alt="Aksharaya"
-                width={160}
-                height={60}
-                priority
-                className="block md:hidden h-12 w-auto object-contain"
-                style={{ width: 'auto' }}
-              />
-            </Link>
-
-            {/* Desktop Nav Links */}
-            <ul className="hidden lg:flex items-center gap-7" style={{ marginRight: '30px' }} role="list">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[15px] font-medium transition-colors duration-150 hover:text-black"
-                    style={{ color: '#444444' }}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-
-              {/* Language dropdown */}
-              <li className="relative group">
-                <button
-                  id="lang-switcher-btn"
-                  className="flex items-center gap-1.5 text-[15px] font-medium transition-colors duration-150 group-hover:text-black"
-                  style={{ color: '#444444' }}
-                  aria-label="Select language"
-                  aria-haspopup="listbox"
-                >
-                  Languages
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    aria-hidden="true"
-                    className="block transition-transform duration-300 ease-in-out group-hover:rotate-180"
-                  >
-                    <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </button>
-
-                <div
-                  className="absolute right-0 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out"
-                  style={{ top: '100%', paddingTop: '20px' }}
-                >
-                  <div
-                    id="lang-dropdown"
-                    className="bg-white shadow-lg border transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 ease-out"
-                    style={{
-                      width: '130px',
-                      borderRadius: '16px',
-                      borderColor: '#e8e8e8',
-                      padding: '8px 12px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '2px'
-                    }}
-                  role="listbox"
-                  aria-label="Select language"
-                >
-                  {[
-                    { code: 'mr', label: 'मराठी' },
-                    { code: 'en', label: 'English' },
-                  ].map((lang) => (
-                    <button
-                      key={lang.code}
-                      role="option"
-                      aria-selected={activeLang === lang.code}
-                      onClick={() => setActiveLang(lang.code)}
-                      className="w-full text-left transition-colors duration-100 hover:bg-gray-50"
-                      style={{
-                        padding: '6px 8px',
-                        borderRadius: '8px',
-                        fontSize: '17px',
-                        color: activeLang === lang.code ? '#111111' : '#666666',
-                        fontWeight: activeLang === lang.code ? '600' : '500',
-                      }}
-                    >
-                      {lang.label}
-                    </button>
-                  ))}
-                  </div>
-                </div>
-              </li>
-            </ul>
-
-            {/* Hamburger (mobile) */}
-            <button
-              id="mobile-menu-btn"
-              onClick={toggle}
-              className="lg:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5"
-              style={{ marginRight: '12px' }}
-              aria-label={isOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isOpen}
-              aria-controls="mobile-menu"
+        <div className="w-full flex justify-center">
+          <div className="page-container w-full">
+            <nav
+              className="flex items-center justify-between"
+              style={{ height: '72px' }}
+              aria-label="Main navigation"
             >
-              <span
-                className={`block w-5 h-px bg-gray-800 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`}
-              />
-              <span
-                className={`block w-5 h-px bg-gray-800 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}
-              />
-              <span
-                className={`block w-5 h-px bg-gray-800 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}
-              />
-            </button>
-          </nav>
+              <Link href="/" className="flex items-center gap-3 flex-shrink-0" aria-label="Aksharaya home">
+                <Image
+                  src="/logo-with-text.svg"
+                  alt="Aksharaya — Letter Conscious People"
+                  width={500}
+                  height={96}
+                  priority
+                  className="hidden md:block h-[72px] w-auto object-contain"
+                  style={{ width: 'auto', marginLeft: '-8px' }}
+                />
+                <Image
+                  src="/single-logo.svg"
+                  alt="Aksharaya"
+                  width={160}
+                  height={60}
+                  priority
+                  className="block md:hidden h-12 w-auto object-contain"
+                  style={{ width: 'auto' }}
+                />
+              </Link>
+
+              {/* Desktop Nav Links */}
+              <ul className="hidden lg:flex items-center gap-7" style={{ marginRight: '5px' }} role="list">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-[15px] font-medium transition-colors duration-150 hover:text-black"
+                      style={{ color: '#444444' }}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+
+                {/* Language dropdown */}
+                <li className="relative group">
+                  <button
+                    id="lang-switcher-btn"
+                    className="flex items-center gap-1.5 text-[15px] font-medium transition-colors duration-150 group-hover:text-black"
+                    style={{ color: '#444444' }}
+                    aria-label="Select language"
+                    aria-haspopup="listbox"
+                  >
+                    Languages
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      aria-hidden="true"
+                      className="block transition-transform duration-300 ease-in-out group-hover:rotate-180"
+                    >
+                      <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </button>
+
+                  <div
+                    className="absolute right-0 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out"
+                    style={{ top: '100%', paddingTop: '20px' }}
+                  >
+                    <div
+                      id="lang-dropdown"
+                      className="bg-white shadow-lg border transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 ease-out"
+                      style={{
+                        width: '130px',
+                        borderRadius: '16px',
+                        borderColor: '#e8e8e8',
+                        padding: '8px 12px',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '2px'
+                      }}
+                      role="listbox"
+                      aria-label="Select language"
+                    >
+                      {[
+                        { code: 'mr', label: 'मराठी' },
+                        { code: 'en', label: 'English' },
+                      ].map((lang) => (
+                        <button
+                          key={lang.code}
+                          role="option"
+                          aria-selected={activeLang === lang.code}
+                          onClick={() => setActiveLang(lang.code)}
+                          className="w-full text-left transition-colors duration-100 hover:bg-gray-50"
+                          style={{
+                            padding: '6px 8px',
+                            borderRadius: '8px',
+                            fontSize: '17px',
+                            color: activeLang === lang.code ? '#111111' : '#666666',
+                            fontWeight: activeLang === lang.code ? '600' : '500',
+                          }}
+                        >
+                          {lang.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              {/* Hamburger (mobile) */}
+              <button
+                id="mobile-menu-btn"
+                onClick={toggle}
+                className="lg:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5"
+                style={{ marginRight: '12px' }}
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
+              >
+                <span
+                  className={`block w-5 h-px bg-gray-800 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-[7px]' : ''}`}
+                />
+                <span
+                  className={`block w-5 h-px bg-gray-800 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}
+                />
+                <span
+                  className={`block w-5 h-px bg-gray-800 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-[7px]' : ''}`}
+                />
+              </button>
+            </nav>
+          </div>
         </div>
       </header>
 
