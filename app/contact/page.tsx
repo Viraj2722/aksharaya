@@ -12,13 +12,11 @@ export default function ContactPage() {
 
 
       <div
-        className="page-container w-full"
+        className="page-container w-full pb-0 lg:pb-20"
         style={{
           display: 'flex',
           flexDirection: 'column',
           paddingTop: '30px',
-          paddingBottom: '80px',
-
           gap: '24px',
         }}
       >
@@ -182,15 +180,7 @@ export default function ContactPage() {
             }}
           >
             {/* About block */}
-            <div
-              style={{
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '20px',
-                alignItems: 'flex-start',
-              }}
-            >
+            <div className="flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px' }}>
               <h3
                 style={{
                   fontSize: '18px',
@@ -227,15 +217,7 @@ export default function ContactPage() {
             </div>
 
             {/* Follow block */}
-            <div
-              style={{
-                width: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '20px',
-                alignItems: 'flex-start',
-              }}
-            >
+            <div className="hidden md:flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px' }}>
               <p
                 style={{
                   fontSize: '18px',

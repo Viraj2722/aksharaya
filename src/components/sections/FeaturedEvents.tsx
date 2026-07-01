@@ -105,7 +105,7 @@ export async function FeaturedEvents() {
             <div className="sticky top-[40px] about-me-sidebar">
 
               {/* About — gap 20px */}
-              <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'flex-start' }}>
+              <div className="flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px' }}>
                 <h3 style={{ fontSize: '18px', lineHeight: '24px', fontWeight: 600, color: 'rgb(28, 28, 28)', margin: 0 }}>
                   About Me
                 </h3>
@@ -123,7 +123,7 @@ export async function FeaturedEvents() {
               </div>
 
               {/* Follow — gap 20px */}
-              <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'flex-start', marginTop: '20px' }}>
+              <div className="hidden md:flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px', marginTop: '20px' }}>
                 <p style={{ fontSize: '18px', lineHeight: '24px', fontWeight: 400, color: 'rgb(28, 28, 28)', margin: 0 }}>
                   Follow Aksharaya
                 </p>

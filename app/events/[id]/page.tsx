@@ -56,7 +56,7 @@ export default async function EventDetailPage({
       <main className="flex-1 w-full flex flex-col">
 
         {/* Container — matches page-container width (1280px) */}
-        <div className="page-container w-full" style={{ paddingTop: '26px', paddingBottom: '80px' }}>
+        <div className="page-container w-full pb-0 lg:pb-20" style={{ paddingTop: '26px' }}>
 
           {/*
             Framer TopText: gap=16px vertical, stackAlignment=start
@@ -146,7 +146,7 @@ export default async function EventDetailPage({
             */}
             <aside className="event-detail-sidebar">
               {/* About — gap 20px */}
-              <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'flex-start' }}>
+              <div className="flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px' }}>
                 <h3 style={{ fontSize: '18px', lineHeight: '24px', fontWeight: 600, color: 'rgb(28, 28, 28)', margin: 0, position: 'relative', zIndex: 1 }}>
                   About Me
                 </h3>
@@ -158,14 +158,14 @@ export default async function EventDetailPage({
                   className="event-detail-about-logo"
                   style={{ width: '320px', height: '96px', objectFit: 'contain' }}
                 />
-                {/* Description — left-aligned on mobile only */}
-                <p className="sidebar-desc" style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.06em', color: 'rgb(28, 28, 28)', margin: 0 }}>
+                {/* Description */}
+                <p style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.06em', color: 'rgb(28, 28, 28)', margin: 0 }}>
                   Aksharaya is an initiative dedicated to exploring typography, letterforms, and visual language across cultures. It brings together designers, educators, and researchers to share knowledge, ideas, and practices in the field of type and communication design. Through events like Typography Day, talks, and installations, Aksharaya fosters dialogue around the evolving role of typography in contemporary society.
                 </p>
               </div>
 
               {/* Follow — gap 20px */}
-              <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'flex-start' }}>
+              <div className="flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px' }}>
                 <p style={{ fontSize: '18px', lineHeight: '24px', fontWeight: 400, color: 'rgb(28, 28, 28)', margin: 0 }}>
                   Follow Aksharaya
                 </p>

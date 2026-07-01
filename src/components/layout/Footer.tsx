@@ -51,12 +51,12 @@ export function Footer() {
             min-height: 134px !important; 
             padding-top: 0px !important; 
             padding-bottom: 60px !important; 
+            margin-top: 48px !important;
           }
           .footer-inner { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 24px !important; }
           .mobile-divider {
             display: block !important;
-            width: 80%;
-            max-width: 300px;
+            width: 100%;
             height: 1px;
             background-color: #d1d5db;
             margin: 0 auto 32px auto;
