@@ -57,6 +57,15 @@ export default async function EventDetailPage({
 
         {/* Container — matches page-container width (1280px) */}
         <div className="page-container w-full pb-0 lg:pb-20" style={{ paddingTop: '26px' }}>
+          {/* Mobile only: some WordPress content uses fixed-width figures/images
+              (e.g. width:645px) that overflow narrow phones — cap them to the container */}
+          <style>{`
+            @media (max-width: 767px) {
+              .event-detail-content figure { max-width: 100% !important; width: auto !important; }
+              .event-detail-content img { max-width: 100% !important; height: auto !important; }
+              .event-detail-content :is(table, iframe, video, pre) { max-width: 100% !important; }
+            }
+          `}</style>
 
           {/*
             Framer TopText: gap=16px vertical, stackAlignment=start
