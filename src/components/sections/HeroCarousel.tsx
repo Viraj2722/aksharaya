@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState, useEffect, useCallback } from 'react'
 
 interface HeroSlide {
@@ -147,7 +148,15 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
               key={`desc-${current}`}
               style={{ opacity: 0.85, textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}
             >
-              {slide.description}
+              {slide.description.replace(/…$/, '').replace(/\.\.\.$/, '')}
+              {slide.link && (
+                <>
+                  ...
+                  <Link href={slide.link} className="font-semibold underline hover:text-white transition-colors">
+                    show more
+                  </Link>
+                </>
+              )}
             </p>
 
           </div>

@@ -32,10 +32,10 @@ export default async function EventsPage() {
               <Image
                 src="/single-logo.svg"
                 alt="Aksharaya"
-                width={267}
-                height={80}
+                width={320}
+                height={96}
                 className="events-hero-logo"
-                style={{ width: '267px', height: '80px', objectFit: 'contain' }}
+                style={{ width: '320px', height: '96px', objectFit: 'contain', objectPosition: 'left center', marginLeft: '-16px' }}
                 priority
               />
               <p style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.02em', fontWeight: 300, color: 'rgb(68, 68, 68)', margin: 0 }}>
