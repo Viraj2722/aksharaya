@@ -16,13 +16,20 @@ export default async function ProductsPage() {
       <main className="flex-1 w-full flex flex-col">
         <div className="page-container w-full" style={{ paddingTop: '33px', paddingBottom: '80px' }}>
 
+          {/* Mobile only: shorten the tall 455px product image for a more balanced card */}
+          <style>{`
+            @media (max-width: 767px) {
+              .product-card-image { height: 360px !important; }
+            }
+          `}</style>
+
           {/* Framer Categorys: grid 3 cols, gap 8px */}
           <div className="products-grid">
             {products.map((product, index) => (
               <Link href={`/products/${product.slug}`} key={product.id} className="group block">
 
                 {/* Image */}
-                <div className="relative w-full overflow-hidden bg-[#f0f0f0]" style={{ height: '455px' }}>
+                <div className="product-card-image relative w-full overflow-hidden bg-[#f0f0f0]" style={{ height: '455px' }}>
                   <Image
                     src={product.image}
                     alt={product.title}

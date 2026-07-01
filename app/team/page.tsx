@@ -127,7 +127,7 @@ export default function TeamPage() {
                 </div>
 
                 {/* Back Content (Bio on Hover / Click) — scrollable so long bios never overflow the card */}
-                <div className={`absolute inset-0 flex items-center justify-center text-center transition-opacity duration-500 bg-white z-20 pointer-events-none overflow-y-auto ${clickedId === member.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} style={{ padding: '32px 28px' }}>
+                <div className={`team-bio absolute inset-0 flex items-center justify-center text-center transition-opacity duration-500 bg-white z-20 pointer-events-none overflow-y-auto ${clickedId === member.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} style={{ padding: '32px 28px' }}>
                   <p className="text-[13px] leading-relaxed" style={{ color: '#666666', margin: 0 }}>
                     {member.bio}
                   </p>

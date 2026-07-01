@@ -171,6 +171,11 @@ body {
   .about-hero-image { height: 460px; border-radius: 20px; }
 }
 
+/* FAQ heading: pinned to 32px inline; scale it down on phones only */
+@media (max-width: 767px) {
+  .about-faq-title { font-size: 24px !important; line-height: 30px !important; }
+}
+
 /* Animated headline */
 .about-headline {
   font-size: 22px;
@@ -240,6 +245,15 @@ body {
    On desktop, pull it left so its visible edge lines up with the paragraph. */
 @media (min-width: 1024px) {
   .events-hero-logo { transform: translateX(-37px); }
+}
+/* Logo is pinned to 320px; on phones let it shrink to fit and stay centered */
+@media (max-width: 767px) {
+  .events-hero-logo {
+    width: 100% !important;
+    max-width: 280px !important;
+    height: auto !important;
+    margin-left: 0 !important;
+  }
 }
 
 /* Post grid — 1 col mobile, 2 col tablet, 3 col desktop, 10px gap (Framer).
@@ -323,6 +337,16 @@ body {
 @media (min-width: 1024px) {
   .event-detail-about-logo { transform: translateX(-24px); }
 }
+/* Phones: logo is pinned to 320px and forced left while the rest of the
+   block is centered — shrink it to fit and center it to match */
+@media (max-width: 767px) {
+  .event-detail-about-logo {
+    align-self: center !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    height: auto !important;
+  }
+}
 
 /* Sidebar description: left-aligned on mobile, inherited on desktop */
 .sidebar-desc { text-align: left; }
@@ -398,6 +422,13 @@ body {
 }
 @media (min-width: 768px) {
   .product-detail-info { flex: 1 1 0%; }
+}
+
+/* ─── Team Page ──────────────────────────────────────────────── */
+/* Phones: tap-to-reveal bios can be taller than the card. Flex-centering
+   clips the top out of reach — top-align on mobile so the whole bio scrolls. */
+@media (max-width: 767px) {
+  .team-bio { align-items: flex-start !important; }
 }
 
 /* ─── Gallery Page ───────────────────────────────────────────── */

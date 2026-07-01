@@ -54,6 +54,10 @@ export async function FeaturedEvents() {
           .about-me-sidebar { padding: 0 16px; margin-top: 0px; }
           .more-post-container { display: flex; justify-content: center !important; margin-bottom: 40px !important; }
         }
+        @media (max-width: 767px) {
+          /* Logo is pinned to 320px on desktop; let it shrink to fit narrow phones */
+          .about-me-logo { width: 100% !important; max-width: 320px !important; height: auto !important; }
+        }
       `}</style>
       <div className="page-container">
         {/* 2-column grid: events list + about sidebar */}

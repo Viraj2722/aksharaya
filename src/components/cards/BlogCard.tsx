@@ -23,8 +23,9 @@ export function BlogCard({ blog, large = false }: BlogCardProps) {
           .blog-small-height { height: 262px !important; }
         }
         @media (max-width: 767px) {
-          .blog-large-height { height: 300px !important; }
-          .blog-small-height { aspect-ratio: 4/3; }
+          /* Keep every Insights & Writings image container the same size on mobile */
+          .blog-large-height { height: auto !important; aspect-ratio: 4 / 3 !important; }
+          .blog-small-height { height: auto !important; aspect-ratio: 4 / 3 !important; }
         }
       `}</style>
       <Link

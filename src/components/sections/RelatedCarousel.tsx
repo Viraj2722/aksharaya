@@ -43,10 +43,11 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
         Related Blogs
       </h2>
 
-      {/* Left arrow — half outside left edge of carousel */}
+      {/* Left arrow — half outside left edge of carousel (desktop);
+          on mobile it moves up in line with the "Related Blogs" heading */}
       <button
         onClick={scrollLeft}
-        className="absolute z-10 w-12 h-12 flex items-center justify-center bg-white hover:bg-gray-50 rounded-full shadow-md transition-colors"
+        className="related-arrow related-arrow-left absolute z-10 w-12 h-12 flex items-center justify-center bg-white hover:bg-gray-50 rounded-full shadow-md transition-colors"
         style={{ left: '-24px', top: `${arrowTopOffset}px` }}
         aria-label="Scroll left"
       >
@@ -55,10 +56,11 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
         </svg>
       </button>
 
-      {/* Right arrow — half outside right edge of carousel */}
+      {/* Right arrow — half outside right edge of carousel (desktop);
+          on mobile it moves up in line with the "Related Blogs" heading */}
       <button
         onClick={scrollRight}
-        className="absolute z-10 w-12 h-12 flex items-center justify-center bg-white hover:bg-gray-50 rounded-full shadow-md transition-colors"
+        className="related-arrow related-arrow-right absolute z-10 w-12 h-12 flex items-center justify-center bg-white hover:bg-gray-50 rounded-full shadow-md transition-colors"
         style={{ right: '-24px', top: `${arrowTopOffset}px` }}
         aria-label="Scroll right"
       >
@@ -74,6 +76,12 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
       >
         <style>{`
           .hide-scrollbar::-webkit-scrollbar { display: none; }
+          /* On phones, pull both arrows up in line with the "Related Blogs" heading (grouped top-right) */
+          @media (max-width: 767px) {
+            .related-arrow { width: 40px !important; height: 40px !important; top: -6px !important; }
+            .related-arrow-left { left: auto !important; right: 48px !important; }
+            .related-arrow-right { right: 0 !important; }
+          }
         `}</style>
 
         {events.map((related) => (

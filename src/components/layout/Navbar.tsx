@@ -67,17 +67,17 @@ export function Navbar() {
                   height={60}
                   priority
                   className="block md:hidden h-12 w-auto object-contain"
-                  style={{ width: 'auto' }}
+                  style={{ width: 'auto', marginLeft: '-32px' }}
                 />
               </Link>
 
               {/* Desktop Nav Links */}
-              <ul className="hidden lg:flex items-center gap-7" style={{ marginRight: '5px' }} role="list">
+              <ul className="hidden lg:flex items-center gap-4 xl:gap-7" style={{ marginRight: '5px' }} role="list">
                 {navLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-[15px] font-medium transition-colors duration-150 hover:text-black"
+                      className="text-[15px] font-medium transition-colors duration-150 hover:text-black whitespace-nowrap"
                       style={{ color: '#444444' }}
                     >
                       {link.label}
@@ -89,7 +89,7 @@ export function Navbar() {
                 <li className="relative group">
                   <button
                     id="lang-switcher-btn"
-                    className="flex items-center gap-1.5 text-[15px] font-medium transition-colors duration-150 group-hover:text-black"
+                    className="flex items-center gap-1.5 text-[15px] font-medium transition-colors duration-150 group-hover:text-black whitespace-nowrap"
                     style={{ color: '#444444' }}
                     aria-label="Select language"
                     aria-haspopup="listbox"
@@ -153,10 +153,15 @@ export function Navbar() {
               </ul>
 
               {/* Hamburger (mobile) */}
+              <style>{`
+                @media (max-width: 767px) {
+                  .mobile-menu-btn { margin-right: -6px !important; }
+                }
+              `}</style>
               <button
                 id="mobile-menu-btn"
                 onClick={toggle}
-                className="lg:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5"
+                className="mobile-menu-btn lg:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5"
                 style={{ marginRight: '12px' }}
                 aria-label={isOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={isOpen}

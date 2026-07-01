@@ -173,7 +173,7 @@ export default function AboutPage() {
             <p style={{ fontSize: '18px', lineHeight: '24px', fontWeight: 300, color: 'rgb(68, 68, 68)', margin: 0, textAlign: 'center' }}>
               Question &amp; Answer
             </p>
-            <h2 style={{ fontSize: '32px', lineHeight: '40px', fontWeight: 600, color: 'rgb(28, 28, 28)', margin: 0, textAlign: 'center', letterSpacing: '-0.01em' }}>
+            <h2 className="about-faq-title" style={{ fontSize: '32px', lineHeight: '40px', fontWeight: 600, color: 'rgb(28, 28, 28)', margin: 0, textAlign: 'center', letterSpacing: '-0.01em' }}>
               FREQUENTLY ASKED QUESTIONS
             </h2>
             <p style={{ fontSize: '16px', lineHeight: '22px', fontWeight: 400, color: 'rgb(68, 68, 68)', margin: 0, textAlign: 'center', maxWidth: '700px' }}>

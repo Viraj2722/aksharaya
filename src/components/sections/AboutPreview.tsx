@@ -48,11 +48,6 @@ export function AboutPreview() {
             padding-bottom: 80px;
           }
         }
-        @media (max-width: 767px) {
-          .mobile-text-center {
-            text-align: center !important;
-          }
-        }
       `}</style>
       <div className="page-container about-preview-shell about-preview-padding">
         {/* Label - Explicit sizing and black color as requested */}
@@ -70,7 +65,7 @@ export function AboutPreview() {
         </p>
 
         {/* Large bold paragraph with scroll reveal animation and explicit line breaks */}
-        <div className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug md:text-left w-full mobile-text-center">
+        <div className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug md:text-left w-full">
           {lines.map((line, lineIndex) => {
             const words = line.split(' ')
             return (
