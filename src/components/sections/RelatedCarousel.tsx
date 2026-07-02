@@ -37,17 +37,16 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
   const arrowTopOffset = 68 + 140 - 24 // title+margin + half image height - half arrow height
 
   return (
-    <div className="w-full relative">
+    <div className="group/carousel w-full relative">
       {/* Framer: "Related Blogs" — Mukta-600, 22px */}
       <h2 style={{ fontSize: '22px', lineHeight: '28px', fontWeight: 600, color: 'rgb(28, 28, 28)', margin: '0 0 40px 0' }}>
         Related Blogs
       </h2>
 
-      {/* Left arrow — half outside left edge of carousel (desktop);
-          on mobile it moves up in line with the "Related Blogs" heading */}
+      {/* Left arrow — hidden by default, shown on desktop when carousel is hovered */}
       <button
         onClick={scrollLeft}
-        className="related-arrow related-arrow-left absolute z-10 w-12 h-12 flex items-center justify-center bg-white hover:bg-gray-50 rounded-full shadow-md transition-colors"
+        className="absolute z-10 w-12 h-12 items-center justify-center bg-white hover:bg-gray-50 rounded-full shadow-md transition-all duration-200 hidden md:flex opacity-0 group-hover/carousel:opacity-100"
         style={{ left: '-24px', top: `${arrowTopOffset}px` }}
         aria-label="Scroll left"
       >
@@ -56,11 +55,10 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
         </svg>
       </button>
 
-      {/* Right arrow — half outside right edge of carousel (desktop);
-          on mobile it moves up in line with the "Related Blogs" heading */}
+      {/* Right arrow — hidden by default, shown on desktop when carousel is hovered */}
       <button
         onClick={scrollRight}
-        className="related-arrow related-arrow-right absolute z-10 w-12 h-12 flex items-center justify-center bg-white hover:bg-gray-50 rounded-full shadow-md transition-colors"
+        className="absolute z-10 w-12 h-12 items-center justify-center bg-white hover:bg-gray-50 rounded-full shadow-md transition-all duration-200 hidden md:flex opacity-0 group-hover/carousel:opacity-100"
         style={{ right: '-24px', top: `${arrowTopOffset}px` }}
         aria-label="Scroll right"
       >

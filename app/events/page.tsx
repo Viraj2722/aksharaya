@@ -16,7 +16,7 @@ export default async function EventsPage() {
   const events = await getEvents()
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#f2f2f2]">
+    <div className="flex flex-col min-h-dvh bg-[#f2f2f2]">
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col">
