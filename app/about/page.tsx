@@ -63,7 +63,14 @@ export default function AboutPage() {
           Framer: Container top=116px (nav height 80px + 36px gap)
           padding="0px 45px", gap="60px" vertical, stackAlignment="center"
         */}
-        <div className="page-container w-full flex flex-col" style={{ gap: '60px', paddingTop: '36px', paddingBottom: '80px' }}>
+        <div className="page-container w-full flex flex-col about-page-shell" style={{ gap: '60px', paddingTop: '36px', paddingBottom: '80px' }}>
+          {/* Mobile only: tighten the gap between the last FAQ card and the footer */}
+          <style>{`
+            @media (max-width: 767px) {
+              .about-page-shell { padding-bottom: 24px !important; }
+              .about-faq-list { margin-bottom: 12px !important; }
+            }
+          `}</style>
 
           {/*
             Framer Images block: ImageLeft width=1110px, height=460px, borderRadius=20px

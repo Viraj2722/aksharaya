@@ -6,6 +6,12 @@ import { getEvents } from '@/lib/getEvents'
 
 export const revalidate = 3600
 
+function shortExcerpt(text: string, maxChars = 140): string {
+  if (text.length <= maxChars) return text.replace(/[…\s]+$/, '')
+  const cut = text.lastIndexOf(' ', maxChars)
+  return text.slice(0, cut > 0 ? cut : maxChars).replace(/[…\s]+$/, '')
+}
+
 export default async function EventsPage() {
   const events = await getEvents()
 
@@ -87,8 +93,11 @@ export default async function EventsPage() {
                   <h3 style={{ fontSize: '18px', lineHeight: '24px', letterSpacing: '0px', fontWeight: 400, color: 'rgb(28, 28, 28)', margin: 0 }} className="group-hover:underline underline-offset-4 decoration-2">
                     {event.title}
                   </h3>
-                  <p style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.02em', fontWeight: 300, color: 'rgb(68, 68, 68)', margin: 0, display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                    {event.description}
+                  <p style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.02em', fontWeight: 300, color: 'rgb(68, 68, 68)', margin: 0 }}>
+                    {shortExcerpt(event.description)}&hellip;{' '}
+                    <span className="font-medium group-hover:underline underline-offset-2" style={{ color: '#111111' }}>
+                      show more
+                    </span>
                   </p>
                 </div>
               </Link>

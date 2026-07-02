@@ -65,7 +65,7 @@ export function AboutPreview() {
         </p>
 
         {/* Large bold paragraph with scroll reveal animation and explicit line breaks */}
-        <div className="text-2xl md:text-3xl lg:text-4xl font-bold leading-snug md:text-left w-full">
+        <div className="text-[32px] font-bold leading-snug md:text-left w-full">
           {lines.map((line, lineIndex) => {
             const words = line.split(' ')
             return (
