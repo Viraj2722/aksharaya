@@ -118,7 +118,7 @@ export default async function EventDetailPage({
               alt={event.title}
               fill
               sizes="(max-width: 1200px) 100vw, 1120px"
-              className="object-cover"
+              className="object-cover rounded-[20px]"
               priority
             />
           </div>

@@ -44,7 +44,7 @@ async function fetchAllEvents(): Promise<Event[]> {
   try {
     const res = await fetch(
       `${WP_API}/events?status=publish&per_page=100`,
-      { next: { revalidate: 3600 } }
+      { next: { revalidate: 0 } }
     )
     if (!res.ok) {
       console.error(`[getEvents] HTTP ${res.status}`)

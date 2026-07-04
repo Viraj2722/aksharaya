@@ -493,3 +493,43 @@ body {
 .img-zoom:hover img {
   transform: scale(1.04);
 }
+
+/* ─── WordPress Block Styles ─────────────────────────────── */
+.wp-block-columns {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .wp-block-columns {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+}
+.wp-block-column {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+}
+.wp-block-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.wp-block-gallery .wp-block-image,
+.wp-block-gallery figure {
+  margin: 0;
+}
+
+/* Custom utility for joint images without inner rounded corners */
+.joint-images {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+.joint-images figure,
+.joint-images img {
+  border-radius: 0 !important;
+  margin: 0 !important;
+}
