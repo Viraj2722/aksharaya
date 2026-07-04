@@ -66,7 +66,7 @@ export default async function EventsPage() {
             Framer post grid: gap="10px" rows & columns, 3 cards per row
             Cards: image 280px, PostDetails padding 15px 0, gap 10px
           */}
-          <div className="events-grid" style={{ paddingBottom: '80px' }}>
+          <div className="events-grid" style={{ paddingTop: '30px', paddingBottom: '80px' }}>
             {events.map((event) => (
               <Link
                 key={event.id}

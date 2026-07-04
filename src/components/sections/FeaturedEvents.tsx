@@ -83,7 +83,7 @@ export async function FeaturedEvents() {
             </div>
 
             {/* Events */}
-            <div>
+            <div className="flex flex-col gap-[40px] md:gap-0">
               {previousEvents.map((event) => (
                 <EventCard key={event.id} event={event} />
               ))}
