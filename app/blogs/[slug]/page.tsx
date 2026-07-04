@@ -121,10 +121,6 @@ export default async function BlogDetailPage({
             {/* Right Column (Span 4) - Sticky Sidebar (Desktop Only) */}
             <div className="hidden lg:block lg:col-span-4 relative">
               <div className="sticky top-24 flex flex-col">
-                <h3 className="text-[24px] font-medium" style={{ color: '#111111', marginBottom: '8px' }}>
-                  About Me
-                </h3>
-                
                 {/* Large logo */}
                 <div className="mb-6 about-me-logo-wrapper w-full px-4 md:px-0">
                   <Image
@@ -142,11 +138,6 @@ export default async function BlogDetailPage({
                 </p>
 
                 <div style={{ marginTop: '20px' }}>
-                  <p className="text-[18px] font-medium" style={{ color: '#111111', marginBottom: '20px' }}>
-                    <span className="font-normal">Follow </span>
-                    <span className="font-bold">Aksharaya</span>
-                  </p>
-
                   {/* Social Icons */}
                   <div className="flex items-center gap-3">
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">

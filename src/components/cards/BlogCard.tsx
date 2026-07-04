@@ -50,43 +50,46 @@ export function BlogCard({ blog, large = false }: BlogCardProps) {
         </div>
       </Link>
 
-      {/* Meta row: category pill + date */}
-      <div className="flex items-center gap-4" style={{ marginBottom: large ? '10px' : '10px' }}>
-        <div
-          className="flex items-center justify-center font-medium rounded-[100px]"
-          style={{ background: '#888888', color: '#ffffff', fontSize: '14px', padding: '0 16px', height: '32px' }}
-        >
-          {blog.category}
+      {/* Content below image — nudged right, with capped text width */}
+      <div className="flex flex-col" style={{ paddingLeft: '12px' }}>
+        {/* Meta row: category pill + date */}
+        <div className="flex items-center gap-4" style={{ marginBottom: large ? '10px' : '10px' }}>
+          <div
+            className="flex items-center justify-center font-medium rounded-[100px]"
+            style={{ background: '#888888', color: '#ffffff', fontSize: '14px', padding: '0 16px', height: '32px' }}
+          >
+            {blog.category}
+          </div>
+          <span className="font-medium" style={{ color: '#111111', fontSize: '14px' }}>
+            {blog.date}
+          </span>
         </div>
-        <span className="font-medium" style={{ color: '#111111', fontSize: '14px' }}>
-          {blog.date}
-        </span>
-      </div>
 
-      {/* Title */}
-      <h3
-        className={`leading-snug mb-1.5 font-medium ${large ? 'text-[22px] md:text-[28px]' : 'text-[18px]'}`}
-        style={{ color: '#111111' }}
-      >
-        <Link href={`/events/${blog.slug}`} className="hover:underline decoration-1 underline-offset-2">
-          {blog.title}
-        </Link>
-      </h3>
-
-      {/* Excerpt */}
-      <p
-        className="leading-relaxed"
-        style={{ color: '#666666', fontSize: large ? '17px' : '15px' }}
-      >
-        {shortExcerpt(blog.excerpt, large ? 140 : 90)}&hellip;{' '}
-        <Link
-          href={`/events/${blog.slug}`}
-          className="font-medium hover:underline underline-offset-2"
-          style={{ color: '#111111' }}
+        {/* Title */}
+        <h3
+          className={`leading-snug mb-1.5 font-medium ${large ? 'text-[22px] md:text-[28px]' : 'text-[18px]'}`}
+          style={{ color: '#111111', maxWidth: '92%' }}
         >
-          show more
-        </Link>
-      </p>
+          <Link href={`/events/${blog.slug}`} className="hover:underline decoration-1 underline-offset-2">
+            {blog.title}
+          </Link>
+        </h3>
+
+        {/* Excerpt */}
+        <p
+          className="leading-relaxed"
+          style={{ color: '#666666', fontSize: large ? '17px' : '15px', maxWidth: '92%' }}
+        >
+          {shortExcerpt(blog.excerpt, large ? 140 : 90)}&hellip;{' '}
+          <Link
+            href={`/events/${blog.slug}`}
+            className="font-medium hover:underline underline-offset-2"
+            style={{ color: '#111111' }}
+          >
+            show more
+          </Link>
+        </p>
+      </div>
     </article>
   )
 }

@@ -181,19 +181,6 @@ export default function ContactPage() {
           >
             {/* About block */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px' }}>
-              <h3
-                style={{
-                  fontSize: '18px',
-                  lineHeight: '24px',
-                  letterSpacing: '0px',
-                  fontWeight: 600,
-                  color: 'rgb(28, 28, 28)',
-                  margin: 0,
-                }}
-              >
-                About Me
-              </h3>
-
               <Image
                 src="/single-logo.svg"
                 alt="Aksharaya logo mark"
@@ -218,19 +205,6 @@ export default function ContactPage() {
 
             {/* Follow block */}
             <div className="hidden md:flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px' }}>
-              <p
-                style={{
-                  fontSize: '18px',
-                  lineHeight: '24px',
-                  letterSpacing: '0px',
-                  fontWeight: 400,
-                  color: 'rgb(28, 28, 28)',
-                  margin: 0,
-                }}
-              >
-                Follow Aksharaya
-              </p>
-
               <div style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
                   <FacebookIcon />

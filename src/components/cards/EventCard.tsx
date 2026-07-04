@@ -44,7 +44,6 @@ export function EventCard({ event }: EventCardProps) {
           >
             {event.date}
           </span>
-          <span style={{ color: '#cccccc' }}>┊</span>
           <span
             className="text-xs font-semibold tracking-wider uppercase"
             style={{ color: '#111111' }}
