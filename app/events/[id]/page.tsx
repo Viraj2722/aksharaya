@@ -161,8 +161,8 @@ export default async function EventDetailPage({
                   alt="Aksharaya logo mark"
                   width={320}
                   height={96}
-                  className="event-detail-about-logo"
-                  style={{ width: '320px', height: '96px', objectFit: 'contain' }}
+                  className="about-me-logo md:-translate-x-6 lg:-translate-x-14"
+                  style={{ width: '320px', height: '96px', objectFit: 'contain', objectPosition: 'left center' }}
                 />
                 {/* Description */}
                 <p style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.06em', color: 'rgb(28, 28, 28)', margin: 0 }}>

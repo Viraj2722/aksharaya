@@ -43,7 +43,8 @@ export default async function BlogDetailPage({
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col items-center">
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           @media (max-width: 767px) {
             .hero-mobile-override { margin-top: 40px !important; }
             .related-blogs-override { margin-top: 40px !important; }
@@ -51,10 +52,10 @@ export default async function BlogDetailPage({
         `}} />
         {/* Main Wrapper with exact width */}
         <div className="page-container w-full max-w-[1120px] mx-auto px-6 sm:px-8 md:px-12" style={{ paddingLeft: '5vw', paddingRight: '5vw' }}>
-          
+
           {/* Upper Container */}
-          <div 
-            className="max-w-[1120px] flex flex-col justify-center py-12 lg:py-0 lg:h-[204px]" 
+          <div
+            className="max-w-[1120px] flex flex-col justify-center py-12 lg:py-0 lg:h-[204px]"
           >
             {/* Breadcrumb */}
             <div className="max-w-[1120px] flex items-center text-[16px] text-black" style={{ marginBottom: '10px', gap: '12px', marginTop: '65px' }}>
@@ -63,7 +64,7 @@ export default async function BlogDetailPage({
                 <span className="absolute left-0 -bottom-1 w-0 h-[1.5px] bg-black transition-all duration-300 group-hover:w-full"></span>
               </Link>
               <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 9L5 5L1 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1 9L5 5L1 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span className="font-medium">Blog Details</span>
             </div>
@@ -89,8 +90,8 @@ export default async function BlogDetailPage({
           </div>
 
           {/* Main Hero Image */}
-          <div 
-            className="max-w-[1120px] relative overflow-hidden h-[300px] md:h-[450px] lg:h-[683px] hero-mobile-override" 
+          <div
+            className="max-w-[1120px] relative overflow-hidden h-[300px] md:h-[450px] lg:h-[683px] hero-mobile-override"
             style={{ borderRadius: '16px', marginTop: '35px' }}
           >
             <Image
@@ -104,7 +105,7 @@ export default async function BlogDetailPage({
           </div>
 
           <div className="max-w-[1120px] grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24" style={{ marginTop: '50px' }}>
-            
+
             {/* Left Column (Span 8) */}
             <div className="lg:col-span-8 flex flex-col">
               {cleanContent ? (
@@ -188,7 +189,7 @@ export default async function BlogDetailPage({
               Aksharaya is an initiative dedicated to exploring typography, letterforms, and visual language across cultures. It brings together designers, educators, and researchers to share knowledge, ideas, and practices in the field of type and communication design. Through events like Typography Day, talks, and installations, Aksharaya fosters dialogue around the evolving role of typography in contemporary society.
             </p>
           </div>
-          
+
           {/* Mobile Spacer */}
           <div className="block lg:hidden w-full" style={{ height: '80px' }} aria-hidden="true"></div>
 

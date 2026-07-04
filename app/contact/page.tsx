@@ -186,7 +186,8 @@ export default function ContactPage() {
                 alt="Aksharaya logo mark"
                 width={320}
                 height={96}
-                style={{ width: '320px', height: '96px', objectFit: 'contain' }}
+                className="about-me-logo md:-translate-x-6 lg:-translate-x-14"
+                style={{ width: '320px', height: '96px', objectFit: 'contain', objectPosition: 'left center' }}
               />
 
               <p
