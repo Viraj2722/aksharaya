@@ -261,7 +261,7 @@ body {
 .events-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px 10px;
+  gap: 30px 20px;
   justify-content: start;
 }
 @media (min-width: 640px) {
