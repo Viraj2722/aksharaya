@@ -280,7 +280,7 @@ body {
 .event-detail-hero {
   width: 100%;
   height: 300px;
-  border-radius: 20px;
+  border-radius: 0;
   overflow: hidden;
   position: relative;
 }
@@ -523,7 +523,7 @@ body {
 
 /* Custom utility for joint images without inner rounded corners */
 .joint-images {
-  border-radius: 20px !important;
+  border-radius: 0 !important;
   overflow: hidden !important;
   transform: translateZ(0);
   -webkit-mask-image: -webkit-radial-gradient(white, black);
