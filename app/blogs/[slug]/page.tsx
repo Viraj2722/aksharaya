@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import DOMPurify from 'isomorphic-dompurify'
+import sanitizeHtml from 'sanitize-html'
 import { Navbar } from '@/components/layout/Navbar'
 import { FacebookIcon, TwitterIcon, InstagramIcon, PinterestIcon, Footer } from '@/components/layout/Footer'
 import { getBlogs, getBlogBySlug } from '@/lib/getBlogs'
@@ -36,7 +36,14 @@ export default async function BlogDetailPage({
 
   if (!blog) notFound()
 
-  const cleanContent = DOMPurify.sanitize(blog.content)
+  const cleanContent = sanitizeHtml(blog.content, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+      'img', 'iframe', 'figure', 'figcaption', 'h1', 'h2', 'span', 'div', 'video', 'source'
+    ]),
+    allowedAttributes: {
+      '*': ['style', 'class', 'href', 'target', 'rel', 'src', 'alt', 'width', 'height', 'allow', 'allowfullscreen', 'frameborder', 'scrolling', 'controls', 'type']
+    }
+  })
 
   return (
     <div className="flex flex-col min-h-dvh">

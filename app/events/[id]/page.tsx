@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import DOMPurify from 'isomorphic-dompurify'
+import sanitizeHtml from 'sanitize-html'
 import { Navbar } from '@/components/layout/Navbar'
 import {
   FacebookIcon,
@@ -43,7 +43,14 @@ export default async function EventDetailPage({
 
   if (!event) notFound()
 
-  const cleanContent = DOMPurify.sanitize(event.content)
+  const cleanContent = sanitizeHtml(event.content, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat([
+      'img', 'iframe', 'figure', 'figcaption', 'h1', 'h2', 'span', 'div', 'video', 'source'
+    ]),
+    allowedAttributes: {
+      '*': ['style', 'class', 'href', 'target', 'rel', 'src', 'alt', 'width', 'height', 'allow', 'allowfullscreen', 'frameborder', 'scrolling', 'controls', 'type']
+    }
+  })
 
   // Fetch a few other events for the "Related" section
   const allEvents = await getEvents()
