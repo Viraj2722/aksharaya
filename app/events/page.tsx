@@ -85,8 +85,8 @@ export default async function EventsPage() {
                   />
                 </div>
 
-                {/* PostDetails: padding="15px 0", gap="10px" */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', padding: '15px 0' }}>
+                {/* PostDetails: padding="15px 12px", gap="10px" */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', padding: '15px 12px' }}>
                   <span style={{ fontSize: '13px', lineHeight: '19px', letterSpacing: '-0.04em', fontWeight: 600, color: 'rgb(115, 115, 115)' }}>
                     {event.date}
                   </span>
