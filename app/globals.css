@@ -327,9 +327,9 @@ body {
   }
 }
 
-/* Inline content images (DetailsImage): 380px, radius 20px */
+/* Inline content images (DetailsImage): 380px, radius 0px */
 .event-detail-content :is(img) {
-  border-radius: 20px;
+  border-radius: 0;
 }
 
 /* About Me logo: left-aligned always (sidebar is flex-start) */

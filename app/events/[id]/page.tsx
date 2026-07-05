@@ -146,7 +146,7 @@ export default async function EventDetailPage({
                              prose-p:text-[#555555]
                              prose-p:text-[16px]
                              prose-p:leading-relaxed
-                             prose-img:rounded-[20px]
+                             prose-img:rounded-none
                              prose-img:w-full
                              prose-a:text-[#1c1c1c]
                              prose-strong:text-[#1c1c1c]"
