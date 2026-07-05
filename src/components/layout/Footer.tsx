@@ -51,7 +51,7 @@ export function Footer() {
             min-height: 134px !important; 
             padding-top: 0px !important; 
             padding-bottom: 60px !important; 
-            margin-top: 48px !important;
+            margin-top: 16px !important;
           }
           .footer-inner { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 24px !important; }
           .mobile-divider {

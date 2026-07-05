@@ -14,7 +14,7 @@ export default async function ProductsPage() {
       <Navbar />
 
       <main className="flex-1 w-full flex flex-col">
-        <div className="page-container w-full" style={{ paddingTop: '33px', paddingBottom: '80px' }}>
+        <div className="page-container w-full" style={{ paddingTop: '33px', paddingBottom: '40px' }}>
 
           {/* Mobile only: shorten the tall 455px product image for a more balanced card */}
           <style>{`

@@ -3,19 +3,14 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Event } from '@/types/event'
+import { Product } from '@/types/product'
 
-function shortExcerpt(text: string, maxChars = 90): string {
-  if (text.length <= maxChars) return text
-  const cut = text.lastIndexOf(' ', maxChars)
-  return text.slice(0, cut > 0 ? cut : maxChars)
+
+interface RelatedProductsCarouselProps {
+  products: Product[]
 }
 
-interface RelatedCarouselProps {
-  events: Event[]
-}
-
-export function RelatedCarousel({ events }: RelatedCarouselProps) {
+export function RelatedProductsCarousel({ products }: RelatedProductsCarouselProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const scrollLeft = () => {
@@ -30,20 +25,20 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
     }
   }
 
-  if (events.length === 0) return null
+  if (products.length === 0) return null
 
   // Card image height is 280px; arrow (48px) should be centered at 140px from top of carousel content
-  // Title "Related Blogs" is 28px + 40px margin = 68px above the cards
-  const arrowTopOffset = 68 + 140 - 24 // title+margin + half image height - half arrow height
+  // Title "Related Products" is 28px + 40px margin = 68px above the cards
+  const arrowTopOffset = 68 + 140 - 24
 
   return (
     <div className="group/carousel w-full relative">
-      {/* Framer: "Related Blogs" — Mukta-600, 22px */}
+      {/* Title */}
       <h2 style={{ fontSize: '22px', lineHeight: '28px', fontWeight: 600, color: 'rgb(28, 28, 28)', margin: '0 0 40px 0' }}>
-        Related Blogs
+        Related Products
       </h2>
 
-      {/* Left arrow — hidden by default, shown on desktop when carousel is hovered */}
+      {/* Left arrow */}
       <button
         onClick={scrollLeft}
         className="absolute z-10 w-12 h-12 items-center justify-center bg-white hover:bg-gray-50 rounded-full shadow-md transition-all duration-200 flex opacity-100 md:opacity-0 group-hover/carousel:opacity-100 related-arrow related-arrow-left"
@@ -55,7 +50,7 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
         </svg>
       </button>
 
-      {/* Right arrow — hidden by default, shown on desktop when carousel is hovered */}
+      {/* Right arrow */}
       <button
         onClick={scrollRight}
         className="absolute z-10 w-12 h-12 items-center justify-center bg-white hover:bg-gray-50 rounded-full shadow-md transition-all duration-200 flex opacity-100 md:opacity-0 group-hover/carousel:opacity-100 related-arrow related-arrow-right"
@@ -74,7 +69,6 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
       >
         <style>{`
           .hide-scrollbar::-webkit-scrollbar { display: none; }
-          /* On phones, pull both arrows up in line with the "Related Blogs" heading (grouped top-right) */
           @media (max-width: 767px) {
             .related-arrow { width: 32px !important; height: 32px !important; top: -2px !important; }
             .related-arrow-left { left: auto !important; right: 40px !important; }
@@ -82,39 +76,34 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
           }
         `}</style>
 
-        {events.map((related) => (
-          <div key={related.id} className="flex flex-col group cursor-pointer event-card shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-13.33px)] snap-start">
+        {products.map((product) => (
+          <div key={product.id} className="flex flex-col group cursor-pointer shrink-0 w-full md:w-[calc(50%-10px)] lg:w-[calc(33.333%-13.33px)] snap-start">
             {/* Image */}
-            <Link href={`/events/${related.slug}`} className="relative w-full overflow-hidden bg-gray-100 shrink-0 block" style={{ height: '280px' }}>
+            <Link href={`/products/${product.slug}`} className="relative w-full overflow-hidden bg-[#f0f0f0] shrink-0 block" style={{ height: '280px' }}>
               <Image
-                src={related.coverImage}
-                alt={related.title}
+                src={product.image}
+                alt={product.title}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
               />
             </Link>
-            {/* Content */}
-            <div className="flex flex-col flex-1" style={{ gap: '10px', padding: '15px 0' }}>
-              <span style={{ fontSize: '13px', lineHeight: '19px', letterSpacing: '-0.04em', fontWeight: 600, color: 'rgb(115, 115, 115)' }}>
-                {related.date}
-              </span>
-              <h3 style={{ fontSize: '18px', lineHeight: '24px', letterSpacing: '0px', fontWeight: 400, color: 'rgb(28, 28, 28)', margin: 0 }}>
-                <Link href={`/events/${related.slug}`} className="hover:underline underline-offset-4 decoration-2">
-                  {related.title}
-                </Link>
-              </h3>
-              <p style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.02em', fontWeight: 300, color: 'rgb(68, 68, 68)', margin: 0 }}>
-                {shortExcerpt(related.description)}&hellip;{' '}
-                <Link
-                  href={`/events/${related.slug}`}
-                  className="font-medium hover:underline underline-offset-2"
-                  style={{ color: '#111111' }}
-                >
-                  show more
-                </Link>
+            {/* Details — same as products listing page */}
+            <Link href={`/products/${product.slug}`} style={{ paddingTop: '12px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px' }}>
+                <h3 style={{ fontSize: '18px', lineHeight: '24px', letterSpacing: '-0.01em', fontWeight: 400, color: 'rgb(28, 28, 28)', margin: 0 }}>
+                  {product.title}
+                </h3>
+                {product.price && (
+                  <span style={{ fontSize: '14px', lineHeight: '20px', letterSpacing: '-0.01em', color: 'rgb(115, 115, 115)', whiteSpace: 'nowrap', flexShrink: 0, marginTop: '2px' }}>
+                    ₹ {product.price}
+                  </span>
+                )}
+              </div>
+              <p style={{ fontSize: '13px', lineHeight: '19px', letterSpacing: '-0.04em', color: 'rgb(172, 172, 172)', margin: 0 }}>
+                {product.inStock ? 'In Stock' : 'Out of Stock'}
               </p>
-            </div>
+            </Link>
           </div>
         ))}
       </div>
