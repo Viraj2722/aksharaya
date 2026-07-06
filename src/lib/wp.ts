@@ -1,4 +1,4 @@
-const WP_API = 'https://aksharaya.org/wp-json/wp/v2'
+const WP_API = 'https://cms.aksharaya.org/wp-json/wp/v2'
 
 /**
  * Fetch the source_url for a WordPress media attachment by its numeric ID.

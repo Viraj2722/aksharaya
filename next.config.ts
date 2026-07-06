@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'cms.aksharaya.org',
+      },
+      {
+        protocol: 'https',
         hostname: 'framerusercontent.com',
       },
     ],

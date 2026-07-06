@@ -1,7 +1,7 @@
 import { Event } from '@/types/event'
 import { getMediaUrl, stripHtml } from '@/lib/wp'
 
-const WP_API = 'https://aksharaya.org/wp-json/wp/v2'
+const WP_API = 'https://cms.aksharaya.org/wp-json/wp/v2'
 
 type WpEvent = {
   id: number
