@@ -23,6 +23,16 @@ export async function getMediaUrl(
   }
 }
 
+/**
+ * Rewrite legacy CMS URLs inside rendered WordPress HTML.
+ * Older content (and some inline images) still points at the old
+ * `http(s)://aksharaya.org` host — which now serves the Next.js site on
+ * Vercel, so those assets 404. Repoint them at the WordPress CMS subdomain.
+ */
+export function rewriteContentUrls(html: string): string {
+  return html.replace(/https?:\/\/(?:www\.)?aksharaya\.org/gi, 'https://cms.aksharaya.org')
+}
+
 /** Map of common HTML entities to their character equivalents */
 const HTML_ENTITIES: Record<string, string> = {
   '&amp;': '&',

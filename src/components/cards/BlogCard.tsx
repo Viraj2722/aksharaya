@@ -52,14 +52,8 @@ export function BlogCard({ blog, large = false }: BlogCardProps) {
 
       {/* Content below image — nudged right, with capped text width */}
       <div className="flex flex-col" style={{ paddingLeft: '12px' }}>
-        {/* Meta row: category pill + date */}
-        <div className="flex items-center gap-4" style={{ marginBottom: large ? '10px' : '10px' }}>
-          <div
-            className="flex items-center justify-center font-medium rounded-[100px]"
-            style={{ background: '#888888', color: '#ffffff', fontSize: '14px', padding: '0 16px', height: '32px' }}
-          >
-            {blog.category}
-          </div>
+        {/* Meta row: date */}
+        <div className="flex items-center gap-4" style={{ marginBottom: '10px' }}>
           <span className="font-medium" style={{ color: '#111111', fontSize: '14px' }}>
             {blog.date}
           </span>

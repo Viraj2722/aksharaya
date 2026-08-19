@@ -6,6 +6,7 @@ import sanitizeHtml from 'sanitize-html'
 import { Navbar } from '@/components/layout/Navbar'
 import { FacebookIcon, InstagramIcon, Footer } from '@/components/layout/Footer'
 import { getBlogs, getBlogBySlug } from '@/lib/getBlogs'
+import { rewriteContentUrls } from '@/lib/wp'
 
 export async function generateStaticParams() {
   const blogs = await getBlogs()
@@ -36,7 +37,7 @@ export default async function BlogDetailPage({
 
   if (!blog) notFound()
 
-  const cleanContent = sanitizeHtml(blog.content, {
+  const cleanContent = sanitizeHtml(rewriteContentUrls(blog.content), {
     allowedTags: sanitizeHtml.defaults.allowedTags.concat([
       'img', 'iframe', 'figure', 'figcaption', 'h1', 'h2', 'span', 'div', 'video', 'source'
     ]),

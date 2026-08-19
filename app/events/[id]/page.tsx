@@ -10,6 +10,7 @@ import {
   Footer,
 } from '@/components/layout/Footer'
 import { getEvents, getEventBySlug } from '@/lib/getEvents'
+import { rewriteContentUrls } from '@/lib/wp'
 import { RelatedCarousel } from '@/components/sections/RelatedCarousel'
 
 export async function generateStaticParams() {
@@ -41,7 +42,7 @@ export default async function EventDetailPage({
 
   if (!event) notFound()
 
-  const cleanContent = sanitizeHtml(event.content, {
+  const cleanContent = sanitizeHtml(rewriteContentUrls(event.content), {
     allowedTags: sanitizeHtml.defaults.allowedTags.concat([
       'img', 'iframe', 'figure', 'figcaption', 'h1', 'h2', 'span', 'div', 'video', 'source'
     ]),

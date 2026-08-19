@@ -59,7 +59,7 @@ export default function TeamPage() {
                 key={member.id}
                 onClick={() => setClickedId(clickedId === member.id ? null : member.id)}
                 variants={cardVariants}
-                className="group relative bg-white rounded-[16px] overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 flex flex-col hover:shadow-xl border border-transparent hover:border-[#e0e0e0]"
+                className="group relative bg-white rounded-[16px] overflow-hidden transition-all duration-500 flex flex-col border border-[#ececec]"
                 style={{ height: '464px' }}
               >
                 {/* Front Content (Image + Name) */}

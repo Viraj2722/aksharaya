@@ -54,11 +54,11 @@ async function fetchAllEvents(): Promise<Event[]> {
 
     // Sort newest first using ACF event_date (YYYYMMDD) or fallback to WP publish date
     data.sort((a, b) => {
-      const dateA = (a.acf?.event_date && /^\\d{8}$/.test(a.acf.event_date)) 
-        ? a.acf.event_date 
+      const dateA = (a.acf?.event_date && /^\d{8}$/.test(a.acf.event_date))
+        ? a.acf.event_date
         : a.date.replace(/[-T:Z.]/g, '').substring(0, 8)
-      const dateB = (b.acf?.event_date && /^\\d{8}$/.test(b.acf.event_date)) 
-        ? b.acf.event_date 
+      const dateB = (b.acf?.event_date && /^\d{8}$/.test(b.acf.event_date))
+        ? b.acf.event_date
         : b.date.replace(/[-T:Z.]/g, '').substring(0, 8)
       return dateB.localeCompare(dateA)
     })
@@ -69,11 +69,11 @@ async function fetchAllEvents(): Promise<Event[]> {
         const coverImage = await getMediaUrl(wp.featured_media || wp.acf?.event_image)
 
         const rawExcerpt = stripHtml(wp.excerpt?.rendered ?? '')
-        let description = rawExcerpt.length > 160 ? rawExcerpt.slice(0, 157) + '…' : rawExcerpt
+        let description = rawExcerpt.length > 400 ? rawExcerpt.slice(0, 397) + '…' : rawExcerpt
         // If excerpt is empty, fall back to stripped content
         if (!description) {
           const fromContent = stripHtml(wp.content?.rendered ?? '')
-          description = fromContent.length > 160 ? fromContent.slice(0, 157) + '…' : fromContent
+          description = fromContent.length > 400 ? fromContent.slice(0, 397) + '…' : fromContent
         }
 
         return {

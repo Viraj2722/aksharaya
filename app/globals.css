@@ -164,6 +164,10 @@ body {
   border-radius: 16px;
   overflow: hidden;
 }
+@media (max-width: 767px) {
+  /* Wide banner: show it fully at its natural aspect ratio instead of cropping */
+  .about-hero-image { height: auto; aspect-ratio: 2370 / 1200; }
+}
 @media (min-width: 768px) {
   .about-hero-image { height: 360px; border-radius: 20px; }
 }
@@ -430,6 +434,10 @@ body {
 @media (max-width: 767px) {
   .team-bio { align-items: flex-start !important; }
 }
+
+/* Hide the scrollbar on the bio panel (removes the grey line on the card's right edge) */
+.team-bio { scrollbar-width: none; -ms-overflow-style: none; }
+.team-bio::-webkit-scrollbar { display: none; }
 
 /* ─── Gallery Page ───────────────────────────────────────────── */
 /* Masonry layout: each image keeps its natural aspect ratio (no cropping),

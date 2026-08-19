@@ -67,7 +67,7 @@ export function EventCard({ event }: EventCardProps) {
           className="text-base leading-snug"
           style={{ color: '#666666' }}
         >
-          {shortExcerpt(event.description)}&hellip;{' '}
+          {shortExcerpt(event.description, 300)}&hellip;{' '}
           <Link
             href={`/events/${event.slug}`}
             className="font-medium hover:underline underline-offset-2"

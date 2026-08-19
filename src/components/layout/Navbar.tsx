@@ -221,6 +221,34 @@ export function Navbar() {
               </Link>
             </li>
           </ul>
+
+          {/* Language switcher (mobile) */}
+          <div className="flex items-center justify-between gap-3 flex-wrap" style={{ padding: '20px 12px 16px' }}>
+            <p className="text-[17px] font-medium" style={{ color: '#111111', margin: 0 }}>
+              Language
+            </p>
+            <div className="flex items-center gap-2">
+              {([
+                { code: 'en', label: 'English' },
+                { code: 'mr', label: 'मराठी' },
+              ] as const).map((l) => (
+                <button
+                  key={l.code}
+                  onClick={() => { setActiveLang(l.code); close() }}
+                  className="text-[14px] font-medium transition-colors"
+                  style={{
+                    padding: '5px 14px',
+                    borderRadius: '100px',
+                    border: activeLang === l.code ? '1px solid #111111' : '1px solid #dddddd',
+                    background: activeLang === l.code ? '#111111' : 'transparent',
+                    color: activeLang === l.code ? '#ffffff' : '#444444',
+                  }}
+                >
+                  {l.label}
+                </button>
+              ))}
+            </div>
+          </div>
         </nav>
       </div>
     </>
