@@ -136,17 +136,19 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
 
         <div className="absolute bottom-0 left-0 right-0 z-10 hero-text-container">
           <div className="page-container">
-            <h1
-              className="text-xl md:text-3xl font-bold text-white leading-snug mb-1"
-              key={`title-${current}`}
-              style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
-            >
-              {slide.title}
-            </h1>
+            {slide.title && (
+              <h1
+                className="text-xl md:text-3xl font-bold text-white leading-snug mb-1"
+                key={`title-${current}`}
+                style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
+              >
+                {slide.title}
+              </h1>
+            )}
             <p
-              className="text-xs md:text-sm text-white leading-relaxed max-w-2xl"
+              className="text-xl md:text-3xl font-bold text-white leading-snug max-w-3xl"
               key={`desc-${current}`}
-              style={{ opacity: 0.85, textShadow: '0 1px 3px rgba(0,0,0,0.4)' }}
+              style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
             >
               {slide.description.replace(/…$/, '').replace(/\.\.\.$/, '')}
               {slide.link && (
@@ -163,7 +165,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
         </div>
 
         <div className="sr-only" aria-live="polite" aria-atomic="true">
-          Slide {current + 1} of {slides.length}: {slide.title}
+          Slide {current + 1} of {slides.length}: {slide.title || slide.altText}
         </div>
 
         {/* Centered Dots */}

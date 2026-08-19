@@ -1,6 +1,5 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Product } from '@/types/product'
 
@@ -9,17 +8,7 @@ interface Props {
 }
 
 export function ProductDetail({ product }: Props) {
-  const images = product.images
-  const [activeImageIndex, setActiveImageIndex] = useState(0)
-  const [isAccordionOpen, setIsAccordionOpen] = useState(false)
-
-  useEffect(() => {
-    if (images.length <= 1) return
-    const interval = setInterval(() => {
-      setActiveImageIndex((prev) => (prev + 1) % images.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [images.length])
+  const mainImage = product.images[0]
 
   return (
     /*
@@ -29,50 +18,19 @@ export function ProductDetail({ product }: Props) {
     */
     <div className="product-detail-layout">
 
-      {/* Left — Image Gallery */}
+      {/* Left — Single product image */}
       <div className="product-detail-images">
         {/* Main image: Framer ProductImages height=510px, aspectRatio=1 */}
         <div className="product-main-image">
-          {images.map((img, idx) => (
-            <Image
-              key={idx}
-              src={img}
-              alt={`${product.title} - Image ${idx + 1}`}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className={`object-cover transition-opacity duration-700 ease-in-out ${
-                idx === activeImageIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-              }`}
-              priority={idx === 0}
-            />
-          ))}
+          <Image
+            src={mainImage}
+            alt={product.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+            priority
+          />
         </div>
-
-        {/* Thumbnails */}
-        {images.length > 1 && (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '10px' }}>
-            {images.map((img, idx) => (
-              <div
-                key={idx}
-                onClick={() => setActiveImageIndex(idx)}
-                className="relative cursor-pointer overflow-hidden bg-[#f0f0f0]"
-                style={{
-                  aspectRatio: '1',
-                  border: activeImageIndex === idx ? '1.5px solid rgb(28,28,28)' : '1.5px solid transparent',
-                  transition: 'border-color 0.2s',
-                }}
-              >
-                <Image
-                  src={img}
-                  alt={`Thumbnail ${idx + 1}`}
-                  fill
-                  sizes="10vw"
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        )}
       </div>
 
       {/* Right — Product Details */}
@@ -135,43 +93,6 @@ export function ProductDetail({ product }: Props) {
             You will be redirected to a Google Form for further enquiry.
           </p>
         </div>
-
-        {/* Description Accordion */}
-        {product.description && (
-          <div style={{ border: '1px solid rgb(230, 230, 230)' }}>
-            <button
-              onClick={() => setIsAccordionOpen(!isAccordionOpen)}
-              className="w-full flex items-center justify-between hover:bg-gray-50 transition-colors"
-              style={{ padding: '16px 20px', background: 'white', cursor: 'pointer', border: 'none' }}
-            >
-              <span style={{ fontSize: '18px', lineHeight: '24px', color: 'rgb(28, 28, 28)', fontWeight: 400 }}>
-                Description
-              </span>
-              <div
-                style={{
-                  width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  transition: 'transform 0.3s ease',
-                  transform: isAccordionOpen ? 'rotate(45deg)' : 'rotate(0deg)',
-                  fontSize: '24px', color: 'rgb(28,28,28)', lineHeight: 1,
-                }}
-              >
-                +
-              </div>
-            </button>
-            <div
-              style={{
-                overflow: 'hidden',
-                maxHeight: isAccordionOpen ? '400px' : '0px',
-                opacity: isAccordionOpen ? 1 : 0,
-                transition: 'max-height 0.3s ease, opacity 0.3s ease',
-              }}
-            >
-              <div style={{ padding: '12px 20px 20px', fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.02em', color: 'rgb(115, 115, 115)' }}>
-                <p style={{ margin: 0 }}>{product.description}</p>
-              </div>
-            </div>
-          </div>
-        )}
 
         </div>{/* end ButtonDescription */}
       </div>

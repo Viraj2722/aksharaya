@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useMobileMenu } from '@/hooks/useMobileMenu'
+import { useLanguage } from '@/context/LanguageContext'
 import { NavLink } from '@/types/common'
 
 const navLinks: NavLink[] = [
@@ -15,13 +16,9 @@ const navLinks: NavLink[] = [
   { label: 'Contact us', href: '/contact' },
 ]
 
-const languages = [
-  { code: 'en', label: 'English' },
-  { code: 'mr', label: 'मराठी' },
-]
 
 export function Navbar() {
-  const [activeLang, setActiveLang] = useState('en')
+  const { lang: activeLang, setLang: setActiveLang } = useLanguage()
   const [langOpen, setLangOpen] = useState(false)
   const { isOpen, toggle, close } = useMobileMenu()
 
@@ -126,10 +123,10 @@ export function Navbar() {
                       role="listbox"
                       aria-label="Select language"
                     >
-                      {[
+                      {([
                         { code: 'mr', label: 'मराठी' },
                         { code: 'en', label: 'English' },
-                      ].map((lang) => (
+                      ] as const).map((lang) => (
                         <button
                           key={lang.code}
                           role="option"

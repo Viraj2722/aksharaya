@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import sanitizeHtml from 'sanitize-html'
 import { Navbar } from '@/components/layout/Navbar'
-import { FacebookIcon, TwitterIcon, InstagramIcon, PinterestIcon, Footer } from '@/components/layout/Footer'
+import { FacebookIcon, InstagramIcon, Footer } from '@/components/layout/Footer'
 import { getBlogs, getBlogBySlug } from '@/lib/getBlogs'
 
 export async function generateStaticParams() {
@@ -148,28 +148,16 @@ export default async function BlogDetailPage({
                 <div style={{ marginTop: '20px' }}>
                   {/* Social Icons */}
                   <div className="flex items-center gap-3">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
+                    <a href="https://www.facebook.com/Aksharaya" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
                       <FacebookIcon />
                       <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
                         Facebook
                       </span>
                     </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
-                      <TwitterIcon />
-                      <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
-                        Twitter
-                      </span>
-                    </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
+                    <a href="#" aria-label="Instagram" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
                       <InstagramIcon />
                       <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[90px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
                         Instagram
-                      </span>
-                    </a>
-                    <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest" className="group flex items-center gap-2 text-[#555555] hover:text-black transition-colors">
-                      <PinterestIcon />
-                      <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-[14px] font-medium text-black">
-                        Pinterest
                       </span>
                     </a>
                   </div>

@@ -1,9 +1,8 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { Navbar } from '@/components/layout/Navbar';
-import { Footer, FacebookIcon, TwitterIcon, InstagramIcon, PinterestIcon } from '@/components/layout/Footer';
+import { Footer } from '@/components/layout/Footer';
 
 export default function ContactPage() {
   return (
@@ -21,9 +20,9 @@ export default function ContactPage() {
         }}
       >
 
-        {/* Form + Sidebar row: stacks on mobile, side-by-side on lg+ */}
+        {/* Form row */}
         <div
-          className="flex flex-col lg:flex-row"
+          className="flex flex-col"
           style={{ gap: '24px', alignItems: 'flex-start' }}
         >
 
@@ -169,63 +168,6 @@ export default function ContactPage() {
             </form>
           </div>
 
-          {/* ── Sidebar ── */}
-          <div
-            className="contact-sidebar"
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '24px',
-              alignItems: 'flex-start',
-            }}
-          >
-            {/* About block */}
-            <div className="flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px' }}>
-              <Image
-                src="/single-logo.svg"
-                alt="Aksharaya logo mark"
-                width={320}
-                height={96}
-                className="about-me-logo md:-translate-x-6 lg:-translate-x-14"
-                style={{ width: '320px', height: '96px', objectFit: 'contain', objectPosition: 'left center' }}
-              />
-
-              <p
-                style={{
-                  fontSize: '16px',
-                  lineHeight: '22px',
-                  letterSpacing: '-0.06em',
-                  fontWeight: 400,
-                  color: 'rgb(28, 28, 28)',
-                  margin: 0,
-                }}
-              >
-                Aksharaya is an initiative dedicated to exploring typography, letterforms, and visual language across cultures. It brings together designers, educators, and researchers to share knowledge, ideas, and practices in the field of type and communication design. Through events like Typography Day, talks, and installations, Aksharaya fosters dialogue around the evolving role of typography in contemporary society.
-              </p>
-            </div>
-
-            {/* Follow block */}
-            <div className="hidden md:flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px' }}>
-              <div style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
-                  <FacebookIcon />
-                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Facebook</span>
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Twitter" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
-                  <TwitterIcon />
-                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Twitter</span>
-                </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
-                  <InstagramIcon />
-                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Instagram</span>
-                </a>
-                <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Follow on Pinterest" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
-                  <PinterestIcon />
-                  <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Pinterest</span>
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 

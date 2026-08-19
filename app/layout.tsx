@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Mukta } from 'next/font/google'
 import './globals.css'
+import { LanguageProvider } from '@/context/LanguageContext'
 
 const mukta = Mukta({
   subsets: ['latin', 'devanagari'],
@@ -46,7 +47,7 @@ export default function RootLayout({
         className="min-h-full flex flex-col"
         style={{ fontFamily: 'var(--font-mukta), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}
       >
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   )
