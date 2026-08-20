@@ -40,7 +40,7 @@ export function RelatedCarousel({ events }: RelatedCarouselProps) {
     <div className="group/carousel w-full relative">
       {/* Framer: "Related Blogs" — Mukta-600, 22px */}
       <h2 style={{ fontSize: '22px', lineHeight: '28px', fontWeight: 600, color: 'rgb(28, 28, 28)', margin: '0 0 40px 0' }}>
-        Related Blogs
+        Related Events
       </h2>
 
       {/* Left arrow — hidden by default, shown on desktop when carousel is hovered */}
