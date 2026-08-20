@@ -32,12 +32,6 @@ export async function FeaturedEvents() {
             {/* Header */}
             <div style={{ marginTop: '80px', marginBottom: '40px' }}>
               <hr className="block lg:hidden w-full border-t border-[#d1d5db]" style={{ marginTop: '-30px', marginBottom: '30px' }} />
-              <p
-                className="text-[18px] font-medium"
-                style={{ color: '#111111', marginBottom: '8px' }}
-              >
-                Stay up-to-date
-              </p>
               <h2
                 className="text-2xl md:text-3xl font-bold"
                 style={{ color: '#111111' }}
@@ -56,8 +50,8 @@ export async function FeaturedEvents() {
             {/* More Post button — mt-auto pushes it to bottom so it aligns with sidebar social icons */}
             <div className="more-post-container mt-auto" style={{ paddingTop: '50px', marginBottom: '80px' }}>
               <Link href="/events" className="group inline-flex items-center">
-                <div className="bg-[#111111] text-white flex items-center justify-center h-[44px] w-[130px] rounded-l-[100px] group-hover:rounded-r-[100px] transition-all duration-500 ease-in-out">
-                  <span className="font-bold text-[15px] tracking-wide">MORE POST</span>
+                <div className="bg-[#111111] text-white flex items-center justify-center h-[44px] w-[160px] rounded-l-[100px] group-hover:rounded-r-[100px] transition-all duration-500 ease-in-out">
+                  <span className="font-bold text-[15px] tracking-wide">MORE EVENTS</span>
                 </div>
                 <div className="bg-[#111111] text-white flex items-center justify-center h-[44px] w-[44px] rounded-r-[100px] group-hover:rounded-l-[100px] transition-all duration-500 ease-in-out group-hover:ml-[6px]">
                   <svg width="18" height="18" viewBox="0 0 14 14" fill="none" aria-hidden="true">

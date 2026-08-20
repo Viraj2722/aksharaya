@@ -18,17 +18,10 @@ export function AboutPreview() {
     offset: ["start 80%", "end 50%"] // Start fading in when the top hits 80% of viewport, finish when bottom hits 50%
   })
 
-  // Exact requested lines to force line breaks at specific words on desktop
-  const lines = [
-    "Rooted in tradition and driven by curiosity, Aksharaya is a",
-    "space where Indian scripts are studied, practiced, and",
-    "reinterpreted. From calligraphy workshops to typographic",
-    "explorations, we create experiences that connect people with",
-    "the richness of letterforms and the stories they carry."
-  ]
+  // Full paragraph — flows to fill the container width (as wide as the carousel image)
+  const words = "Rooted in tradition and driven by curiosity, Aksharaya is a space where Indian scripts are studied, practiced, and reinterpreted. From calligraphy workshops to typographic explorations, we create experiences that connect people with the richness of letterforms and the stories they carry.".split(' ')
 
-  let wordCount = 0
-  const totalWords = lines.reduce((acc, line) => acc + line.split(' ').length, 0)
+  const totalWords = words.length
 
   return (
     <section
@@ -64,26 +57,15 @@ export function AboutPreview() {
           About Aksharaya
         </p>
 
-        {/* Large bold paragraph with scroll reveal animation and explicit line breaks */}
+        {/* Large bold paragraph with scroll reveal animation — flows full container width */}
         <div className="text-[32px] font-bold leading-snug md:text-left w-full">
-          {lines.map((line, lineIndex) => {
-            const words = line.split(' ')
+          {words.map((word, wordIndex) => {
+            const start = wordIndex / totalWords
+            const end = start + (1 / totalWords)
             return (
-              <span key={lineIndex}>
-                {words.map((word, wordIndex) => {
-                  const currentWordIndex = wordCount++
-                  const start = currentWordIndex / totalWords
-                  const end = start + (1 / totalWords)
-
-                  return (
-                    <Word key={wordIndex} progress={scrollYProgress} range={[start, end]}>
-                      {word}{' '}
-                    </Word>
-                  )
-                })}
-                {/* Force next line on desktop to match the exact wrapping requested */}
-                {lineIndex < lines.length - 1 && <br className="hidden md:block" />}
-              </span>
+              <Word key={wordIndex} progress={scrollYProgress} range={[start, end]}>
+                {word}{' '}
+              </Word>
             )
           })}
         </div>

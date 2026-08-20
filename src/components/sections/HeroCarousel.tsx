@@ -146,7 +146,7 @@ export function HeroCarousel({ slides }: HeroCarouselProps) {
               </h1>
             )}
             <p
-              className="text-xl md:text-3xl font-bold text-white leading-snug max-w-3xl"
+              className="text-xl md:text-3xl font-bold text-white leading-snug max-w-3xl whitespace-pre-line"
               key={`desc-${current}`}
               style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
             >

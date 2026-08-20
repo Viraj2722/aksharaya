@@ -4,11 +4,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import sanitizeHtml from 'sanitize-html'
 import { Navbar } from '@/components/layout/Navbar'
-import {
-  FacebookIcon,
-  InstagramIcon,
-  Footer,
-} from '@/components/layout/Footer'
+import { Footer } from '@/components/layout/Footer'
 import { getEvents, getEventBySlug } from '@/lib/getEvents'
 import { rewriteContentUrls } from '@/lib/wp'
 import { RelatedCarousel } from '@/components/sections/RelatedCarousel'
@@ -154,42 +150,6 @@ export default async function EventDetailPage({
               )}
             </div>
 
-            {/*
-              Sidebar — sticky top 150px, maxWidth 300px, gap=31px
-              About (gap 20px): "About Me" + logo 267×80 + description (H4)
-              Follow (gap 20px): "Follow Aksharaya" (H3) + socials
-            */}
-            <aside className="event-detail-sidebar">
-              {/* About — gap 20px */}
-              <div className="flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px' }}>
-                <Image
-                  src="/single-logo.svg"
-                  alt="Aksharaya logo mark"
-                  width={320}
-                  height={96}
-                  className="about-me-logo md:-translate-x-6 lg:-translate-x-14"
-                  style={{ width: '320px', height: '96px', objectFit: 'contain', objectPosition: 'left center' }}
-                />
-                {/* Description */}
-                <p style={{ fontSize: '16px', lineHeight: '22px', letterSpacing: '-0.06em', color: 'rgb(28, 28, 28)', margin: 0 }}>
-                  Aksharaya is an initiative dedicated to exploring typography, letterforms, and visual language across cultures. It brings together designers, educators, and researchers to share knowledge, ideas, and practices in the field of type and communication design. Through events like Typography Day, talks, and installations, Aksharaya fosters dialogue around the evolving role of typography in contemporary society.
-                </p>
-              </div>
-
-              {/* Follow — gap 20px */}
-              <div className="flex flex-col items-center md:items-start text-center md:text-left" style={{ width: '100%', gap: '20px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <a href="https://www.facebook.com/Aksharaya" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
-                    <FacebookIcon />
-                    <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[80px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Facebook</span>
-                  </a>
-                  <a href="#" aria-label="Instagram" className="group flex items-center gap-2 text-gray-700 hover:text-black transition-colors">
-                    <InstagramIcon />
-                    <span className="max-w-0 opacity-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[90px] transition-all duration-500 ease-in-out whitespace-nowrap text-sm font-medium text-black">Instagram</span>
-                  </a>
-                </div>
-              </div>
-            </aside>
           </div>
 
           {/* Related Blogs — title Mukta-600, ~80px above */}

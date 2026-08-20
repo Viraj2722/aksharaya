@@ -30,7 +30,13 @@ export async function getMediaUrl(
  * Vercel, so those assets 404. Repoint them at the WordPress CMS subdomain.
  */
 export function rewriteContentUrls(html: string): string {
-  return html.replace(/https?:\/\/(?:www\.)?aksharaya\.org/gi, 'https://cms.aksharaya.org')
+  return html
+    .replace(/https?:\/\/(?:www\.)?aksharaya\.org/gi, 'https://cms.aksharaya.org')
+    // Strip the stray leading backslash WordPress stores before caption/heading text
+    // (appears right after a tag `>` — figcaptions, headings, etc.)
+    .replace(/(>)\\+[ \t]*/g, '$1')
+    // ...and at the start of image alt text
+    .replace(/(alt=")\\+[ \t]*/gi, '$1')
 }
 
 /** Map of common HTML entities to their character equivalents */

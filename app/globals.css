@@ -272,7 +272,7 @@ body {
   .events-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (min-width: 1024px) {
-  .events-grid { grid-template-columns: repeat(3, 1fr); }
+  .events-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Width now matches .page-container (same as Insights & Writings / Previous Events) */

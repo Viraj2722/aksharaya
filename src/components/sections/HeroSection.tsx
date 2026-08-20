@@ -39,7 +39,7 @@ const slides = [
     image: '/14.jpg',
     title: '',
     description:
-      "'Happening' has performed by various students in Sir J. J. Institute of Applied Art campus, Mumbai in 2008.",
+      "'Happening' has performed by various students in\nSir J. J. Institute of Applied Art campus, Mumbai in 2008.",
     altText: "'Happening' performance at Sir J. J. Institute of Applied Art, Mumbai, 2008",
   },
   {
