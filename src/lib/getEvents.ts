@@ -124,22 +124,16 @@ export async function getEventBySlug(slug: string): Promise<Event | undefined> {
 }
 
 export async function getHomepageUnified() {
+  // Events are already sorted newest-first by fetchAllEvents().
   const allEvents = await fetchAllEvents()
-  
-  const featured = allEvents.filter((e) => e.isFeatured)
-  const nonFeatured = allEvents.filter((e) => !e.isFeatured)
-  
-  // 1. Hero takes up to 5 events total: all featured first, then padded with newest non-featured
-  const heroEvents = [...featured, ...nonFeatured].slice(0, 5)
-  
-  // How many non-featured events were used in the hero?
-  const nonFeaturedUsedInHero = Math.max(0, 5 - featured.length)
-  
-  // 2. Insights section takes the next 5 non-featured events
-  const insightsEvents = nonFeatured.slice(nonFeaturedUsedInHero, nonFeaturedUsedInHero + 5)
-  
-  // 3. Previous Events takes the next 10 non-featured events
-  const previousEvents = nonFeatured.slice(nonFeaturedUsedInHero + 5, nonFeaturedUsedInHero + 15)
-  
-  return { heroEvents, insightsEvents, previousEvents }
+
+  // The hero carousel is now static images, so no events are reserved for it —
+  // every event is shown across the two homepage sections.
+  // 1. Insights & Writings: the 5 most recent events (as cards)
+  const insightsEvents = allEvents.slice(0, 5)
+
+  // 2. Previous Events: everything else (full list, like the old site)
+  const previousEvents = allEvents.slice(5)
+
+  return { heroEvents: allEvents.slice(0, 5), insightsEvents, previousEvents }
 }
