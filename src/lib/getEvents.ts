@@ -21,19 +21,54 @@ type WpEvent = {
   }
 }
 
-/** Parse ACF date picker (YYYYMMDD) → "MMM DD, YYYY". Falls back to wp.date. */
-function parseEventDate(acfDate: string | undefined, wpDate: string): string {
-  if (acfDate && /^\d{8}$/.test(acfDate)) {
-    const y = acfDate.slice(0, 4)
-    const m = acfDate.slice(4, 6)
-    const d = acfDate.slice(6, 8)
-    return new Date(`${y}-${m}-${d}`).toLocaleDateString('en-US', {
-      month: 'short',
-      day: '2-digit',
-      year: 'numeric',
-    })
-  }
-  return new Date(wpDate).toLocaleDateString('en-US', {
+/**
+ * Real event dates (YYYYMMDD), keyed by slug — sourced from the original site.
+ * WordPress lost these on migration (most posts now carry the import date), and
+ * the ACF `event_date` field is empty (or wrong) for these entries, so this map
+ * is the authoritative date. New events not listed here fall back to ACF, then
+ * the WordPress publish date. Once the client fills ACF `event_date` correctly,
+ * removing a slug from this map lets that value take over.
+ */
+const EVENT_DATES: Record<string, string> = {
+  'typography-day-2021': '20210827',
+  'typography-day-2019': '20190302',
+  'typography-day-2017': '20180301',
+  'test-event-1': '20160715',
+  'aksharaya-installation-ay-typoday-2016': '20160307',
+  'aksharsanvad-an-interview-with-sunil-khandbahale': '20120427',
+  'aksharaya-at-typography-day-2012-2': '20120302',
+  'aksharsanvad-a-talk-by-prof-y-d-pitkar-2': '20120224',
+  'aksharsanvad-a-talk-by-shreenand-bapat': '20111219',
+  'a-talk-by-katharina-pieper': '20111102',
+  'aksharsanvad-a-talk-by-hanif-kureshi-and-sarang-kulkarni': '20111021',
+  'aksharsanvad-a-talk-by-dr-p-v-radhakrishnan': '20110826',
+  'aksharsanvad-a-talk-by-g-v-sreekumar': '20110624',
+  'aksharsanvad-a-talk-by-prof-vinay-saynekar': '20110429',
+  'aksharaya-at-typography-day-2011': '20110303',
+  'aksharsanvad-a-talk-by-mahindra-patel': '20110225',
+  'aksharsanvad-an-interview-with-kamal-shedge': '20101224',
+  'aksharsanvad-a-talk-by-mukund-gokhale': '20101029',
+  'workshop-camp-2010': '20101001',
+  'aksharsanvad-a-talk-by-girish-dalvi': '20100827',
+  'aksharaya-at-typoday-2010': '20100227',
+  'aksharanjali-2009': '20090222',
+  'camp-2008': '20080518',
+  'camp-2006-calendar-2007': '20060701',
+}
+
+/** Resolve an event's date to YYYYMMDD: known map → ACF field → WP publish date. */
+function resolveEventYmd(slug: string, acfDate: string | undefined, wpDate: string): string {
+  if (EVENT_DATES[slug]) return EVENT_DATES[slug]
+  if (acfDate && /^\d{8}$/.test(acfDate)) return acfDate
+  return wpDate.replace(/[-T:Z.]/g, '').substring(0, 8)
+}
+
+/** Format a YYYYMMDD string → "MMM DD, YYYY". */
+function formatYmd(ymd: string): string {
+  const y = ymd.slice(0, 4)
+  const m = ymd.slice(4, 6)
+  const d = ymd.slice(6, 8)
+  return new Date(`${y}-${m}-${d}`).toLocaleDateString('en-US', {
     month: 'short',
     day: '2-digit',
     year: 'numeric',
@@ -52,14 +87,10 @@ async function fetchAllEvents(): Promise<Event[]> {
     }
     const data: WpEvent[] = await res.json()
 
-    // Sort newest first using ACF event_date (YYYYMMDD) or fallback to WP publish date
+    // Sort newest first by the resolved event date (known map → ACF → publish date)
     data.sort((a, b) => {
-      const dateA = (a.acf?.event_date && /^\d{8}$/.test(a.acf.event_date))
-        ? a.acf.event_date
-        : a.date.replace(/[-T:Z.]/g, '').substring(0, 8)
-      const dateB = (b.acf?.event_date && /^\d{8}$/.test(b.acf.event_date))
-        ? b.acf.event_date
-        : b.date.replace(/[-T:Z.]/g, '').substring(0, 8)
+      const dateA = resolveEventYmd(a.slug, a.acf?.event_date, a.date)
+      const dateB = resolveEventYmd(b.slug, b.acf?.event_date, b.date)
       return dateB.localeCompare(dateA)
     })
 
@@ -82,7 +113,7 @@ async function fetchAllEvents(): Promise<Event[]> {
           slug: wp.slug,
           description,
           type: wp.acf?.event_tag ?? wp.acf?.event_type ?? 'EVENT',
-          date: parseEventDate(wp.acf?.event_date, wp.date),
+          date: formatYmd(resolveEventYmd(wp.slug, wp.acf?.event_date, wp.date)),
           location: wp.acf?.event_location ?? '',
           coverImage,
           isFeatured: Boolean(wp.acf?.is_featured),
